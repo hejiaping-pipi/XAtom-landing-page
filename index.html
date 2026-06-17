@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <meta name="description" content="XAtom 智能硬件产品落地页">
+  <title>XAtom</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #f4f6fb;
+    }
+
+    body {
+      margin: 0;
+      min-width: 1440px;
+      color: #222;
+      font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .landing {
+      width: 1440px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 18px 50px rgba(50, 60, 90, .08);
+    }
+
+    .asset-frame {
+      position: relative;
+      width: 100%;
+      background: #fff;
+    }
+
+    .asset-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .asset-frame.content img {
+      width: var(--asset-width);
+      margin: 0 auto;
+    }
+
+    .hero-carousel {
+      position: relative;
+      width: 1440px;
+      height: 783px;
+      overflow: hidden;
+      background: #eef5ff;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 1440px;
+      height: 783px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity .7s ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+    }
+
+    .feature-switcher {
+      position: relative;
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-switcher img {
+      width: 1200px;
+    }
+
+    .feature-tab-hit-area {
+      position: absolute;
+      top: 72px;
+      left: 272px;
+      z-index: 2;
+      display: grid;
+      width: 656px;
+      height: 72px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .feature-tab {
+      border: 0;
+      color: transparent;
+      background: rgba(123, 105, 255, .001);
+      cursor: pointer;
+    }
+
+    .feature-tab:focus-visible {
+      border-radius: 18px;
+      outline: 2px solid rgba(123, 105, 255, .8);
+      outline-offset: -6px;
+      background: rgba(123, 105, 255, .08);
+    }
+
+    .logo-marquee {
+      width: 1200px;
+      height: 208px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .logo-marquee-track {
+      display: flex;
+      width: max-content;
+      height: 208px;
+      animation: logo-scroll 22s linear infinite;
+    }
+
+    .asset-frame.content .logo-marquee img {
+      flex: 0 0 1824px;
+      width: 1824px;
+      height: 208px;
+      object-fit: contain;
+    }
+
+    .logo-marquee:hover .logo-marquee-track {
+      animation-play-state: paused;
+    }
+
+    #partners-title {
+      padding-bottom: 22px;
+    }
+
+    #partners,
+    #partners.scroll-animate,
+    #partners.scroll-animate.is-visible {
+      opacity: 1;
+      filter: none;
+      transform: none;
+      transition: none;
+    }
+
+    #partners .logo-marquee {
+      transform: none;
+    }
+
+    .scene-showcase-carousel {
+      position: relative;
+      width: 1241px;
+      height: 444px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .scene-showcase-card {
+      position: absolute;
+      contain: paint;
+      overflow: hidden;
+      border-radius: 8px;
+      pointer-events: none;
+      transition:
+        left .32s cubic-bezier(.22, 1, .36, 1),
+        top .32s cubic-bezier(.22, 1, .36, 1),
+        width .32s cubic-bezier(.22, 1, .36, 1),
+        height .32s cubic-bezier(.22, 1, .36, 1);
+      will-change: left, top, width, height;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .asset-frame.content .scene-showcase-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .scene-showcase-carousel.is-animating .scene-showcase-next {
+      pointer-events: none;
+    }
+
+    .scene-showcase-play {
+      position: absolute;
+      top: 184px;
+      left: 560px;
+      z-index: 5;
+      width: 76px;
+      height: 76px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .asset-frame.content .scene-showcase-play img {
+      display: block;
+      width: 76px;
+      height: 76px;
+    }
+
+    .scene-showcase-play:focus-visible {
+      outline: none;
+    }
+
+    .scene-showcase-card.is-resetting {
+      transition: none;
+      visibility: hidden;
+    }
+
+    .scene-showcase-card.pos-left {
+      top: 133px;
+      left: 0;
+      z-index: 1;
+      width: 316px;
+      height: 178px;
+      opacity: 1;
+    }
+
+    .scene-showcase-card.pos-center {
+      top: 80px;
+      left: 346px;
+      z-index: 2;
+      width: 505px;
+      height: 284px;
+      opacity: 1;
+    }
+
+    .scene-showcase-card.pos-right {
+      top: 133px;
+      left: 882px;
+      z-index: 1;
+      width: 316px;
+      height: 178px;
+      opacity: 1;
+    }
+
+    .scene-showcase-card.pos-exit-left {
+      top: 133px;
+      left: -340px;
+      z-index: 0;
+      width: 316px;
+      height: 178px;
+      opacity: 1;
+    }
+
+    .scene-showcase-next {
+      position: absolute;
+      top: 180px;
+      right: 0;
+      z-index: 5;
+      width: 82px;
+      height: 82px;
+      border: 0;
+      border-radius: 50%;
+      color: transparent;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .asset-frame.content .scene-showcase-next img {
+      display: block;
+      width: 84px;
+      height: 84px;
+      margin: -1px 0 0 -1px;
+    }
+
+    .scene-showcase-next:hover,
+    .scene-showcase-next:focus-visible {
+      outline: none;
+    }
+
+    .scene-card-grid {
+      width: 1200px;
+      height: 810px;
+      margin: 0 auto;
+      position: relative;
+      background: #fff;
+    }
+
+    .scene-card-base {
+      display: block;
+      width: 1200px;
+      height: 810px;
+    }
+
+    .scene-card {
+      position: absolute;
+      width: 386px;
+      height: 298px;
+      border-radius: 8px;
+      background: transparent;
+      box-shadow: 0 8px 18px rgba(112, 93, 205, 0);
+      transition: box-shadow .28s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .scene-card:hover {
+      z-index: 2;
+      box-shadow: 0 18px 34px rgba(112, 93, 205, .16);
+    }
+
+    .scene-card:nth-of-type(1) {
+      left: 0;
+      top: 58px;
+    }
+
+    .scene-card:nth-of-type(2) {
+      left: 407px;
+      top: 58px;
+    }
+
+    .scene-card:nth-of-type(3) {
+      left: 814px;
+      top: 58px;
+    }
+
+    .scene-card:nth-of-type(4) {
+      left: 0;
+      top: 412px;
+    }
+
+    .scene-card:nth-of-type(5) {
+      left: 407px;
+      top: 412px;
+    }
+
+    .scene-card:nth-of-type(6) {
+      left: 814px;
+      top: 412px;
+    }
+
+    .video-showcase {
+      position: relative;
+      width: 1200px;
+      height: 956px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .video-cover-img {
+      display: block;
+      width: 1200px;
+      height: 956px;
+    }
+
+    .video-main-cover {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      z-index: 1;
+      display: none;
+      width: 1200px;
+      height: 675px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .video-main-cover.is-active {
+      display: block;
+    }
+
+    .video-player-layer {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      z-index: 2;
+      display: none;
+      width: 1200px;
+      height: 675px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #000;
+    }
+
+    .video-player-layer.is-active {
+      display: block;
+    }
+
+    .video-player-layer video {
+      display: block;
+      width: 1200px;
+      height: 675px;
+      object-fit: cover;
+    }
+
+    .video-play-hotspot,
+    .video-thumb-hotspot {
+      position: absolute;
+      z-index: 3;
+      padding: 0;
+      border: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      color: transparent;
+      background: rgba(123, 105, 255, .001);
+      cursor: pointer;
+    }
+
+    .video-play-hotspot {
+      top: 80px;
+      left: 0;
+      width: 1200px;
+      height: 675px;
+    }
+
+    .video-player-layer.is-active + .video-play-hotspot {
+      display: none;
+    }
+
+    .video-thumb-hotspot {
+      top: 784px;
+      height: 88px;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      background: transparent;
+      transition: box-shadow .22s ease;
+    }
+
+    .video-thumb-hotspot:hover {
+      border-color: transparent;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .video-thumb-hotspot.is-selected {
+      border-color: transparent;
+      background: transparent;
+      box-shadow: 0 0 20px rgba(123, 105, 255, .24);
+    }
+
+    .video-thumb-one {
+      left: 458px;
+      width: 138px;
+    }
+
+    .video-thumb-two {
+      left: 612px;
+      width: 138px;
+    }
+
+    .scroll-animate {
+      --parallax-y: 0px;
+      opacity: 0;
+      filter: blur(8px);
+      transform: translate3d(0, 72px, 0) scale(.985);
+      transform-origin: center top;
+      transition:
+        opacity .82s cubic-bezier(.22, 1, .36, 1),
+        filter .82s cubic-bezier(.22, 1, .36, 1),
+        transform .92s cubic-bezier(.22, 1, .36, 1);
+      will-change: opacity, filter, transform;
+    }
+
+    .scroll-animate.is-visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .scroll-animate.is-visible > img,
+    .scroll-animate.is-visible > .feature-switcher,
+    .scroll-animate.is-visible > .video-showcase,
+    .scroll-animate.is-visible > .logo-marquee {
+      transform: translate3d(0, var(--parallax-y), 0);
+      transition: transform .16s linear;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-animate,
+      .scroll-animate.is-visible,
+      .scroll-animate.is-visible > img,
+      .scroll-animate.is-visible > .feature-switcher,
+      .scroll-animate.is-visible > .video-showcase,
+      .scroll-animate.is-visible > .logo-marquee {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @keyframes logo-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-1824px);
+      }
+    }
+
+    .title-frame {
+      position: relative;
+      width: 100%;
+      padding: 92px 24px 42px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .editable-title,
+    .editable-subtitle {
+      display: block;
+      width: fit-content;
+      max-width: 760px;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 8px;
+      outline: 0;
+      cursor: text;
+    }
+
+    .editable-title {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #303036;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: .02em;
+    }
+
+    .editable-subtitle {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: #7468ff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .editable-title:hover,
+    .editable-subtitle:hover,
+    .editable-title:focus,
+    .editable-subtitle:focus {
+      outline: 2px solid rgba(123, 105, 255, .55);
+      outline-offset: 4px;
+      background: rgba(123, 105, 255, .08);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 26px;
+      bottom: 26px;
+      z-index: 10;
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #7865ff;
+      box-shadow: 0 14px 32px rgba(98, 73, 230, .35);
+      font-size: 34px;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <main class="landing" id="top" data-figma-section-node="496:231" data-section-width="1440">
+    <section class="asset-frame full" id="nav" aria-label="顶部导航">
+      <img src="assets/01.png?v=20260616" width="1440" height="60" alt="XAtom 顶部导航">
+    </section>
+
+    <section class="asset-frame full" id="hero" aria-label="首页主视觉">
+      <div class="hero-carousel" data-hero-carousel aria-label="XAtom banner 自动轮播">
+        <img class="hero-slide is-active" src="assets/banner/banner-01.png?v=20260616" width="1440" height="783" alt="XAtom banner 1">
+        <img class="hero-slide" src="assets/banner/banner-02.png?v=20260616" width="1440" height="783" alt="XAtom banner 2">
+        <img class="hero-slide" src="assets/banner/banner-03.png?v=20260616" width="1440" height="783" alt="XAtom banner 3">
+        <img class="hero-slide" src="assets/banner/banner-04.png?v=20260616" width="1440" height="783" alt="XAtom banner 4">
+      </div>
+    </section>
+
+    <section class="title-frame" id="intro-title" aria-label="产品介绍标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品介绍</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">将智能嵌入生活，让每一件物品都拥有对话的能力</p>
+    </section>
+
+    <section class="asset-frame content" id="intro" aria-label="产品介绍内容" style="--asset-width: 1200px">
+      <img src="assets/03.png?v=20260616" width="1200" height="609" alt="XAtom 产品介绍">
+    </section>
+
+    <section class="title-frame" id="features-title" aria-label="产品特色标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品特色</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">六大特色功能，定义智能生活新方式</p>
+    </section>
+
+    <section class="asset-frame content" id="features-main" aria-label="产品特色主图" style="--asset-width: 1200px">
+      <div class="feature-switcher" data-feature-switcher>
+        <img id="feature-image" src="assets/04.png?v=20260616" width="1200" height="720" alt="XAtom 产品特色：个性外壳">
+        <div class="feature-tab-hit-area" role="tablist" aria-label="产品特色切换">
+          <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature-name="个性外壳" data-feature-src="assets/04.png" data-feature-height="720">个性外壳</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/Property 1=感知雷达.png" data-feature-height="720">感知雷达</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/Property 1=自由创作.png" data-feature-height="720">自由创作</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D打印" data-feature-src="assets/产品特色/Property 1=3D打印.png" data-feature-height="720">3D打印</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/Property 1=语音交互.png" data-feature-height="720">语音交互</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/Property 1=大语言模型.png" data-feature-height="672">大语言模型</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="asset-frame content" id="features-icons" aria-label="产品特色图标" style="--asset-width: 1200px">
+      <img src="assets/05.svg?v=20260616" width="1200" height="211" alt="XAtom 六大特色图标">
+    </section>
+
+    <section class="title-frame" id="video-title" aria-label="视频介绍标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">视频介绍</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">视频将为 XAtom 硬件产品带来详细介绍</p>
+    </section>
+
+    <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
+      <div class="video-showcase" data-video-showcase>
+        <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XAtom 视频介绍封面">
+        <img class="video-main-cover" data-video-main-cover alt="当前视频封面">
+        <div class="video-player-layer" data-video-player-layer>
+          <video id="main-video" src="assets/视频介绍/01.mp4?v=20260616" preload="metadata" playsinline controls></video>
+        </div>
+        <button class="video-play-hotspot" type="button" aria-label="播放当前视频"></button>
+        <button class="video-thumb-hotspot video-thumb-one is-selected" type="button" aria-label="选择视频 1" data-video-src="assets/视频介绍/01.mp4" data-cover-src=""></button>
+        <button class="video-thumb-hotspot video-thumb-two" type="button" aria-label="选择视频 2" data-video-src="assets/视频介绍/02.mp4" data-cover-src="assets/视频介绍/产品展示.png"></button>
+      </div>
+    </section>
+
+    <section class="title-frame" id="size-title" aria-label="产品尺寸结构标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品尺寸结构</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">迷你尺寸，可以随心带走</p>
+    </section>
+
+    <section class="asset-frame content" id="size-main" aria-label="产品尺寸结构主图" style="--asset-width: 1224px">
+      <img src="assets/07.png?v=20260616" width="1224" height="835" alt="XAtom 产品尺寸结构">
+    </section>
+
+    <section class="asset-frame content" id="size-detail" aria-label="产品尺寸结构细节" style="--asset-width: 1200px">
+      <img src="assets/08.png?v=20260616" width="1200" height="346" alt="XAtom 产品尺寸结构细节">
+    </section>
+
+    <section class="asset-frame content" id="size-cable" aria-label="Type-C 充电线尺寸" style="--asset-width: 1224px">
+      <img src="assets/09.png?v=20260616" width="1224" height="522" alt="XAtom Type-C 充电线尺寸">
+    </section>
+
+    <section class="title-frame" id="scenes-title" aria-label="多场景玩法标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">多场景玩法</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">多种场景覆盖，让智能无处不在</p>
+    </section>
+
+    <section class="asset-frame content" id="scenes-showcase" aria-label="多场景玩法展示图" style="--asset-width: 1241px">
+      <div class="scene-showcase-carousel" data-scene-showcase-carousel>
+        <div class="scene-showcase-card pos-left" data-card="0" aria-hidden="true">
+          <img src="assets/多场景/1.png?v=20260617" width="505" height="284" alt="">
+        </div>
+        <div class="scene-showcase-card pos-center" data-card="1" aria-hidden="true">
+          <img src="assets/多场景/3.png?v=20260617" width="505" height="284" alt="">
+        </div>
+        <div class="scene-showcase-card pos-right" data-card="2" aria-hidden="true">
+          <img src="assets/多场景/2.png?v=20260617" width="505" height="284" alt="">
+        </div>
+        <button class="scene-showcase-play" type="button" aria-label="播放当前场景视频">
+          <img class="scene-play-default" src="assets/多场景/播放按钮.svg?v=20260617" width="76" height="76" alt="">
+        </button>
+        <button class="scene-showcase-next" type="button" aria-label="切换到下一个场景视频" data-scene-showcase-next>
+          <img src="assets/多场景/切换按钮.svg?v=20260617" width="84" height="84" alt="">
+        </button>
+      </div>
+    </section>
+
+    <section class="asset-frame content" id="scenes" aria-label="多场景玩法内容" style="--asset-width: 1200px">
+      <div class="scene-card-grid">
+        <img class="scene-card-base" src="assets/10.png?v=20260616" width="1200" height="810" alt="XAtom 多场景玩法卡片">
+        <article class="scene-card" aria-label="安全卫士"></article>
+        <article class="scene-card" aria-label="课程私教"></article>
+        <article class="scene-card" aria-label="智能导游"></article>
+        <article class="scene-card" aria-label="旅游搭子"></article>
+        <article class="scene-card" aria-label="健身陪练"></article>
+        <article class="scene-card" aria-label="出行助理"></article>
+      </div>
+    </section>
+
+    <section class="title-frame" id="steps-title" aria-label="使用步骤标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">使用步骤</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">两种使用方式提供选择</p>
+    </section>
+
+    <section class="asset-frame content" id="steps-daily" aria-label="日常物品使用步骤" style="--asset-width: 1200px">
+      <img src="assets/11.png?v=20260616" width="1200" height="406" alt="XAtom 日常物品使用步骤">
+    </section>
+
+    <section class="asset-frame content" id="steps-print" aria-label="3D 打印使用步骤" style="--asset-width: 1200px">
+      <img src="assets/12.png?v=20260616" width="1200" height="450" alt="XAtom 3D 打印使用步骤">
+    </section>
+
+    <section class="title-frame" id="kit-title" aria-label="产品清单标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品清单</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">产品配套出售，无需额外购买配件</p>
+    </section>
+
+    <section class="asset-frame content" id="kit" aria-label="产品清单内容" style="--asset-width: 1200px">
+      <img src="assets/13.png?v=20260616" width="1200" height="747" alt="XAtom 产品清单">
+    </section>
+
+    <section class="title-frame" id="partners-title" aria-label="大模型合作者标题">
+      <h2 class="editable-title" contenteditable="true" spellcheck="false">大模型合作者</h2>
+      <p class="editable-subtitle" contenteditable="true" spellcheck="false">多种智能大模型联动，守护智能生活</p>
+    </section>
+
+    <section class="asset-frame content" id="partners" aria-label="大模型合作者内容" style="--asset-width: 1200px">
+      <div class="logo-marquee" aria-label="大模型合作者自动滚动">
+        <div class="logo-marquee-track">
+          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="XAtom 大模型合作者">
+          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="back-top" href="#top" aria-label="返回顶部">↑</a>
+  <script>
+    (() => {
+      const carousel = document.querySelector("[data-hero-carousel]");
+      if (!carousel) return;
+
+      const slides = [...carousel.querySelectorAll(".hero-slide")];
+      let active = 0;
+
+      slides.forEach(slide => {
+        new Image().src = slide.currentSrc || slide.src;
+      });
+
+      setInterval(() => {
+        slides[active].classList.remove("is-active");
+        active = (active + 1) % slides.length;
+        slides[active].classList.add("is-active");
+      }, 4000);
+    })();
+
+    (() => {
+      const switcher = document.querySelector("[data-feature-switcher]");
+      if (!switcher) return;
+
+      const image = switcher.querySelector("#feature-image");
+      const tabs = [...switcher.querySelectorAll(".feature-tab")];
+
+      const activate = tab => {
+        const src = tab.dataset.featureSrc;
+        const name = tab.dataset.featureName;
+        image.src = `${src}?v=20260616`;
+        image.alt = `XAtom 产品特色：${name}`;
+        image.height = Number(tab.dataset.featureHeight || 720);
+        tabs.forEach(item => {
+          item.setAttribute("aria-selected", String(item === tab));
+          item.tabIndex = item === tab ? 0 : -1;
+        });
+      };
+
+      tabs.forEach((tab, index) => {
+        new Image().src = `${tab.dataset.featureSrc}?v=20260616`;
+        tab.tabIndex = index === 0 ? 0 : -1;
+        tab.addEventListener("click", () => {
+          activate(tab);
+        });
+        tab.addEventListener("keydown", event => {
+          const direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+          if (!direction) return;
+          event.preventDefault();
+          const next = tabs[(index + direction + tabs.length) % tabs.length];
+          activate(next);
+          next.focus();
+        });
+      });
+    })();
+
+    (() => {
+      const carousel = document.querySelector("[data-scene-showcase-carousel]");
+      if (!carousel) return;
+
+      const cards = [...carousel.querySelectorAll("[data-card]")];
+      const nextButton = carousel.querySelector("[data-scene-showcase-next]");
+      const positions = ["pos-left", "pos-center", "pos-right", "pos-exit-left"];
+      let order = [0, 1, 2];
+      let isAnimating = false;
+
+      const moveTo = (card, position, reset = false) => {
+        card.classList.remove(...positions, "is-resetting");
+        if (reset) card.classList.add("is-resetting");
+        card.classList.add(position);
+        if (reset) {
+          card.offsetHeight;
+          window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+              card.classList.remove("is-resetting");
+            });
+          });
+        }
+      };
+
+      nextButton.addEventListener("click", () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        carousel.classList.add("is-animating");
+
+        const leftCard = cards[order[0]];
+        const centerCard = cards[order[1]];
+        const rightCard = cards[order[2]];
+
+        moveTo(leftCard, "pos-exit-left");
+        moveTo(centerCard, "pos-left");
+        moveTo(rightCard, "pos-center");
+
+        window.setTimeout(() => {
+          moveTo(leftCard, "pos-right", true);
+          order = [order[1], order[2], order[0]];
+          isAnimating = false;
+          carousel.classList.remove("is-animating");
+        }, 320);
+      });
+    })();
+
+    (() => {
+      const showcase = document.querySelector("[data-video-showcase]");
+      if (!showcase) return;
+
+      const playerLayer = showcase.querySelector("[data-video-player-layer]");
+      const mainVideo = showcase.querySelector("#main-video");
+      const mainCover = showcase.querySelector("[data-video-main-cover]");
+      const playHotspot = showcase.querySelector(".video-play-hotspot");
+      const thumbs = [...showcase.querySelectorAll(".video-thumb-hotspot")];
+
+      const showCover = () => {
+        mainVideo.pause();
+        try {
+          mainVideo.currentTime = 0;
+        } catch (error) {
+          // Some browsers wait for metadata before allowing currentTime changes.
+        }
+        playerLayer.classList.remove("is-active");
+      };
+
+      const updateCover = thumb => {
+        const coverSrc = thumb.dataset.coverSrc;
+        if (coverSrc) {
+          mainCover.setAttribute("src", `${coverSrc}?v=20260616-cover2`);
+          mainCover.classList.add("is-active");
+          return;
+        }
+
+        mainCover.removeAttribute("src");
+        mainCover.classList.remove("is-active");
+      };
+
+      const switchVideo = thumb => {
+        showCover();
+        const src = `${thumb.dataset.videoSrc}?v=20260616`;
+        if (mainVideo.getAttribute("src") !== src) {
+          mainVideo.setAttribute("src", src);
+          mainVideo.load();
+        }
+        thumbs.forEach(item => item.classList.toggle("is-selected", item === thumb));
+        updateCover(thumb);
+      };
+
+      const playSelectedVideo = () => {
+        playerLayer.classList.add("is-active");
+        mainVideo.controls = true;
+        mainVideo.play().catch(() => {
+          playerLayer.classList.remove("is-active");
+        });
+      };
+
+      playHotspot.addEventListener("click", playSelectedVideo);
+      mainVideo.addEventListener("ended", showCover);
+
+      showcase.addEventListener("click", event => {
+        const thumb = event.target.closest(".video-thumb-hotspot");
+        if (!thumb || !showcase.contains(thumb)) return;
+        switchVideo(thumb);
+      });
+
+      updateCover(thumbs.find(thumb => thumb.classList.contains("is-selected")) || thumbs[0]);
+    })();
+
+    (() => {
+      const frames = [...document.querySelectorAll(".title-frame, .asset-frame.content")]
+        .filter(frame => frame.id !== "partners");
+      if (!frames.length) return;
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      frames.forEach((frame, index) => {
+        frame.classList.add("scroll-animate");
+        frame.style.transitionDelay = `${Math.min(index % 3, 2) * 60}ms`;
+      });
+
+      if (reduceMotion) {
+        frames.forEach(frame => frame.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            return;
+          }
+
+          if (entry.boundingClientRect.top > window.innerHeight) {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      }, {
+        threshold: .18,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      frames.forEach(frame => observer.observe(frame));
+
+      let ticking = false;
+      const updateParallax = () => {
+        const viewportCenter = window.innerHeight / 2;
+        frames.forEach(frame => {
+          if (!frame.classList.contains("is-visible")) return;
+          const rect = frame.getBoundingClientRect();
+          const frameCenter = rect.top + rect.height / 2;
+          const offset = Math.max(-26, Math.min(26, (viewportCenter - frameCenter) * .035));
+          frame.style.setProperty("--parallax-y", `${offset.toFixed(2)}px`);
+        });
+        ticking = false;
+      };
+
+      const requestParallax = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+      };
+
+      window.addEventListener("scroll", requestParallax, { passive: true });
+      window.addEventListener("resize", requestParallax);
+      requestParallax();
+    })();
+  </script>
+</body>
+</html>
