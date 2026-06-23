@@ -26,14 +26,14 @@
       width: 1440px;
       margin: 0 auto;
       overflow: hidden;
-      background: #fff;
+      background: #fff url("assets/background.png?v=20260623") top center / 1440px auto repeat-y;
       box-shadow: 0 18px 50px rgba(50, 60, 90, .08);
     }
 
     .asset-frame {
       position: relative;
       width: 100%;
-      background: #fff;
+      background: transparent;
     }
 
     .asset-frame img {
@@ -45,6 +45,274 @@
     .asset-frame.content img {
       width: var(--asset-width);
       margin: 0 auto;
+    }
+
+    .intro-frame {
+      position: relative;
+      width: 1200px;
+      height: 609px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    .intro-copy {
+      position: absolute;
+      left: 139px;
+      top: 256px;
+      width: 410px;
+      color: #303030;
+      background: transparent;
+    }
+
+    .intro-copy h3 {
+      margin: 0 0 18px;
+      color: #303030;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      outline: 0;
+    }
+
+    .intro-copy p {
+      margin: 0 0 18px;
+      color: #303030;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0;
+      outline: 0;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .asset-frame.content .intro-product-img {
+      position: absolute;
+      left: 652px;
+      top: 98px;
+      display: block;
+      width: 408px;
+      height: 405px;
+      margin: 0;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .size-detail-frame {
+      position: relative;
+      width: 1200px;
+      height: 346px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      background: transparent;
+    }
+
+    .size-detail-inner {
+      position: absolute;
+      top: 80px;
+      left: 175.33px;
+      display: flex;
+      gap: 34px;
+      align-items: flex-start;
+    }
+
+    .size-detail-title {
+      margin: 0;
+      color: #303030;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+
+    .size-structure {
+      display: flex;
+      width: 286.34px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .size-structure-body {
+      display: flex;
+      width: 286.34px;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .size-chip-card {
+      position: relative;
+      width: 139px;
+      height: 140px;
+      flex: 0 0 139px;
+      overflow: hidden;
+    }
+
+    .asset-frame.content .size-chip-img {
+      position: absolute;
+      top: -22.83px;
+      left: -38.5px;
+      width: 217px;
+      height: 201.81px;
+      max-width: none;
+      margin: 0;
+      object-fit: fill;
+    }
+
+    .size-chip-marker {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      width: 13.86px;
+      height: 13.86px;
+      place-items: center;
+      border-radius: 50%;
+      color: #7b69ff;
+      background: #fff;
+      font-size: 6.93px;
+      font-weight: 400;
+      line-height: 4.62px;
+      letter-spacing: .3465px;
+    }
+
+    .size-chip-marker-one { left: 103px; top: 97px; }
+    .size-chip-marker-two { left: 33px; top: 74px; }
+    .size-chip-marker-three { left: 26px; top: 32px; }
+    .size-chip-marker-four { left: 63px; top: 104px; }
+    .size-chip-marker-five { left: 19px; top: 90.29px; }
+
+    .size-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 11.55px;
+    }
+
+    .size-legend-row {
+      display: flex;
+      gap: 9.24px;
+      align-items: center;
+      color: #303030;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    .size-legend-dot {
+      display: grid;
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b0a5ff;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .size-views {
+      display: flex;
+      width: 529px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .size-views-body {
+      position: relative;
+      width: 529px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .size-view-strip {
+      position: absolute;
+      top: 2px;
+      left: 70px;
+      display: flex;
+      gap: 17px;
+      align-items: center;
+    }
+
+    .size-view-crop {
+      position: relative;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    .size-view-front { width: 132px; height: 133.15px; }
+    .size-view-side { width: 125px; height: 129.96px; }
+    .size-view-back { width: 147.89px; height: 132.85px; }
+
+    .asset-frame.content .size-view-img {
+      position: absolute;
+      max-width: none;
+      margin: 0;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .size-view-front .size-view-img {
+      left: -70.4px;
+      top: -12.48px;
+      width: 480.82px;
+      height: 320.49px;
+    }
+
+    .asset-frame.content .size-view-side .size-view-img {
+      left: -273.31px;
+      top: -12.67px;
+      width: 480.39px;
+      height: 320.27px;
+    }
+
+    .asset-frame.content .size-view-back .size-view-img {
+      left: -78.12px;
+      top: -184.09px;
+      width: 524.96px;
+      height: 350px;
+    }
+
+    .size-dimension {
+      position: absolute;
+      top: 4px;
+      left: 15px;
+      width: 55px;
+      height: 130px;
+      color: #7b69ff;
+    }
+
+    .size-dimension::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 31.46px;
+      width: 0;
+      height: 130px;
+      border-left: 1px dashed #b0a5ff;
+    }
+
+    .size-dimension::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 31.46px;
+      width: 38.33px;
+      height: 130px;
+      border-top: 1px solid #b0a5ff;
+      border-bottom: 1px solid #b0a5ff;
+    }
+
+    .size-dimension-label {
+      position: absolute;
+      top: 58px;
+      left: 0;
+      width: 39px;
+      color: #7b69ff;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      white-space: nowrap;
     }
 
     .hero-carousel {
@@ -109,7 +377,7 @@
       height: 208px;
       margin: 0 auto;
       overflow: hidden;
-      background: #fff;
+      background: transparent;
     }
 
     .logo-marquee-track {
@@ -280,59 +548,507 @@
       width: 1200px;
       height: 810px;
       margin: 0 auto;
+      padding-top: 58px;
       position: relative;
-      background: #fff;
-    }
-
-    .scene-card-base {
-      display: block;
-      width: 1200px;
-      height: 810px;
+      background: transparent;
+      display: grid;
+      grid-template-columns: repeat(3, 386px);
+      grid-auto-rows: 298px;
+      gap: 56px 21px;
     }
 
     .scene-card {
-      position: absolute;
+      position: relative;
+      box-sizing: border-box;
       width: 386px;
       height: 298px;
+      padding: 40px 28px 26px;
       border-radius: 8px;
-      background: transparent;
+      border: 1px solid #e7e5ee;
+      background: #fff;
       box-shadow: 0 8px 18px rgba(112, 93, 205, 0);
-      transition: box-shadow .28s cubic-bezier(.22, 1, .36, 1);
+      cursor: pointer;
+      transition: border-color .22s ease, box-shadow .22s ease;
     }
 
-    .scene-card:hover {
+    .scene-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 386px;
+      height: 132px;
+      border-radius: 0;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(236, 225, 255, .4) 100%);
+      pointer-events: none;
+    }
+
+    .scene-card:hover,
+    .scene-card.is-active {
       z-index: 2;
-      box-shadow: 0 18px 34px rgba(112, 93, 205, .16);
+      border-color: rgba(123, 105, 255, .28);
+      box-shadow: 0 18px 34px rgba(112, 93, 205, .14);
     }
 
-    .scene-card:nth-of-type(1) {
-      left: 0;
-      top: 58px;
+    .scene-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 38px;
+      color: #30323d;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.25;
     }
 
-    .scene-card:nth-of-type(2) {
-      left: 407px;
-      top: 58px;
+    .scene-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: #323642;
+      font-size: 14px;
+      line-height: 1.72;
+      letter-spacing: .01em;
     }
 
-    .scene-card:nth-of-type(3) {
-      left: 814px;
-      top: 58px;
+    .scene-card p:last-child {
+      margin-bottom: 0;
     }
 
-    .scene-card:nth-of-type(4) {
-      left: 0;
-      top: 412px;
+    .asset-frame.content .scene-card .scene-card-icon {
+      position: absolute;
+      top: 20px;
+      left: 278px;
+      display: block;
+      width: 88px;
+      height: 88px;
+      max-width: none;
+      margin: 0;
+      object-fit: contain;
+      overflow: visible;
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .scene-card:nth-of-type(5) {
-      left: 407px;
-      top: 412px;
+    .steps-daily-frame {
+      position: relative;
+      width: 1137px;
+      height: 366px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 8px;
+      background: #fff;
     }
 
-    .scene-card:nth-of-type(6) {
-      left: 814px;
-      top: 412px;
+    .steps-daily-inner {
+      display: flex;
+      width: 1057px;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steps-daily-left {
+      display: flex;
+      flex: 0 0 478px;
+      height: 286px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .steps-daily-cards {
+      display: flex;
+      width: 478px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .step-card {
+      position: relative;
+      flex: 0 0 auto;
+      overflow: hidden;
+      border: 1px solid #d7d2ff;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .step-card-one {
+      width: 268.139px;
+      height: 173.897px;
+    }
+
+    .step-card-two {
+      width: 197px;
+      height: 171px;
+    }
+
+    .step-card-hero {
+      width: 547px;
+      height: 285px;
+      border: 1px solid #d7d2ff;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .step-card-badge {
+      position: absolute;
+      top: 7.95px;
+      left: 7.95px;
+      z-index: 2;
+      display: inline-grid;
+      width: 16px;
+      height: 16px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b0a5ff;
+      font-size: 11.248px;
+      font-weight: 400;
+      line-height: 15.748px;
+    }
+
+    .step-card-img {
+      position: absolute;
+      display: block;
+      width: auto;
+      max-width: none;
+      margin: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .asset-frame.content .steps-daily-frame .step-card-img {
+      margin: 0;
+      max-width: none;
+    }
+
+    .asset-frame.content .steps-daily-frame .step-card-img.front {
+      left: -69.25px;
+      top: .38px;
+      width: 284.9px;
+      height: 160.3px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-daily-frame .step-card-img.back {
+      left: 53.78px;
+      top: 5.73px;
+      width: 282.2px;
+      height: 158.803px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-daily-frame .step-card-img.install {
+      left: -1px;
+      top: 6px;
+      width: 262.96px;
+      height: 147.988px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-daily-frame .step-card-img.scene {
+      left: -61.43px;
+      top: -23.4px;
+      width: 622.7px;
+      height: 350.9px;
+      object-fit: fill;
+    }
+
+    .steps-daily-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 8px;
+      color: #303030;
+      background: transparent;
+    }
+
+    .steps-daily-copy h3 {
+      width: fit-content;
+      margin: 0;
+      color: #303030;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      outline: 0;
+    }
+
+    .steps-daily-copy ol {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps-daily-copy li {
+      display: flex;
+      align-items: center;
+      color: #303030;
+      font-size: 14px;
+      line-height: 20px;
+      outline: 0;
+    }
+
+    .steps-daily-copy .step-dot {
+      display: inline-grid;
+      flex: 0 0 16px;
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b0a5ff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    .steps-print-frame {
+      position: relative;
+      width: 1200px;
+      height: 450px;
+      padding: 0 40px 40px;
+      margin: 0 auto;
+    }
+
+    .steps-print-panel {
+      display: flex;
+      width: 1120px;
+      height: 410px;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 40px;
+      border-radius: 8px;
+      background: rgba(242, 240, 255, .4);
+    }
+
+    .step-print-card {
+      position: relative;
+      flex: 0 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .step-print-hero {
+      width: 547px;
+      height: 330px;
+    }
+
+    .step-print-right {
+      display: flex;
+      flex: 0 0 453px;
+      height: 330px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .step-print-row {
+      display: flex;
+      width: 453px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .step-print-card-one,
+    .step-print-card-three {
+      width: 152.852px;
+      height: 152.852px;
+    }
+
+    .step-print-card-two {
+      width: 280.578px;
+      height: 152.852px;
+    }
+
+    .step-print-badge {
+      position: absolute;
+      top: 7.45px;
+      left: 7.45px;
+      z-index: 2;
+      display: inline-grid;
+      width: 16px;
+      height: 16px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b0a5ff;
+      font-size: 10.744px;
+      font-weight: 400;
+      line-height: 15.042px;
+    }
+
+    .step-print-img {
+      position: absolute;
+      display: block;
+      max-width: none;
+      margin: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .asset-frame.content .steps-print-frame .step-print-img {
+      max-width: none;
+      margin: 0;
+    }
+
+    .asset-frame.content .steps-print-frame .print-scene-img {
+      left: -120.3px;
+      top: -39.7px;
+      width: 763.9px;
+      height: 430px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-print-frame .duck-front-img {
+      left: 14.85px;
+      top: -.27px;
+      width: 123.15px;
+      height: 153.882px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-print-frame .duck-pair-img {
+      left: 31.41px;
+      top: 11.52px;
+      width: 251.84px;
+      height: 167.93px;
+      object-fit: fill;
+    }
+
+    .asset-frame.content .steps-print-frame .duck-back-img {
+      left: 18.84px;
+      top: .02px;
+      width: 139.242px;
+      height: 159.2px;
+      object-fit: fill;
+    }
+
+    .steps-print-copy {
+      display: flex;
+      width: 260px;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0;
+      color: #303030;
+      background: transparent;
+    }
+
+    .steps-print-copy h3 {
+      width: fit-content;
+      margin: 0;
+      color: #303030;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      outline: 0;
+    }
+
+    .steps-print-copy ol {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps-print-copy li {
+      display: flex;
+      align-items: center;
+      color: #303030;
+      font-size: 14px;
+      line-height: 20px;
+      outline: 0;
+    }
+
+    .steps-print-copy .step-dot {
+      display: inline-grid;
+      flex: 0 0 16px;
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b0a5ff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    .kit-frame {
+      position: relative;
+      width: 1200px;
+      height: 747px;
+      margin: 0 auto;
+    }
+
+    .asset-frame.content .kit-frame > img {
+      width: 1200px;
+      height: 747px;
+      margin: 0;
+    }
+
+    .kit-marker,
+    .kit-legend-number {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      color: #5b46d3;
+      background: rgba(91, 70, 211, .1);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .kit-marker {
+      transform: translate(-50%, -50%);
+    }
+
+    .kit-marker-one { left: 278px; top: 574px; }
+    .kit-marker-two { left: 529px; top: 293px; }
+    .kit-marker-three { left: 529px; top: 574px; }
+    .kit-marker-four { left: 837px; top: 293px; }
+    .kit-marker-five { left: 837px; top: 574px; }
+
+    .kit-legend {
+      position: absolute;
+      left: 84px;
+      top: 647px;
+      z-index: 2;
+      display: grid;
+      width: 1110px;
+      grid-template-columns: 210px 210px 210px 210px 250px;
+      align-items: center;
+      color: #303030;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .kit-legend-item {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      outline: 0;
+    }
+
+    .kit-legend-number {
+      position: static;
+      flex: 0 0 24px;
+      margin-right: 18px;
+    }
+
+    .kit-legend-text {
+      white-space: nowrap;
     }
 
     .video-showcase {
@@ -340,7 +1056,7 @@
       width: 1200px;
       height: 956px;
       margin: 0 auto;
-      background: #fff;
+      background: transparent;
     }
 
     .video-cover-img {
@@ -414,35 +1130,40 @@
     }
 
     .video-thumb-hotspot {
-      top: 784px;
-      height: 88px;
+      top: 796px;
+      height: 80px;
       box-sizing: border-box;
-      border: 2px solid transparent;
-      border-radius: 3px;
-      background: transparent;
-      transition: box-shadow .22s ease;
-    }
-
-    .video-thumb-hotspot:hover {
-      border-color: transparent;
+      border: 0;
+      border-radius: 5px;
       background: transparent;
       box-shadow: none;
+      outline: none;
+    }
+
+    .video-thumb-hotspot:hover,
+    .video-thumb-hotspot:focus,
+    .video-thumb-hotspot:active {
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      outline: none;
     }
 
     .video-thumb-hotspot.is-selected {
-      border-color: transparent;
+      border: 2px solid #7b69ff;
       background: transparent;
-      box-shadow: 0 0 20px rgba(123, 105, 255, .24);
+      box-shadow: none;
+      outline: none;
     }
 
     .video-thumb-one {
-      left: 458px;
-      width: 138px;
+      left: 460px;
+      width: 130px;
     }
 
     .video-thumb-two {
-      left: 612px;
-      width: 138px;
+      left: 610px;
+      width: 130px;
     }
 
     .scroll-animate {
@@ -502,7 +1223,7 @@
       width: 100%;
       padding: 92px 24px 42px;
       text-align: center;
-      background: #fff;
+      background: transparent;
     }
 
     .editable-title,
@@ -514,7 +1235,7 @@
       margin-left: auto;
       border-radius: 8px;
       outline: 0;
-      cursor: text;
+      cursor: default;
     }
 
     .editable-title {
@@ -534,15 +1255,6 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 1.6;
-    }
-
-    .editable-title:hover,
-    .editable-subtitle:hover,
-    .editable-title:focus,
-    .editable-subtitle:focus {
-      outline: 2px solid rgba(123, 105, 255, .55);
-      outline-offset: 4px;
-      background: rgba(123, 105, 255, .08);
     }
 
     .back-top {
@@ -581,17 +1293,24 @@
     </section>
 
     <section class="title-frame" id="intro-title" aria-label="产品介绍标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品介绍</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">将智能嵌入生活，让每一件物品都拥有对话的能力</p>
+      <h2 class="editable-title">产品介绍</h2>
+      <p class="editable-subtitle">将智能嵌入生活，让每一件物品都拥有对话的能力</p>
     </section>
 
     <section class="asset-frame content" id="intro" aria-label="产品介绍内容" style="--asset-width: 1200px">
-      <img src="assets/03.png?v=20260616" width="1200" height="609" alt="XAtom 产品介绍">
+      <div class="intro-frame">
+        <div class="intro-copy" aria-label="XAtom 产品简介文字">
+          <h3>XAtom 产品简介</h3>
+          <p>XAtom 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
+          <p>灵活的模块化结构，XAtom 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
+        </div>
+        <img class="intro-product-img" src="assets/intro/product-crop.png?v=20260623" width="408" height="405" alt="XAtom 产品三色展示">
+      </div>
     </section>
 
     <section class="title-frame" id="features-title" aria-label="产品特色标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品特色</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">六大特色功能，定义智能生活新方式</p>
+      <h2 class="editable-title">产品特色</h2>
+      <p class="editable-subtitle">六大特色功能，定义智能生活新方式</p>
     </section>
 
     <section class="asset-frame content" id="features-main" aria-label="产品特色主图" style="--asset-width: 1200px">
@@ -613,8 +1332,8 @@
     </section>
 
     <section class="title-frame" id="video-title" aria-label="视频介绍标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">视频介绍</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">视频将为 XAtom 硬件产品带来详细介绍</p>
+      <h2 class="editable-title">视频介绍</h2>
+      <p class="editable-subtitle">视频将为 XAtom 硬件产品带来详细介绍</p>
     </section>
 
     <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
@@ -631,8 +1350,8 @@
     </section>
 
     <section class="title-frame" id="size-title" aria-label="产品尺寸结构标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品尺寸结构</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">迷你尺寸，可以随心带走</p>
+      <h2 class="editable-title">产品尺寸结构</h2>
+      <p class="editable-subtitle">迷你尺寸，可以随心带走</p>
     </section>
 
     <section class="asset-frame content" id="size-main" aria-label="产品尺寸结构主图" style="--asset-width: 1224px">
@@ -640,7 +1359,49 @@
     </section>
 
     <section class="asset-frame content" id="size-detail" aria-label="产品尺寸结构细节" style="--asset-width: 1200px">
-      <img src="assets/08.png?v=20260616" width="1200" height="346" alt="XAtom 产品尺寸结构细节">
+      <div class="size-detail-frame">
+        <div class="size-detail-inner">
+          <div class="size-structure" aria-label="结构说明">
+            <h3 class="size-detail-title">结构说明</h3>
+            <div class="size-structure-body">
+              <div class="size-chip-card" aria-label="机芯正面结构示意">
+                <img class="size-chip-img" src="assets/size-detail/yellow-chip.png?v=20260623" alt="XAtom 方形机芯正面">
+                <span class="size-chip-marker size-chip-marker-one">1</span>
+                <span class="size-chip-marker size-chip-marker-two">2</span>
+                <span class="size-chip-marker size-chip-marker-three">3</span>
+                <span class="size-chip-marker size-chip-marker-four">4</span>
+                <span class="size-chip-marker size-chip-marker-five">5</span>
+              </div>
+              <div class="size-legend" aria-label="结构说明文字">
+                <div class="size-legend-row"><span class="size-legend-dot">1</span><span>电源开关</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">2</span><span>type-c充电口</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">3</span><span>音量孔</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">4</span><span>状态指示灯</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">5</span><span>麦克风</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="size-views" aria-label="三视图">
+            <h3 class="size-detail-title">三视图</h3>
+            <div class="size-views-body">
+              <div class="size-dimension" aria-label="尺寸 2.9 cm">
+                <span class="size-dimension-label">2.9 cm</span>
+              </div>
+              <div class="size-view-strip">
+                <div class="size-view-crop size-view-front">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 正视图">
+                </div>
+                <div class="size-view-crop size-view-side">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 侧视图">
+                </div>
+                <div class="size-view-crop size-view-back">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 背视图">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="asset-frame content" id="size-cable" aria-label="Type-C 充电线尺寸" style="--asset-width: 1224px">
@@ -648,8 +1409,8 @@
     </section>
 
     <section class="title-frame" id="scenes-title" aria-label="多场景玩法标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">多场景玩法</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">多种场景覆盖，让智能无处不在</p>
+      <h2 class="editable-title">多场景玩法</h2>
+      <p class="editable-subtitle">多种场景覆盖，让智能无处不在</p>
     </section>
 
     <section class="asset-frame content" id="scenes-showcase" aria-label="多场景玩法展示图" style="--asset-width: 1241px">
@@ -674,41 +1435,172 @@
 
     <section class="asset-frame content" id="scenes" aria-label="多场景玩法内容" style="--asset-width: 1200px">
       <div class="scene-card-grid">
-        <img class="scene-card-base" src="assets/10.png?v=20260616" width="1200" height="810" alt="XAtom 多场景玩法卡片">
-        <article class="scene-card" aria-label="安全卫士"></article>
-        <article class="scene-card" aria-label="课程私教"></article>
-        <article class="scene-card" aria-label="智能导游"></article>
-        <article class="scene-card" aria-label="旅游搭子"></article>
-        <article class="scene-card" aria-label="健身陪练"></article>
-        <article class="scene-card" aria-label="出行助理"></article>
+        <article class="scene-card" aria-label="安全卫士" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/安全卫士.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>安全卫士</h3>
+          <p>无论是独居老人、儿童出行还是夜间活动，XAtom 都能成为身边可靠的安全卫士。</p>
+          <p>通过激光雷达感知周围环境与人物，当检测到异常情况、紧急求助或潜在风险时，可第一时间发出提醒，并协助用户联系家人、朋友或相关服务机构。</p>
+        </article>
+        <article class="scene-card" aria-label="课程私教" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/课程私教.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>课程私教</h3>
+          <p>XAtom 是贴身的智能学习伙伴，让学习过程更加高效、有趣且富有针对性。</p>
+          <p>不论是语言学习、考试备考、兴趣培养，它都能通过自然语言交互进行实时辅导，能够根据用户需求提供知识讲解、课程答疑和学习规划服务。</p>
+        </article>
+        <article class="scene-card" aria-label="智能导游" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/智能导游.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>智能导游</h3>
+          <p>走进陌生城市或文化景区时，XAtom 化身专属导游，带你真正理解和感受当地的文化魅力。</p>
+          <p>它能够实时讲解景点历史、人文故事和特色文化，结合用户当前位置提供个性化内容推荐，让每一次参观都不只是“看见”。</p>
+        </article>
+        <article class="scene-card" aria-label="旅游搭子" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/旅游搭子 .png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>旅游搭子</h3>
+          <p>XAtom 是旅途中的贴心伙伴，无论是独自旅行还是结伴出游，都能让旅程更加充满乐趣。</p>
+          <p>它可以陪伴用户聊天解闷、推荐附近美食与景点、规划游玩路线，遇到危险时主动报警，还能根据实时情况调整行程安排。</p>
+        </article>
+        <article class="scene-card" aria-label="健身陪练" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/健身陪练.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>健身陪练</h3>
+          <p>XAtom 是随时在线的健身搭档，从户外运动到居家健身，帮助用户持续保持运动动力。</p>
+          <p>它能够根据用户的运动目标制定训练计划，通过语音指导动作节奏、记录训练数据，并在运动过程中给予鼓励和反馈。</p>
+        </article>
+        <article class="scene-card" aria-label="出行助理" tabindex="0">
+          <img class="scene-card-icon" src="assets/card icon/出行助理.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
+          <h3>出行助理</h3>
+          <p>XAtom 全程协助用户高效出行，无论是日常通勤还是跨城旅行，让出行更加从容便捷。</p>
+          <p>它可以帮助查询路线、预订服务、规划行程、提醒时间安排，并通过语音快速获取交通、天气等实时信息。</p>
+        </article>
       </div>
     </section>
 
     <section class="title-frame" id="steps-title" aria-label="使用步骤标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">使用步骤</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">两种使用方式提供选择</p>
+      <h2 class="editable-title">使用步骤</h2>
+      <p class="editable-subtitle">两种使用方式提供选择</p>
     </section>
 
     <section class="asset-frame content" id="steps-daily" aria-label="日常物品使用步骤" style="--asset-width: 1200px">
-      <img src="assets/11.png?v=20260616" width="1200" height="406" alt="XAtom 日常物品使用步骤">
+      <div class="steps-daily-frame">
+        <div class="steps-daily-inner">
+          <div class="steps-daily-left">
+            <div class="steps-daily-cards" aria-label="日常物品安装示意">
+              <div class="step-card step-card-one">
+                <span class="step-card-badge" aria-hidden="true">1</span>
+                <img class="step-card-img front" src="assets/steps-daily/bunny-front.png?v=20260623" alt="兔子正面">
+                <img class="step-card-img back" src="assets/steps-daily/bunny-back.png?v=20260623" alt="兔子背面">
+              </div>
+              <div class="step-card step-card-two">
+                <span class="step-card-badge" aria-hidden="true">2</span>
+                <img class="step-card-img install" src="assets/steps-daily/bunny-install.png?v=20260623" alt="将机芯塞入兔子玩偶">
+              </div>
+            </div>
+            <div class="steps-daily-copy" aria-label="日常物品使用步骤文字">
+              <h3>使用步骤</h3>
+              <ol>
+                <li>
+                  <span class="step-dot" aria-hidden="true">1</span>
+                  <span>选择一个你喜欢的日常物品，需要留有足后的空间放置机芯</span>
+                </li>
+                <li>
+                  <span class="step-dot" aria-hidden="true">2</span>
+                  <span>将机芯塞入物品之中，即可开始使用</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="step-card step-card-hero">
+            <img class="step-card-img scene" src="assets/steps-daily/bunny-scene.png?v=20260623" alt="发光兔子摆件场景">
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="asset-frame content" id="steps-print" aria-label="3D 打印使用步骤" style="--asset-width: 1200px">
-      <img src="assets/12.png?v=20260616" width="1200" height="450" alt="XAtom 3D 打印使用步骤">
+      <div class="steps-print-frame">
+        <div class="steps-print-panel">
+          <div class="step-print-card step-print-hero">
+            <img class="step-print-img print-scene-img" src="assets/steps-print/desk-scene.png?v=20260623" alt="3D 打印成品场景">
+          </div>
+          <div class="step-print-right">
+            <div class="step-print-row" aria-label="3D 打印步骤图片">
+              <div class="step-print-card step-print-card-one">
+                <span class="step-print-badge" aria-hidden="true">1</span>
+                <img class="step-print-img duck-front-img" src="assets/steps-print/duck-front.png?v=20260623" alt="鸭子模型正面">
+              </div>
+              <div class="step-print-card step-print-card-two">
+                <span class="step-print-badge" aria-hidden="true">2</span>
+                <img class="step-print-img duck-pair-img" src="assets/steps-print/duck-pair.png?v=20260623" alt="鸭子模型正反面">
+              </div>
+            </div>
+            <div class="step-print-row">
+              <div class="step-print-card step-print-card-three">
+                <span class="step-print-badge" aria-hidden="true">3</span>
+                <img class="step-print-img duck-back-img" src="assets/steps-print/duck-back.png?v=20260623" alt="鸭子模型背面机芯">
+              </div>
+              <div class="steps-print-copy" aria-label="3D 打印使用步骤文字">
+                <h3>使用步骤</h3>
+                <ol>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">1</span>
+                    <span>上传图片一张你喜欢的图片</span>
+                  </li>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">2</span>
+                    <span>工厂 3D 打印生成实物模型</span>
+                  </li>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">3</span>
+                    <span>将机芯塞入预留的空间内，开始使用</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="title-frame" id="kit-title" aria-label="产品清单标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">产品清单</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">产品配套出售，无需额外购买配件</p>
+      <h2 class="editable-title">产品清单</h2>
+      <p class="editable-subtitle">产品配套出售，无需额外购买配件</p>
     </section>
 
     <section class="asset-frame content" id="kit" aria-label="产品清单内容" style="--asset-width: 1200px">
-      <img src="assets/13.png?v=20260616" width="1200" height="747" alt="XAtom 产品清单">
+      <div class="kit-frame">
+        <img src="assets/13-clean.png?v=20260623" width="1200" height="747" alt="XAtom 产品清单图片">
+        <span class="kit-marker kit-marker-one">1</span>
+        <span class="kit-marker kit-marker-two">2</span>
+        <span class="kit-marker kit-marker-three">3</span>
+        <span class="kit-marker kit-marker-four">4</span>
+        <span class="kit-marker kit-marker-five">5</span>
+        <div class="kit-legend" aria-label="产品清单文字">
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">1</span>
+            <span class="kit-legend-text">赠送机芯外壳</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">2</span>
+            <span class="kit-legend-text">方形机芯本体</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">3</span>
+            <span class="kit-legend-text">type-c充电线</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">4</span>
+            <span class="kit-legend-text">包装盒反面</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">5</span>
+            <span class="kit-legend-text">包装盒反面</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="title-frame" id="partners-title" aria-label="大模型合作者标题">
-      <h2 class="editable-title" contenteditable="true" spellcheck="false">大模型合作者</h2>
-      <p class="editable-subtitle" contenteditable="true" spellcheck="false">多种智能大模型联动，守护智能生活</p>
+      <h2 class="editable-title">大模型合作者</h2>
+      <p class="editable-subtitle">多种智能大模型联动，守护智能生活</p>
     </section>
 
     <section class="asset-frame content" id="partners" aria-label="大模型合作者内容" style="--asset-width: 1200px">
@@ -820,6 +1712,26 @@
           isAnimating = false;
           carousel.classList.remove("is-animating");
         }, 320);
+      });
+    })();
+
+    (() => {
+      const sceneCards = [...document.querySelectorAll("#scenes .scene-card")];
+      if (!sceneCards.length) return;
+
+      const activateCard = card => {
+        sceneCards.forEach(item => item.classList.toggle("is-active", item === card));
+      };
+
+      sceneCards.forEach(card => {
+        card.addEventListener("click", event => {
+          activateCard(card);
+        });
+        card.addEventListener("keydown", event => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          activateCard(card);
+        });
       });
     })();
 
