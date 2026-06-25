@@ -93,10 +93,10 @@
       top: 98px;
       display: block;
       width: 408px;
-      height: 405px;
+      height: auto;
       margin: 0;
       border-radius: 8px;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .size-detail-frame {
@@ -315,6 +315,48 @@
       white-space: nowrap;
     }
 
+    .size-cable-frame {
+      position: relative;
+      width: 1224px;
+      height: 522px;
+      margin: 0 auto;
+    }
+
+    .asset-frame.content .size-cable-base {
+      width: 1224px;
+      height: 522px;
+      margin: 0;
+    }
+
+    .size-cable-right {
+      position: absolute;
+      top: 132px;
+      left: 728px;
+      display: flex;
+      width: 514px;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .asset-frame.content .size-cable-wireframe {
+      width: 514px;
+      height: auto;
+      margin: 0;
+    }
+
+    .size-cable-caption {
+      width: max-content;
+      max-width: 560px;
+      margin: 0;
+      color: #303030;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     .hero-carousel {
       position: relative;
       width: 1440px;
@@ -337,6 +379,40 @@
       opacity: 1;
     }
 
+    .hero-pagination {
+      position: absolute;
+      left: 50%;
+      bottom: 32px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateX(-50%);
+    }
+
+    .hero-page-dot {
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .55);
+      box-shadow: 0 2px 8px rgba(70, 88, 120, .12);
+      cursor: pointer;
+      transition: width .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    .hero-page-dot.is-active {
+      width: 44px;
+      background: #7468ff;
+      box-shadow: 0 4px 12px rgba(116, 104, 255, .28);
+    }
+
+    .hero-page-dot:focus-visible {
+      outline: 2px solid rgba(116, 104, 255, .75);
+      outline-offset: 3px;
+    }
+
     .feature-switcher {
       position: relative;
       width: 1200px;
@@ -347,29 +423,62 @@
       width: 1200px;
     }
 
+    .feature-switcher::before {
+      position: absolute;
+      top: 36px;
+      left: 220px;
+      z-index: 1;
+      width: 760px;
+      height: 124px;
+      border-radius: 0;
+      background: #fff url("assets/background.png?v=20260623") top center / 1440px auto repeat-y;
+      content: "";
+    }
+
     .feature-tab-hit-area {
       position: absolute;
-      top: 72px;
-      left: 272px;
+      top: 70px;
+      left: 260px;
       z-index: 2;
-      display: grid;
-      width: 656px;
-      height: 72px;
+      display: flex;
+      width: 680px;
+      height: 54px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 8px;
       grid-template-columns: repeat(6, 1fr);
+      border: 1px solid #d7d2ff;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 8px 22px rgba(91, 70, 211, .10);
     }
 
     .feature-tab {
+      min-width: 96px;
+      height: 38px;
+      padding: 0 16px;
       border: 0;
-      color: transparent;
-      background: rgba(123, 105, 255, .001);
+      border-radius: 20px;
+      color: #303030;
+      background: transparent;
       cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 38px;
+      white-space: nowrap;
+      transition: color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .feature-tab[aria-selected="true"] {
+      color: #fff;
+      background: #7468ff;
+      box-shadow: 0 8px 18px rgba(116, 104, 255, .22);
     }
 
     .feature-tab:focus-visible {
-      border-radius: 18px;
       outline: 2px solid rgba(123, 105, 255, .8);
-      outline-offset: -6px;
-      background: rgba(123, 105, 255, .08);
+      outline-offset: 2px;
     }
 
     .logo-marquee {
@@ -1065,7 +1174,7 @@
       height: 956px;
     }
 
-    .video-main-cover {
+    .asset-frame.content .video-main-cover {
       position: absolute;
       top: 80px;
       left: 0;
@@ -1075,10 +1184,15 @@
       height: 675px;
       object-fit: cover;
       border-radius: 8px;
+      margin: 0;
     }
 
-    .video-main-cover.is-active {
+    .asset-frame.content .video-main-cover.is-active {
       display: block;
+    }
+
+    .asset-frame.content .video-main-cover[hidden] {
+      display: none !important;
     }
 
     .video-player-layer {
@@ -1289,6 +1403,12 @@
         <img class="hero-slide" src="assets/banner/banner-02.png?v=20260616" width="1440" height="783" alt="XAtom banner 2">
         <img class="hero-slide" src="assets/banner/banner-03.png?v=20260616" width="1440" height="783" alt="XAtom banner 3">
         <img class="hero-slide" src="assets/banner/banner-04.png?v=20260616" width="1440" height="783" alt="XAtom banner 4">
+        <div class="hero-pagination" aria-label="Banner 页码">
+          <button class="hero-page-dot is-active" type="button" aria-label="切换到第 1 张" aria-current="true" data-hero-page="0"></button>
+          <button class="hero-page-dot" type="button" aria-label="切换到第 2 张" data-hero-page="1"></button>
+          <button class="hero-page-dot" type="button" aria-label="切换到第 3 张" data-hero-page="2"></button>
+          <button class="hero-page-dot" type="button" aria-label="切换到第 4 张" data-hero-page="3"></button>
+        </div>
       </div>
     </section>
 
@@ -1304,7 +1424,7 @@
           <p>XAtom 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
           <p>灵活的模块化结构，XAtom 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
         </div>
-        <img class="intro-product-img" src="assets/intro/product-crop.png?v=20260623" width="408" height="405" alt="XAtom 产品三色展示">
+        <img class="intro-product-img" src="assets/intro/product.png?v=20260624" width="813" height="909" alt="XAtom 产品三色展示">
       </div>
     </section>
 
@@ -1315,14 +1435,14 @@
 
     <section class="asset-frame content" id="features-main" aria-label="产品特色主图" style="--asset-width: 1200px">
       <div class="feature-switcher" data-feature-switcher>
-        <img id="feature-image" src="assets/04.png?v=20260616" width="1200" height="720" alt="XAtom 产品特色：个性外壳">
+        <img id="feature-image" src="assets/04-html-tabs.png?v=20260624" width="1200" height="720" alt="XAtom 产品特色：个性外壳">
         <div class="feature-tab-hit-area" role="tablist" aria-label="产品特色切换">
-          <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature-name="个性外壳" data-feature-src="assets/04.png" data-feature-height="720">个性外壳</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/Property 1=感知雷达.png" data-feature-height="720">感知雷达</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/Property 1=自由创作.png" data-feature-height="720">自由创作</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D打印" data-feature-src="assets/产品特色/Property 1=3D打印.png" data-feature-height="720">3D打印</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/Property 1=语音交互.png" data-feature-height="720">语音交互</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/Property 1=大语言模型.png" data-feature-height="672">大语言模型</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature-name="个性外壳" data-feature-src="assets/04-html-tabs.png" data-feature-height="720">个性外壳</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/Property 1=感知雷达-html-tabs.png" data-feature-height="720">感知雷达</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/Property 1=自由创作-html-tabs.png" data-feature-height="720">自由创作</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D打印" data-feature-src="assets/产品特色/Property 1=3D打印-html-tabs.png" data-feature-height="720">3D打印</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/Property 1=语音交互-html-tabs.png" data-feature-height="720">语音交互</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/Property 1=大语言模型-clean.png" data-feature-height="720">大语言模型</button>
         </div>
       </div>
     </section>
@@ -1339,7 +1459,7 @@
     <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
       <div class="video-showcase" data-video-showcase>
         <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XAtom 视频介绍封面">
-        <img class="video-main-cover" data-video-main-cover alt="当前视频封面">
+        <img class="video-main-cover" data-video-main-cover alt="" hidden aria-hidden="true">
         <div class="video-player-layer" data-video-player-layer>
           <video id="main-video" src="assets/视频介绍/01.mp4?v=20260616" preload="metadata" playsinline controls></video>
         </div>
@@ -1405,7 +1525,13 @@
     </section>
 
     <section class="asset-frame content" id="size-cable" aria-label="Type-C 充电线尺寸" style="--asset-width: 1224px">
-      <img src="assets/09.png?v=20260616" width="1224" height="522" alt="XAtom Type-C 充电线尺寸">
+      <div class="size-cable-frame">
+        <img class="size-cable-base" src="assets/09-wireframe-base.png?v=20260624b" width="1224" height="522" alt="XAtom Type-C 充电线尺寸">
+        <div class="size-cable-right">
+          <img class="size-cable-wireframe" src="assets/线框图.png?v=20260624" width="676" height="272" alt="XAtom Type-C 线框尺寸图">
+          <p class="size-cable-caption">XAtom机芯长宽高约为2.9cm，约等于三个type-c 充电口宽度</p>
+        </div>
+      </div>
     </section>
 
     <section class="title-frame" id="scenes-title" aria-label="多场景玩法标题">
@@ -1620,17 +1746,36 @@
       if (!carousel) return;
 
       const slides = [...carousel.querySelectorAll(".hero-slide")];
+      const dots = [...carousel.querySelectorAll("[data-hero-page]")];
       let active = 0;
 
       slides.forEach(slide => {
         new Image().src = slide.currentSrc || slide.src;
       });
 
-      setInterval(() => {
+      const showSlide = next => {
         slides[active].classList.remove("is-active");
-        active = (active + 1) % slides.length;
+        dots[active]?.classList.remove("is-active");
+        dots[active]?.removeAttribute("aria-current");
+        active = (next + slides.length) % slides.length;
         slides[active].classList.add("is-active");
+        dots[active]?.classList.add("is-active");
+        dots[active]?.setAttribute("aria-current", "true");
+      };
+
+      let timer = setInterval(() => {
+        showSlide(active + 1);
       }, 4000);
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          clearInterval(timer);
+          showSlide(Number(dot.dataset.heroPage));
+          timer = setInterval(() => {
+            showSlide(active + 1);
+          }, 4000);
+        });
+      });
     })();
 
     (() => {
@@ -1643,7 +1788,7 @@
       const activate = tab => {
         const src = tab.dataset.featureSrc;
         const name = tab.dataset.featureName;
-        image.src = `${src}?v=20260616`;
+        image.src = `${src}?v=20260624d`;
         image.alt = `XAtom 产品特色：${name}`;
         image.height = Number(tab.dataset.featureHeight || 720);
         tabs.forEach(item => {
@@ -1653,7 +1798,7 @@
       };
 
       tabs.forEach((tab, index) => {
-        new Image().src = `${tab.dataset.featureSrc}?v=20260616`;
+        new Image().src = `${tab.dataset.featureSrc}?v=20260624d`;
         tab.tabIndex = index === 0 ? 0 : -1;
         tab.addEventListener("click", () => {
           activate(tab);
@@ -1759,12 +1904,16 @@
         const coverSrc = thumb.dataset.coverSrc;
         if (coverSrc) {
           mainCover.setAttribute("src", `${coverSrc}?v=20260616-cover2`);
+          mainCover.hidden = false;
+          mainCover.setAttribute("aria-hidden", "false");
           mainCover.classList.add("is-active");
           return;
         }
 
-        mainCover.removeAttribute("src");
         mainCover.classList.remove("is-active");
+        mainCover.hidden = true;
+        mainCover.setAttribute("aria-hidden", "true");
+        mainCover.removeAttribute("src");
       };
 
       const switchVideo = thumb => {
