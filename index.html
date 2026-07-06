@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1440">
-  <meta name="description" content="XAtom 智能硬件产品落地页">
-  <title>XAtom</title>
+  <meta name="description" content="XATOM 智能硬件产品落地页">
+  <title>XATOM</title>
   <style>
     * {
       box-sizing: border-box;
@@ -323,8 +323,11 @@
     }
 
     .asset-frame.content .size-cable-base {
-      width: 1224px;
-      height: 522px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 690px;
+      height: auto;
       margin: 0;
     }
 
@@ -377,6 +380,71 @@
 
     .hero-slide.is-active {
       opacity: 1;
+    }
+
+    .hero-copy {
+      position: absolute;
+      top: var(--copy-top);
+      left: var(--copy-left);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--copy-gap, 32px);
+      width: var(--copy-width);
+      color: var(--copy-title-color, #0c0c0c);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .45s ease;
+    }
+
+    .hero-copy.is-active {
+      opacity: 1;
+    }
+
+    .hero-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-copy .hero-logo {
+      display: block;
+      width: var(--logo-width, 230px);
+      height: 84px;
+      margin: 0;
+    }
+
+    .hero-copy.logo-light .hero-logo {
+      filter: brightness(0) invert(1);
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 var(--title-gap);
+      color: var(--copy-title-color, #0c0c0c);
+      font-family: "Chakra Petch", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--title-size);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .hero-copy .hero-kicker {
+      margin: 0;
+      color: var(--copy-accent-color, #7b69ff);
+      font-size: var(--kicker-size);
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: var(--kicker-letter-spacing, 1.2px);
+    }
+
+    .hero-copy .hero-desc {
+      margin: 0 0 0 var(--desc-offset, 0px);
+      width: var(--desc-width);
+      color: var(--copy-desc-color, #434343);
+      font-size: var(--desc-size);
+      font-weight: 400;
+      line-height: var(--desc-line-height);
     }
 
     .hero-pagination {
@@ -558,6 +626,7 @@
       backface-visibility: hidden;
     }
 
+    .scene-showcase-carousel.is-animating .scene-showcase-prev,
     .scene-showcase-carousel.is-animating .scene-showcase-next {
       pointer-events: none;
     }
@@ -627,10 +696,19 @@
       opacity: 1;
     }
 
+    .scene-showcase-card.pos-exit-right {
+      top: 133px;
+      left: 1265px;
+      z-index: 0;
+      width: 316px;
+      height: 178px;
+      opacity: 1;
+    }
+
+    .scene-showcase-prev,
     .scene-showcase-next {
       position: absolute;
       top: 180px;
-      right: 0;
       z-index: 5;
       width: 82px;
       height: 82px;
@@ -641,6 +719,15 @@
       cursor: pointer;
     }
 
+    .scene-showcase-prev {
+      left: 0;
+    }
+
+    .scene-showcase-next {
+      right: 0;
+    }
+
+    .asset-frame.content .scene-showcase-prev img,
     .asset-frame.content .scene-showcase-next img {
       display: block;
       width: 84px;
@@ -648,6 +735,12 @@
       margin: -1px 0 0 -1px;
     }
 
+    .asset-frame.content .scene-showcase-prev img {
+      transform: rotate(180deg);
+    }
+
+    .scene-showcase-prev:hover,
+    .scene-showcase-prev:focus-visible,
     .scene-showcase-next:hover,
     .scene-showcase-next:focus-visible {
       outline: none;
@@ -1092,14 +1185,15 @@
     .kit-frame {
       position: relative;
       width: 1200px;
-      height: 747px;
+      height: 724px;
       margin: 0 auto;
     }
 
     .asset-frame.content .kit-frame > img {
       width: 1200px;
-      height: 747px;
+      height: 724px;
       margin: 0;
+      object-fit: contain;
     }
 
     .kit-marker,
@@ -1112,9 +1206,9 @@
       align-items: center;
       justify-content: center;
       border-radius: 20px;
-      color: #5b46d3;
+      color: #7b69ff;
       background: rgba(91, 70, 211, .1);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       line-height: 1;
     }
@@ -1123,24 +1217,25 @@
       transform: translate(-50%, -50%);
     }
 
-    .kit-marker-one { left: 278px; top: 574px; }
-    .kit-marker-two { left: 529px; top: 293px; }
-    .kit-marker-three { left: 529px; top: 574px; }
-    .kit-marker-four { left: 837px; top: 293px; }
-    .kit-marker-five { left: 837px; top: 574px; }
+    .kit-marker-one { left: 150px; top: 659px; }
+    .kit-marker-two { left: 499px; top: 260px; }
+    .kit-marker-three { left: 500px; top: 664px; }
+    .kit-marker-four { left: 927px; top: 284px; }
+    .kit-marker-five { left: 926px; top: 649px; }
 
     .kit-legend {
       position: absolute;
       left: 84px;
-      top: 647px;
+      top: 686px;
       z-index: 2;
       display: grid;
       width: 1110px;
       grid-template-columns: 210px 210px 210px 210px 250px;
+      column-gap: 0;
       align-items: center;
       color: #303030;
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 14px;
+      line-height: normal;
     }
 
     .kit-legend-item {
@@ -1153,7 +1248,7 @@
     .kit-legend-number {
       position: static;
       flex: 0 0 24px;
-      margin-right: 18px;
+      margin-right: 20px;
     }
 
     .kit-legend-text {
@@ -1394,15 +1489,43 @@
 <body>
   <main class="landing" id="top" data-figma-section-node="496:231" data-section-width="1440">
     <section class="asset-frame full" id="nav" aria-label="顶部导航">
-      <img src="assets/01.png?v=20260616" width="1440" height="60" alt="XAtom 顶部导航">
+      <img src="assets/01.svg?v=20260703" width="1440" height="60" alt="XATOM 顶部导航">
     </section>
 
     <section class="asset-frame full" id="hero" aria-label="首页主视觉">
-      <div class="hero-carousel" data-hero-carousel aria-label="XAtom banner 自动轮播">
-        <img class="hero-slide is-active" src="assets/banner/banner-01.png?v=20260616" width="1440" height="783" alt="XAtom banner 1">
-        <img class="hero-slide" src="assets/banner/banner-02.png?v=20260616" width="1440" height="783" alt="XAtom banner 2">
-        <img class="hero-slide" src="assets/banner/banner-03.png?v=20260616" width="1440" height="783" alt="XAtom banner 3">
-        <img class="hero-slide" src="assets/banner/banner-04.png?v=20260616" width="1440" height="783" alt="XAtom banner 4">
+      <div class="hero-carousel" data-hero-carousel aria-label="XATOM banner 自动轮播">
+        <img class="hero-slide is-active" src="assets/banner/1.png?v=20260703" width="2880" height="1566" alt="XATOM banner 1">
+        <img class="hero-slide" src="assets/banner/2.png?v=20260703" width="2880" height="1566" alt="XATOM banner 2">
+        <img class="hero-slide" src="assets/banner/3.png?v=20260703" width="2880" height="1566" alt="XATOM banner 3">
+        <img class="hero-slide" src="assets/banner/4.png?v=20260703" width="2880" height="1566" alt="XATOM banner 4">
+        <div class="hero-copy is-active" aria-label="XATOM banner 1 文字" style="--copy-left:80px; --copy-top:90px; --copy-width:614px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:614px; --desc-line-height:28px;">
+          <div class="hero-heading">
+            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
+            <p class="hero-kicker">迷你·百变·智能</p>
+          </div>
+          <p class="hero-desc">一款随时以多元角色身份陪伴在你身边的语音交互智能 AI 助手</p>
+        </div>
+        <div class="hero-copy logo-light" aria-label="XATOM banner 2 文字" style="--copy-left:80px; --copy-top:517px; --copy-width:1000px; --copy-gap:32px; --copy-title-color:#fff; --copy-accent-color:#fff; --copy-desc-color:#fff; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:1000px; --desc-line-height:33.6px;">
+          <div class="hero-heading">
+            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
+            <p class="hero-kicker">多场景·自然·个性</p>
+          </div>
+          <p class="hero-desc">支持多场景智能交互，无论居家、办公、出行还是车载环境，都能轻松搭配使用，让智能陪伴融入生活的每一个角落，随时随地满足你的多元需求。</p>
+        </div>
+        <div class="hero-copy" aria-label="XATOM banner 3 文字" style="--copy-left:80px; --copy-top:266px; --copy-width:401px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:401px; --desc-line-height:28px;">
+          <div class="hero-heading">
+            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
+            <p class="hero-kicker">聪明·高效·有趣</p>
+          </div>
+          <p class="hero-desc">接通多种领先大语言模型，切换海量风格明星 IP 语音包，融合多元 AI 能力带来有趣的智能体验。</p>
+        </div>
+        <div class="hero-copy" aria-label="XATOM banner 4 文字" style="--copy-left:80px; --copy-top:111px; --copy-width:562px; --copy-gap:32px; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:562px; --desc-line-height:33.6px;">
+          <div class="hero-heading">
+            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
+            <p class="hero-kicker">自由·独特·个性</p>
+          </div>
+          <p class="hero-desc">提供多种个性化外壳与模块化组合方案，支持自由搭配、随心创作，解锁属于你的模块化智能新体验。</p>
+        </div>
         <div class="hero-pagination" aria-label="Banner 页码">
           <button class="hero-page-dot is-active" type="button" aria-label="切换到第 1 张" aria-current="true" data-hero-page="0"></button>
           <button class="hero-page-dot" type="button" aria-label="切换到第 2 张" data-hero-page="1"></button>
@@ -1419,12 +1542,12 @@
 
     <section class="asset-frame content" id="intro" aria-label="产品介绍内容" style="--asset-width: 1200px">
       <div class="intro-frame">
-        <div class="intro-copy" aria-label="XAtom 产品简介文字">
-          <h3>XAtom 产品简介</h3>
-          <p>XAtom 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
-          <p>灵活的模块化结构，XAtom 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
+        <div class="intro-copy" aria-label="XATOM 产品简介文字">
+          <h3>XATOM 产品简介</h3>
+          <p>XATOM 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
+          <p>灵活的模块化结构，XATOM 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
         </div>
-        <img class="intro-product-img" src="assets/intro/product.png?v=20260624" width="813" height="909" alt="XAtom 产品三色展示">
+        <img class="intro-product-img" src="assets/intro/product.png?v=20260703a" width="812" height="908" alt="XATOM 产品三色展示">
       </div>
     </section>
 
@@ -1435,30 +1558,30 @@
 
     <section class="asset-frame content" id="features-main" aria-label="产品特色主图" style="--asset-width: 1200px">
       <div class="feature-switcher" data-feature-switcher>
-        <img id="feature-image" src="assets/04-html-tabs.png?v=20260624" width="1200" height="720" alt="XAtom 产品特色：个性外壳">
+        <img id="feature-image" src="assets/04-html-tabs.png?v=20260624" width="1200" height="720" alt="XATOM 产品特色：个性外壳">
         <div class="feature-tab-hit-area" role="tablist" aria-label="产品特色切换">
           <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature-name="个性外壳" data-feature-src="assets/04-html-tabs.png" data-feature-height="720">个性外壳</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/Property 1=感知雷达-html-tabs.png" data-feature-height="720">感知雷达</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/Property 1=自由创作-html-tabs.png" data-feature-height="720">自由创作</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D打印" data-feature-src="assets/产品特色/Property 1=3D打印-html-tabs.png" data-feature-height="720">3D打印</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/Property 1=语音交互-html-tabs.png" data-feature-height="720">语音交互</button>
-          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/Property 1=大语言模型-clean.png" data-feature-height="720">大语言模型</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/感知雷达.png" data-feature-height="720">感知雷达</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/自主创作.png" data-feature-height="720">自由创作</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D 打印" data-feature-src="assets/产品特色/3D打印.png" data-feature-height="720">3D 打印</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/语音交互.png" data-feature-height="720">语音交互</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/大语言模型.png" data-feature-height="720">大语言模型</button>
         </div>
       </div>
     </section>
 
     <section class="asset-frame content" id="features-icons" aria-label="产品特色图标" style="--asset-width: 1200px">
-      <img src="assets/05.svg?v=20260616" width="1200" height="211" alt="XAtom 六大特色图标">
+      <img src="assets/05.svg?v=20260616" width="1200" height="211" alt="XATOM 六大特色图标">
     </section>
 
     <section class="title-frame" id="video-title" aria-label="视频介绍标题">
       <h2 class="editable-title">视频介绍</h2>
-      <p class="editable-subtitle">视频将为 XAtom 硬件产品带来详细介绍</p>
+      <p class="editable-subtitle">视频将为 XATOM 硬件产品带来详细介绍</p>
     </section>
 
     <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
       <div class="video-showcase" data-video-showcase>
-        <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XAtom 视频介绍封面">
+        <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XATOM 视频介绍封面">
         <img class="video-main-cover" data-video-main-cover alt="" hidden aria-hidden="true">
         <div class="video-player-layer" data-video-player-layer>
           <video id="main-video" src="assets/视频介绍/01.mp4?v=20260616" preload="metadata" playsinline controls></video>
@@ -1475,7 +1598,7 @@
     </section>
 
     <section class="asset-frame content" id="size-main" aria-label="产品尺寸结构主图" style="--asset-width: 1224px">
-      <img src="assets/07.png?v=20260616" width="1224" height="835" alt="XAtom 产品尺寸结构">
+      <img src="assets/07.png?v=20260703a" width="2400" height="1350" alt="XATOM 产品尺寸结构">
     </section>
 
     <section class="asset-frame content" id="size-detail" aria-label="产品尺寸结构细节" style="--asset-width: 1200px">
@@ -1485,7 +1608,7 @@
             <h3 class="size-detail-title">结构说明</h3>
             <div class="size-structure-body">
               <div class="size-chip-card" aria-label="机芯正面结构示意">
-                <img class="size-chip-img" src="assets/size-detail/yellow-chip.png?v=20260623" alt="XAtom 方形机芯正面">
+                <img class="size-chip-img" src="assets/size-detail/yellow-chip.png?v=20260623" alt="XATOM 方形机芯正面">
                 <span class="size-chip-marker size-chip-marker-one">1</span>
                 <span class="size-chip-marker size-chip-marker-two">2</span>
                 <span class="size-chip-marker size-chip-marker-three">3</span>
@@ -1509,13 +1632,13 @@
               </div>
               <div class="size-view-strip">
                 <div class="size-view-crop size-view-front">
-                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 正视图">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 正视图">
                 </div>
                 <div class="size-view-crop size-view-side">
-                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 侧视图">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 侧视图">
                 </div>
                 <div class="size-view-crop size-view-back">
-                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XAtom 背视图">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 背视图">
                 </div>
               </div>
             </div>
@@ -1526,10 +1649,10 @@
 
     <section class="asset-frame content" id="size-cable" aria-label="Type-C 充电线尺寸" style="--asset-width: 1224px">
       <div class="size-cable-frame">
-        <img class="size-cable-base" src="assets/09-wireframe-base.png?v=20260624b" width="1224" height="522" alt="XAtom Type-C 充电线尺寸">
+        <img class="size-cable-base" src="assets/09-wireframe-base.png?v=20260703a" width="1296" height="724" alt="XATOM Type-C 充电线尺寸">
         <div class="size-cable-right">
-          <img class="size-cable-wireframe" src="assets/线框图.png?v=20260624" width="676" height="272" alt="XAtom Type-C 线框尺寸图">
-          <p class="size-cable-caption">XAtom机芯长宽高约为2.9cm，约等于三个type-c 充电口宽度</p>
+          <img class="size-cable-wireframe" src="assets/线框图.png?v=20260624" width="676" height="272" alt="XATOM Type-C 线框尺寸图">
+          <p class="size-cable-caption">XATOM 机芯长宽高约为2.9cm，约等于三个 type-c 充电口宽度</p>
         </div>
       </div>
     </section>
@@ -1553,6 +1676,9 @@
         <button class="scene-showcase-play" type="button" aria-label="播放当前场景视频">
           <img class="scene-play-default" src="assets/多场景/播放按钮.svg?v=20260617" width="76" height="76" alt="">
         </button>
+        <button class="scene-showcase-prev" type="button" aria-label="切换到上一个场景视频" data-scene-showcase-prev>
+          <img src="assets/多场景/切换按钮.svg?v=20260617" width="84" height="84" alt="">
+        </button>
         <button class="scene-showcase-next" type="button" aria-label="切换到下一个场景视频" data-scene-showcase-next>
           <img src="assets/多场景/切换按钮.svg?v=20260617" width="84" height="84" alt="">
         </button>
@@ -1564,37 +1690,37 @@
         <article class="scene-card" aria-label="安全卫士" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/安全卫士.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>安全卫士</h3>
-          <p>无论是独居老人、儿童出行还是夜间活动，XAtom 都能成为身边可靠的安全卫士。</p>
+          <p>无论是独居老人、儿童出行还是夜间活动，XATOM 都能成为身边可靠的安全卫士。</p>
           <p>通过激光雷达感知周围环境与人物，当检测到异常情况、紧急求助或潜在风险时，可第一时间发出提醒，并协助用户联系家人、朋友或相关服务机构。</p>
         </article>
         <article class="scene-card" aria-label="课程私教" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/课程私教.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>课程私教</h3>
-          <p>XAtom 是贴身的智能学习伙伴，让学习过程更加高效、有趣且富有针对性。</p>
+          <p>XATOM 是贴身的智能学习伙伴，让学习过程更加高效、有趣且富有针对性。</p>
           <p>不论是语言学习、考试备考、兴趣培养，它都能通过自然语言交互进行实时辅导，能够根据用户需求提供知识讲解、课程答疑和学习规划服务。</p>
         </article>
         <article class="scene-card" aria-label="智能导游" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/智能导游.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>智能导游</h3>
-          <p>走进陌生城市或文化景区时，XAtom 化身专属导游，带你真正理解和感受当地的文化魅力。</p>
+          <p>走进陌生城市或文化景区时，XATOM 化身专属导游，带你真正理解和感受当地的文化魅力。</p>
           <p>它能够实时讲解景点历史、人文故事和特色文化，结合用户当前位置提供个性化内容推荐，让每一次参观都不只是“看见”。</p>
         </article>
         <article class="scene-card" aria-label="旅游搭子" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/旅游搭子 .png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>旅游搭子</h3>
-          <p>XAtom 是旅途中的贴心伙伴，无论是独自旅行还是结伴出游，都能让旅程更加充满乐趣。</p>
+          <p>XATOM 是旅途中的贴心伙伴，无论是独自旅行还是结伴出游，都能让旅程更加充满乐趣。</p>
           <p>它可以陪伴用户聊天解闷、推荐附近美食与景点、规划游玩路线，遇到危险时主动报警，还能根据实时情况调整行程安排。</p>
         </article>
         <article class="scene-card" aria-label="健身陪练" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/健身陪练.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>健身陪练</h3>
-          <p>XAtom 是随时在线的健身搭档，从户外运动到居家健身，帮助用户持续保持运动动力。</p>
+          <p>XATOM 是随时在线的健身搭档，从户外运动到居家健身，帮助用户持续保持运动动力。</p>
           <p>它能够根据用户的运动目标制定训练计划，通过语音指导动作节奏、记录训练数据，并在运动过程中给予鼓励和反馈。</p>
         </article>
         <article class="scene-card" aria-label="出行助理" tabindex="0">
           <img class="scene-card-icon" src="assets/card icon/出行助理.png?v=20260622" width="88" height="88" alt="" aria-hidden="true">
           <h3>出行助理</h3>
-          <p>XAtom 全程协助用户高效出行，无论是日常通勤还是跨城旅行，让出行更加从容便捷。</p>
+          <p>XATOM 全程协助用户高效出行，无论是日常通勤还是跨城旅行，让出行更加从容便捷。</p>
           <p>它可以帮助查询路线、预订服务、规划行程、提醒时间安排，并通过语音快速获取交通、天气等实时信息。</p>
         </article>
       </div>
@@ -1693,7 +1819,7 @@
 
     <section class="asset-frame content" id="kit" aria-label="产品清单内容" style="--asset-width: 1200px">
       <div class="kit-frame">
-        <img src="assets/13-clean.png?v=20260623" width="1200" height="747" alt="XAtom 产品清单图片">
+        <img src="assets/13-clean.png?v=20260703a" width="1738" height="1048" alt="XATOM 产品清单图片">
         <span class="kit-marker kit-marker-one">1</span>
         <span class="kit-marker kit-marker-two">2</span>
         <span class="kit-marker kit-marker-three">3</span>
@@ -1732,7 +1858,7 @@
     <section class="asset-frame content" id="partners" aria-label="大模型合作者内容" style="--asset-width: 1200px">
       <div class="logo-marquee" aria-label="大模型合作者自动滚动">
         <div class="logo-marquee-track">
-          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="XAtom 大模型合作者">
+          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="XATOM 大模型合作者">
           <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="" aria-hidden="true">
         </div>
       </div>
@@ -1746,6 +1872,7 @@
       if (!carousel) return;
 
       const slides = [...carousel.querySelectorAll(".hero-slide")];
+      const copies = [...carousel.querySelectorAll(".hero-copy")];
       const dots = [...carousel.querySelectorAll("[data-hero-page]")];
       let active = 0;
 
@@ -1755,10 +1882,12 @@
 
       const showSlide = next => {
         slides[active].classList.remove("is-active");
+        copies[active]?.classList.remove("is-active");
         dots[active]?.classList.remove("is-active");
         dots[active]?.removeAttribute("aria-current");
         active = (next + slides.length) % slides.length;
         slides[active].classList.add("is-active");
+        copies[active]?.classList.add("is-active");
         dots[active]?.classList.add("is-active");
         dots[active]?.setAttribute("aria-current", "true");
       };
@@ -1789,7 +1918,7 @@
         const src = tab.dataset.featureSrc;
         const name = tab.dataset.featureName;
         image.src = `${src}?v=20260624d`;
-        image.alt = `XAtom 产品特色：${name}`;
+        image.alt = `XATOM 产品特色：${name}`;
         image.height = Number(tab.dataset.featureHeight || 720);
         tabs.forEach(item => {
           item.setAttribute("aria-selected", String(item === tab));
@@ -1819,8 +1948,9 @@
       if (!carousel) return;
 
       const cards = [...carousel.querySelectorAll("[data-card]")];
+      const prevButton = carousel.querySelector("[data-scene-showcase-prev]");
       const nextButton = carousel.querySelector("[data-scene-showcase-next]");
-      const positions = ["pos-left", "pos-center", "pos-right", "pos-exit-left"];
+      const positions = ["pos-left", "pos-center", "pos-right", "pos-exit-left", "pos-exit-right"];
       let order = [0, 1, 2];
       let isAnimating = false;
 
@@ -1838,7 +1968,15 @@
         }
       };
 
-      nextButton.addEventListener("click", () => {
+      const finishAnimation = nextOrder => {
+        window.setTimeout(() => {
+          order = nextOrder;
+          isAnimating = false;
+          carousel.classList.remove("is-animating");
+        }, 320);
+      };
+
+      nextButton?.addEventListener("click", () => {
         if (isAnimating) return;
         isAnimating = true;
         carousel.classList.add("is-animating");
@@ -1853,10 +1991,27 @@
 
         window.setTimeout(() => {
           moveTo(leftCard, "pos-right", true);
-          order = [order[1], order[2], order[0]];
-          isAnimating = false;
-          carousel.classList.remove("is-animating");
         }, 320);
+        finishAnimation([order[1], order[2], order[0]]);
+      });
+
+      prevButton?.addEventListener("click", () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        carousel.classList.add("is-animating");
+
+        const leftCard = cards[order[0]];
+        const centerCard = cards[order[1]];
+        const rightCard = cards[order[2]];
+
+        moveTo(rightCard, "pos-exit-right");
+        moveTo(centerCard, "pos-right");
+        moveTo(leftCard, "pos-center");
+
+        window.setTimeout(() => {
+          moveTo(rightCard, "pos-left", true);
+        }, 320);
+        finishAnimation([order[2], order[0], order[1]]);
       });
     })();
 
