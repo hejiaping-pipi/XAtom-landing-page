@@ -2,22 +2,23 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1440">
-  <meta name="description" content="XATOM 智能硬件产品落地页">
-  <title>XATOM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XATOM 产品详情页">
+  <title>XATOM 产品详情</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
     html {
+      --page-scale: 1;
       scroll-behavior: smooth;
       background: #f4f6fb;
     }
 
     body {
       margin: 0;
-      min-width: 1440px;
+      min-width: 0;
       color: #222;
       font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
     }
@@ -25,6 +26,7 @@
     .landing {
       width: 1440px;
       margin: 0 auto;
+      zoom: var(--page-scale);
       overflow: hidden;
       background: #fff url("assets/background.png?v=20260623") top center / 1440px auto repeat-y;
       box-shadow: 0 18px 50px rgba(50, 60, 90, .08);
@@ -581,7 +583,7 @@
       padding: 80px;
       border-radius: 12px;
       background: transparent;
-      box-shadow: none;
+      box-shadow: 0 2px 6px rgba(121, 121, 121, .12);
     }
 
     .about-row {
@@ -623,10 +625,6 @@
       overflow: hidden;
       border-radius: 8px;
       background: #fff;
-    }
-
-    .about-row.reverse .about-image {
-      background: transparent;
     }
 
     .asset-frame.content .about-image img {
@@ -725,10 +723,6 @@
       padding: 14px;
       object-fit: contain;
       background: #fff;
-      width: 140px;
-      height: 130px;
-      object-fit: contain;
-      background: #fff;
     }
 
     #partners,
@@ -746,10 +740,10 @@
 
     .scene-showcase-carousel {
       position: relative;
-      width: 1200px;
-      height: 443.69px;
+      width: 1241px;
+      height: 444px;
       margin: 0 auto;
-      overflow: visible;
+      overflow: hidden;
       background: transparent;
     }
 
@@ -757,7 +751,7 @@
       position: absolute;
       contain: paint;
       overflow: hidden;
-      border-radius: 11.3974px;
+      border-radius: 8px;
       pointer-events: none;
       transition:
         left .32s cubic-bezier(.22, 1, .36, 1),
@@ -769,20 +763,11 @@
       backface-visibility: hidden;
     }
 
-    .scene-showcase-card::after {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: rgba(0, 0, 0, .7);
-      content: "";
-      pointer-events: none;
-    }
-
     .asset-frame.content .scene-showcase-card img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       transform: translateZ(0);
       backface-visibility: hidden;
     }
@@ -794,11 +779,11 @@
 
     .scene-showcase-play {
       position: absolute;
-      top: 173.15px;
-      left: 549.21px;
+      top: 184px;
+      left: 560px;
       z-index: 5;
-      width: 98.33px;
-      height: 98.33px;
+      width: 76px;
+      height: 76px;
       padding: 0;
       border: 0;
       border-radius: 50%;
@@ -808,8 +793,8 @@
 
     .asset-frame.content .scene-showcase-play img {
       display: block;
-      width: 98.33px;
-      height: 98.33px;
+      width: 76px;
+      height: 76px;
     }
 
     .scene-showcase-play:focus-visible {
@@ -822,64 +807,57 @@
     }
 
     .scene-showcase-card.pos-left {
-      top: 137.47px;
-      left: 66.5px;
+      top: 133px;
+      left: 0;
       z-index: 1;
-      width: 300px;
-      height: 168.75px;
+      width: 316px;
+      height: 178px;
       opacity: 1;
     }
 
     .scene-showcase-card.pos-center {
-      top: 38.4px;
-      left: 273.88px;
+      top: 80px;
+      left: 346px;
       z-index: 2;
-      width: 652.25px;
-      height: 366.89px;
+      width: 505px;
+      height: 284px;
       opacity: 1;
-      border-radius: 15.5191px;
-      filter: drop-shadow(0 20px 20px rgba(0, 0, 0, .07));
-    }
-
-    .scene-showcase-card.pos-center::after {
-      display: none;
     }
 
     .scene-showcase-card.pos-right {
-      top: 137.47px;
-      left: 834px;
+      top: 133px;
+      left: 882px;
       z-index: 1;
-      width: 300px;
-      height: 168.75px;
+      width: 316px;
+      height: 178px;
       opacity: 1;
-      border-radius: 11.3204px;
     }
 
     .scene-showcase-card.pos-exit-left {
-      top: 137.47px;
-      left: -257px;
+      top: 133px;
+      left: -340px;
       z-index: 0;
-      width: 300px;
-      height: 168.75px;
+      width: 316px;
+      height: 178px;
       opacity: 1;
     }
 
     .scene-showcase-card.pos-exit-right {
-      top: 137.47px;
-      left: 1157px;
+      top: 133px;
+      left: 1265px;
       z-index: 0;
-      width: 300px;
-      height: 168.75px;
+      width: 316px;
+      height: 178px;
       opacity: 1;
     }
 
     .scene-showcase-prev,
     .scene-showcase-next {
       position: absolute;
-      top: 187.05px;
+      top: 180px;
       z-index: 5;
-      width: 44px;
-      height: 44px;
+      width: 82px;
+      height: 82px;
       border: 0;
       border-radius: 50%;
       color: transparent;
@@ -887,13 +865,12 @@
       cursor: pointer;
     }
 
-.scene-showcase-prev {
-  left: 6px;
-  top: 201.05px;
-}
+    .scene-showcase-prev {
+      left: 0;
+    }
 
     .scene-showcase-next {
-      right: 6px;
+      right: 0;
     }
 
     .asset-frame.content .scene-showcase-prev img,
@@ -901,7 +878,11 @@
       display: block;
       width: 84px;
       height: 84px;
-      margin: -20px;
+      margin: -1px 0 0 -1px;
+    }
+
+    .asset-frame.content .scene-showcase-prev img {
+      transform: rotate(180deg);
     }
 
     .scene-showcase-prev:hover,
@@ -933,7 +914,7 @@
       border-radius: 12px;
       border: 1px solid #e4e4e4;
       background: #fff;
-      box-shadow: 0 18px 30px 0 rgba(123, 105, 255, 0.06);
+      box-shadow: none;
       cursor: pointer;
       transition: border-color .22s ease, box-shadow .22s ease;
     }
@@ -954,7 +935,7 @@
     .scene-card.is-active {
       z-index: 2;
       border-color: #e4e4e4;
-      box-shadow: 0 18px 30px 0 rgba(123, 105, 255, 0.06);
+      box-shadow: none;
     }
 
     .scene-card h3 {
@@ -998,18 +979,17 @@
 
     .steps-daily-frame {
       position: relative;
-      width: 1137px;
+      width: 1200px;
       height: 366px;
       margin: 0 auto;
-      padding: 40px;
-      border-radius: 8px;
-      background: #fff;
+      padding: 40px 40px 0;
+      background: transparent;
     }
 
     .steps-daily-inner {
       display: flex;
-      width: 1057px;
-      gap: 32px;
+      width: 1120px;
+      gap: 40px;
       align-items: center;
       justify-content: center;
     }
@@ -1090,39 +1070,42 @@
     }
 
     .asset-frame.content .steps-daily-frame .step-card-img.front {
-      left: -69.25px;
-      top: .38px;
-      width: 284.9px;
-      height: 160.3px;
+      /* The exported PNG includes transparent canvas around the rabbit. */
+      left: -84px;
+      top: 0;
+      width: 324px;
+      height: 163px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-daily-frame .step-card-img.back {
-      left: 53.78px;
-      top: 5.73px;
-      width: 282.2px;
-      height: 158.803px;
+      left: 40px;
+      top: 0;
+      width: 310px;
+      height: 159px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-daily-frame .step-card-img.install {
-      left: -1px;
-      top: 6px;
-      width: 262.96px;
-      height: 147.988px;
+      left: 0;
+      top: 4px;
+      width: 274px;
+      height: 156px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-daily-frame .step-card-img.scene {
-      left: -61.43px;
-      top: -23.4px;
-      width: 622.7px;
-      height: 350.9px;
+      left: -0.5px;
+      top: 0.1px;
+      width: 547px;
+      height: 286px;
       object-fit: fill;
     }
 
     .steps-daily-copy {
       display: flex;
+      width: 404px;
+      height: 88px;
       flex-direction: column;
       gap: 12px;
       padding: 0 8px;
@@ -1131,7 +1114,7 @@
     }
 
     .steps-daily-copy h3 {
-      width: fit-content;
+      width: 388px;
       margin: 0;
       color: #303030;
       font-size: 16px;
@@ -1141,6 +1124,7 @@
     }
 
     .steps-daily-copy ol {
+      width: 388px;
       display: grid;
       gap: 12px;
       margin: 0;
@@ -1175,61 +1159,79 @@
     .steps-print-frame {
       position: relative;
       width: 1200px;
-      height: 450px;
-      padding: 0 40px 40px;
+      height: 400px;
+      padding: 20px 40px 40px;
       margin: 0 auto;
     }
 
     .steps-print-panel {
       display: flex;
       width: 1120px;
-      height: 410px;
+      height: 340px;
       align-items: center;
       justify-content: center;
-      gap: 32px;
-      padding: 40px;
-      border-radius: 8px;
-      background: rgba(242, 240, 255, .4);
+      gap: 40px;
+      padding: 0;
+      background: transparent;
     }
 
     .step-print-card {
       position: relative;
       flex: 0 0 auto;
       overflow: hidden;
+      border: 1px solid #d7d2ff;
       border-radius: 8px;
       background: #fff;
     }
 
     .step-print-hero {
+      order: 1;
       width: 547px;
-      height: 330px;
+      height: 340px;
     }
 
     .step-print-right {
       display: flex;
-      flex: 0 0 453px;
-      height: 330px;
+      order: 0;
+      flex: 0 0 478px;
+      height: 340px;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 20px;
     }
 
     .step-print-row {
       display: flex;
-      width: 453px;
+      width: 478px;
       gap: 20px;
       align-items: center;
     }
 
+    .step-print-row:first-child {
+      height: 160.97px;
+    }
+
+    .step-print-row:last-child {
+      width: 476px;
+      height: 160px;
+    }
+
     .step-print-card-one,
     .step-print-card-three {
-      width: 152.852px;
-      height: 152.852px;
+      width: 160px;
+      height: 160px;
+    }
+
+    .step-print-card-one {
+      border-width: 1.05308px;
+      border-radius: 8.42467px;
     }
 
     .step-print-card-two {
-      width: 280.578px;
-      height: 152.852px;
+      width: 295.472px;
+      height: 160.966px;
+      border-width: 1.05308px;
+      border-radius: 8.42467px;
     }
 
     .step-print-badge {
@@ -1249,6 +1251,16 @@
       line-height: 15.042px;
     }
 
+    .step-print-card-one .step-print-badge,
+    .step-print-card-two .step-print-badge {
+      top: 7.84px;
+      left: 7.84px;
+      width: 16.85px;
+      height: 16.85px;
+      font-size: 11.3145px;
+      line-height: 16px;
+    }
+
     .step-print-img {
       position: absolute;
       display: block;
@@ -1264,41 +1276,43 @@
     }
 
     .asset-frame.content .steps-print-frame .print-scene-img {
-      left: -120.3px;
-      top: -39.7px;
-      width: 763.9px;
-      height: 430px;
+      left: -25px;
+      top: -6.4px;
+      width: 572px;
+      height: 351.42px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-print-frame .duck-front-img {
-      left: 14.85px;
-      top: -.27px;
-      width: 123.15px;
-      height: 153.882px;
+      left: 2px;
+      top: -1px;
+      width: 157px;
+      height: 161px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-print-frame .duck-pair-img {
-      left: 31.41px;
-      top: 11.52px;
-      width: 251.84px;
-      height: 167.93px;
+      left: 3px;
+      top: -5px;
+      width: 272px;
+      height: 181px;
       object-fit: fill;
     }
 
     .asset-frame.content .steps-print-frame .duck-back-img {
       left: 18.84px;
-      top: .02px;
+      top: -9.42px;
       width: 139.242px;
-      height: 159.2px;
+      height: 171.9px;
       object-fit: fill;
     }
 
     .steps-print-copy {
       display: flex;
       width: 260px;
+      height: 120px;
       flex-direction: column;
+      align-items: flex-start;
       gap: 12px;
       padding: 0;
       color: #303030;
@@ -1306,7 +1320,7 @@
     }
 
     .steps-print-copy h3 {
-      width: fit-content;
+      width: 260px;
       margin: 0;
       color: #303030;
       font-size: 16px;
@@ -1348,77 +1362,94 @@
     }
 
     .kit-frame {
-      position: relative;
+      display: flex;
       width: 1200px;
-      height: 724px;
+      height: 746px;
+      box-sizing: border-box;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 40px;
+      gap: 40px;
       margin: 0 auto;
     }
 
-    .asset-frame.content .kit-frame > img {
-      width: 1200px;
-      height: 724px;
+    .kit-gallery {
+      display: flex;
+      width: 830px;
+      height: 493px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .kit-column {
+      display: flex;
+      height: 493px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .kit-column-keychain { width: 155px; }
+    .kit-column-core { width: 176px; }
+    .kit-column-packaging { width: 285px; }
+
+    .kit-product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .asset-frame.content .kit-product img {
+      display: block;
+      max-width: none;
       margin: 0;
       object-fit: contain;
     }
 
-    .kit-marker,
+    .asset-frame.content .kit-keychain img { width: 177px; height: 447px; }
+    .asset-frame.content .kit-core img { width: 170px; height: 166px; }
+    .asset-frame.content .kit-cable img { width: 67px; height: 203px; }
+    .asset-frame.content .kit-packaging img { width: 285px; height: 161px; }
+
+    .kit-number,
     .kit-legend-number {
-      position: absolute;
-      z-index: 2;
-      display: flex;
+      display: inline-flex;
       width: 24px;
       height: 24px;
       align-items: center;
       justify-content: center;
-      border-radius: 20px;
+      border-radius: 50%;
       color: #7b69ff;
       background: rgba(91, 70, 211, .1);
       font-size: 12px;
-      font-weight: 500;
-      line-height: 1;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 1.2px;
     }
-
-    .kit-marker {
-      transform: translate(-50%, -50%);
-    }
-
-    .kit-marker-one { left: 150px; top: 659px; }
-    .kit-marker-two { left: 499px; top: 260px; }
-    .kit-marker-three { left: 500px; top: 664px; }
-    .kit-marker-four { left: 927px; top: 284px; }
-    .kit-marker-five { left: 926px; top: 649px; }
 
     .kit-legend {
-      position: absolute;
-      left: 84px;
-      top: 686px;
-      z-index: 2;
       display: grid;
       width: 1110px;
-      grid-template-columns: 210px 210px 210px 210px 250px;
-      column-gap: 0;
+      grid-template-columns: repeat(5, 1fr);
       align-items: center;
-      color: #303030;
+      color: #0c0c0c;
       font-size: 14px;
-      line-height: normal;
+      font-weight: 400;
+      line-height: 20px;
     }
 
     .kit-legend-item {
       display: flex;
       align-items: center;
+      justify-content: center;
       min-width: 0;
+      gap: 20px;
       outline: 0;
     }
 
-    .kit-legend-number {
-      position: static;
-      flex: 0 0 24px;
-      margin-right: 20px;
-    }
-
-    .kit-legend-text {
-      white-space: nowrap;
-    }
+    .kit-legend-text { white-space: nowrap; }
 
     .video-showcase {
       position: relative;
@@ -1646,8 +1677,60 @@
       overflow: hidden;
     }
 
+    .detail-hero {
+      position: relative;
+      width: 1440px;
+      height: 783px;
+      overflow: hidden;
+      background: #f8f8f8;
+    }
+
+    .detail-hero-bg {
+      position: absolute;
+      left: -40px;
+      top: -14px;
+      display: block;
+      width: 1480px;
+      height: 833px;
+      max-width: none;
+      object-fit: cover;
+    }
+
+    .detail-hero-copy {
+      position: absolute;
+      left: 442px;
+      top: 329px;
+      display: flex;
+      width: 555px;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .detail-hero-copy h1 {
+      margin: 0;
+      color: #7b69ff;
+      font-size: 56px;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .detail-hero-copy p {
+      margin: 0;
+      color: #303030;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: normal;
+    }
+
     .nav-shell {
       position: relative;
+      width: 1440px;
+      height: 60px;
+    }
+
+    .nav-shell > img {
       width: 1440px;
       height: 60px;
     }
@@ -1671,163 +1754,287 @@
       width: 68px;
     }
 
+
+    .feature-switcher::before {
+      display: none;
+    }
+
+    .feature-tab-hit-area {
+      box-shadow: 0 4px 12px 0 rgba(123, 105, 255, .06);
+    }
+
+    .feature-tab {
+      font-weight: 400;
+      text-shadow: none;
+    }
+
+    .feature-tab[aria-selected="true"] {
+      text-shadow: none;
+    }
+
+    .scene-card {
+      border: 1px solid #e4e4e4;
+      box-shadow: none;
+    }
+
+    .scene-card:hover,
+    .scene-card.is-active {
+      border-color: #e4e4e4;
+      box-shadow: none;
+    }
+
   </style>
 </head>
 <body>
-  <main class="landing" id="top" data-figma-section-node="496:231" data-section-width="1440">
+  <main class="landing" id="top" data-figma-section-node="1326:12352" data-section-width="1440">
+
     <section class="asset-frame full" id="nav" aria-label="顶部导航">
       <div class="nav-shell">
-        <img src="assets/navigation.svg?v=20260730" width="1440" height="60" alt="XATOM 顶部导航">
-        <a class="nav-hotspot nav-hotspot-home" href="index.html" aria-label="首页" aria-current="page">首页</a>
-        <a class="nav-hotspot nav-hotspot-product" href="product.html" aria-label="产品详情">产品详情</a>
+        <img src="assets/navigation-product.svg?v=20260730" width="1440" height="60" alt="XATOM 顶部导航">
+        <a class="nav-hotspot nav-hotspot-home" href="index.html" aria-label="首页">首页</a>
+        <a class="nav-hotspot nav-hotspot-product" href="product.html" aria-label="产品详情" aria-current="page">产品详情</a>
       </div>
     </section>
 
-    <section class="asset-frame full" id="hero" aria-label="首页主视觉">
-      <div class="hero-carousel" data-hero-carousel aria-label="XATOM banner 自动轮播">
-        <img class="hero-slide is-active" src="assets/banner/1.png?v=20260703" width="2880" height="1566" alt="XATOM banner 1">
-        <img class="hero-slide" src="assets/banner/2.png?v=20260703" width="2880" height="1566" alt="XATOM banner 2">
-        <img class="hero-slide" src="assets/banner/3.png?v=20260703" width="2880" height="1566" alt="XATOM banner 3">
-        <img class="hero-slide" src="assets/banner/4.png?v=20260703" width="2880" height="1566" alt="XATOM banner 4">
-        <div class="hero-copy is-active" aria-label="XATOM banner 1 文字" style="--copy-left:80px; --copy-top:90px; --copy-width:614px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:614px; --desc-line-height:28px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">迷你·百变·智能</p>
-          </div>
-          <p class="hero-desc">一款随时以多元角色身份陪伴在你身边的语音交互智能 AI 助手</p>
-        </div>
-        <div class="hero-copy logo-light" aria-label="XATOM banner 2 文字" style="--copy-left:80px; --copy-top:517px; --copy-width:1000px; --copy-gap:32px; --copy-title-color:#fff; --copy-accent-color:#fff; --copy-desc-color:#fff; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:1000px; --desc-line-height:33.6px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">多场景·自然·个性</p>
-          </div>
-          <p class="hero-desc">支持多场景智能交互，无论居家、办公、出行还是车载环境，都能轻松搭配使用，让智能陪伴融入生活的每一个角落，随时随地满足你的多元需求。</p>
-        </div>
-        <div class="hero-copy" aria-label="XATOM banner 3 文字" style="--copy-left:80px; --copy-top:266px; --copy-width:401px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:401px; --desc-line-height:28px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">聪明·高效·有趣</p>
-          </div>
-          <p class="hero-desc">接通多种领先大语言模型，切换海量风格明星 IP 语音包，融合多元 AI 能力带来有趣的智能体验。</p>
-        </div>
-        <div class="hero-copy" aria-label="XATOM banner 4 文字" style="--copy-left:80px; --copy-top:111px; --copy-width:562px; --copy-gap:32px; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:562px; --desc-line-height:33.6px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">自由·独特·个性</p>
-          </div>
-          <p class="hero-desc">提供多种个性化外壳与模块化组合方案，支持自由搭配、随心创作，解锁属于你的模块化智能新体验。</p>
-        </div>
-        <div class="hero-pagination" aria-label="Banner 页码">
-          <button class="hero-page-dot is-active" type="button" aria-label="切换到第 1 张" aria-current="true" data-hero-page="0"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 2 张" data-hero-page="1"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 3 张" data-hero-page="2"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 4 张" data-hero-page="3"></button>
+
+    <section class="detail-hero" id="detail-hero" aria-label="产品详情主视觉">
+      <img class="detail-hero-bg" src="assets/detail-hero.png?v=20260729" width="1672" height="941" alt="">
+      <div class="detail-hero-copy">
+        <h1>智慧相伴，随时 AI</h1>
+        <p>新一代智能体小巧灵活便于携带，随时唤醒 AI 能力</p>
+      </div>
+    </section>
+
+<section class="title-frame" id="features-title" aria-label="产品特色标题">
+      <h2 class="editable-title">产品特色</h2>
+      <p class="editable-subtitle">六大特色功能，定义智能生活新方式</p>
+    </section>
+
+<section class="asset-frame content" id="features-main" aria-label="产品特色主图" style="--asset-width: 1200px">
+      <div class="feature-switcher" data-feature-switcher>
+        <img id="feature-image" src="assets/产品特色/个性外壳.png?v=20260624d" width="1200" height="720" alt="XATOM 产品特色：个性外壳">
+        <div class="feature-tab-hit-area" role="tablist" aria-label="产品特色切换">
+          <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature-name="个性外壳" data-feature-src="assets/04-html-tabs.png" data-feature-height="720">个性外壳</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="感知雷达" data-feature-src="assets/产品特色/感知雷达.png" data-feature-height="720">感知雷达</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="自由创作" data-feature-src="assets/产品特色/自主创作.png" data-feature-height="720">自由创作</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="3D 打印" data-feature-src="assets/产品特色/3D打印.png" data-feature-height="720">3D 打印</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="语音交互" data-feature-src="assets/产品特色/语音交互.png" data-feature-height="720">语音交互</button>
+          <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature-name="大语言模型" data-feature-src="assets/产品特色/大语言模型.png" data-feature-height="720">大语言模型</button>
         </div>
       </div>
     </section>
 
-    <section class="title-frame" id="intro-title" aria-label="产品介绍标题">
-      <h2 class="editable-title">产品介绍</h2>
-      <p class="editable-subtitle">将智能嵌入生活，让每一件物品都拥有对话的能力</p>
+<section class="asset-frame content" id="features-icons" aria-label="产品特色图标" style="--asset-width: 1200px">
+      <img src="assets/05.svg?v=20260616" width="1200" height="211" alt="XATOM 六大特色图标">
     </section>
 
-    <section class="asset-frame content" id="intro" aria-label="产品介绍内容" style="--asset-width: 1200px">
-      <div class="intro-frame">
-        <div class="intro-copy" aria-label="XATOM 产品简介文字">
-          <h3>XATOM 产品简介</h3>
-          <p>XATOM 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
-          <p>灵活的模块化结构，XATOM 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
-        </div>
-        <img class="intro-product-img" src="assets/intro/product.png?v=20260703a" width="812" height="908" alt="XATOM 产品三色展示">
-      </div>
+<section class="title-frame" id="size-title" aria-label="产品尺寸结构标题">
+      <h2 class="editable-title">产品尺寸结构</h2>
+      <p class="editable-subtitle">迷你尺寸，可以随心带走</p>
     </section>
 
-    <section class="title-frame" id="video-title" aria-label="视频介绍标题">
-      <h2 class="editable-title">视频介绍</h2>
-      <p class="editable-subtitle">视频将为 XATOM 硬件产品带来详细介绍</p>
+<section class="asset-frame content" id="size-main" aria-label="产品尺寸结构主图" style="--asset-width: 1224px">
+      <img src="assets/07.png?v=20260703a" width="2400" height="1350" alt="XATOM 产品尺寸结构">
     </section>
 
-    <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
-      <div class="video-showcase" data-video-showcase>
-        <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XATOM 视频介绍封面">
-        <img class="video-main-cover" data-video-main-cover alt="" hidden aria-hidden="true">
-        <div class="video-player-layer" data-video-player-layer>
-          <video id="main-video" src="assets/视频介绍/01.mp4?v=20260616" preload="metadata" playsinline controls></video>
-        </div>
-        <button class="video-play-hotspot" type="button" aria-label="播放当前视频"></button>
-        <button class="video-thumb-hotspot video-thumb-one is-selected" type="button" aria-label="选择视频 1" data-video-src="assets/视频介绍/01.mp4" data-cover-src=""></button>
-        <button class="video-thumb-hotspot video-thumb-two" type="button" aria-label="选择视频 2" data-video-src="assets/视频介绍/02.mp4" data-cover-src="assets/视频介绍/产品展示.png"></button>
-      </div>
-    </section>
-
-    <section class="title-frame" id="scenes-title" aria-label="多场景玩法标题">
-      <h2 class="editable-title">多场景玩法</h2>
-      <p class="editable-subtitle">多种场景覆盖，让智能无处不在</p>
-    </section>
-
-    <section class="asset-frame content" id="scenes-showcase" aria-label="多场景玩法展示图" style="--asset-width: 1200px">
-      <div class="scene-showcase-carousel" data-scene-showcase-carousel>
-        <div class="scene-showcase-card pos-left" data-card="0" aria-hidden="true">
-          <img src="assets/多场景/1.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <div class="scene-showcase-card pos-center" data-card="1" aria-hidden="true">
-          <img src="assets/多场景/3.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <div class="scene-showcase-card pos-right" data-card="2" aria-hidden="true">
-          <img src="assets/多场景/2.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <button class="scene-showcase-play" type="button" aria-label="播放当前场景视频">
-          <img class="scene-play-default" src="assets/多场景/播放按钮.svg?v=20260617" width="76" height="76" alt="">
-        </button>
-        <button class="scene-showcase-prev" type="button" aria-label="切换到上一个场景视频" data-scene-showcase-prev>
-          <img src="assets/scene-carousel-prev.svg" width="84" height="84" alt="">
-        </button>
-        <button class="scene-showcase-next" type="button" aria-label="切换到下一个场景视频" data-scene-showcase-next>
-          <img src="assets/scene-carousel-next.svg" width="84" height="84" alt="">
-        </button>
-      </div>
-    </section>
-
-    <section class="title-frame" id="about-title" aria-label="关于我们标题">
-      <h2 class="editable-title">关于我们</h2>
-      <p class="editable-subtitle">带领 AI 走进真实的生活</p>
-    </section>
-
-    <section class="asset-frame content" id="about" aria-label="关于我们内容" style="--asset-width: 1200px">
-      <div class="about-frame">
-        <div class="about-row">
-          <div class="about-copy">
-            <h3>XATOM 品牌理念</h3>
-            <p>XATOM 坚信，AI 不应局限于屏幕和固定终端。尽管大语言模型已赋予 AI 理解、思考与对话能力，但当前交互仍依赖手机、电脑、音箱和车机。XATOM 希望打破这一边界，让 AI 真正走出屏幕、进入现实世界。</p>
-            <p>XATOM 致力于打造新一代 AI Physical Agent，让 AI 走入真实生活，成为能够感知环境、连接设备并持续陪伴用户的物理智能伙伴，实现随时响应、随处可用。</p>
+<section class="asset-frame content" id="size-detail" aria-label="产品尺寸结构细节" style="--asset-width: 1200px">
+      <div class="size-detail-frame">
+        <div class="size-detail-inner">
+          <div class="size-structure" aria-label="结构说明">
+            <h3 class="size-detail-title">结构说明</h3>
+            <div class="size-structure-body">
+              <div class="size-chip-card" aria-label="机芯正面结构示意">
+                <img class="size-chip-img" src="assets/size-detail/yellow-chip.png?v=20260623" alt="XATOM 方形机芯正面">
+                <span class="size-chip-marker size-chip-marker-one">1</span>
+                <span class="size-chip-marker size-chip-marker-two">2</span>
+                <span class="size-chip-marker size-chip-marker-three">3</span>
+                <span class="size-chip-marker size-chip-marker-four">4</span>
+                <span class="size-chip-marker size-chip-marker-five">5</span>
+              </div>
+              <div class="size-legend" aria-label="结构说明文字">
+                <div class="size-legend-row"><span class="size-legend-dot">1</span><span>电源开关</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">2</span><span>type-c充电口</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">3</span><span>音量孔</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">4</span><span>状态指示灯</span></div>
+                <div class="size-legend-row"><span class="size-legend-dot">5</span><span>麦克风</span></div>
+              </div>
+            </div>
           </div>
-          <figure class="about-image">
-            <img src="assets/brand-philosophy.png" width="526" height="296" alt="XATOM 品牌理念插图">
-          </figure>
-        </div>
-        <div class="about-row reverse">
-          <figure class="about-image">
-            <img src="assets/ai-platform.png" width="370" height="334" alt="XATOM AI 平台插图">
-          </figure>
-          <div class="about-copy">
-            <h3>面向未来的新一代 AI 智能体平台</h3>
-            <p>XATOM 是面向未来的 AI 智能体平台，融合大语言模型、多模态 AI、边缘计算、云端服务、IoT 控制与低功耗硬件，打造能够理解用户、感知环境、思考行动并持续陪伴的新一代智能终端。</p>
-            <p>不同于传统智能音箱、车机等固定设备，XATOM 希望让 AI 从被动响应指令的工具，转变为随身陪伴、主动理解并连接现实世界的智能伙伴，真正走出屏幕，融入日常生活。</p>
+          <div class="size-views" aria-label="三视图">
+            <h3 class="size-detail-title">三视图</h3>
+            <div class="size-views-body">
+              <div class="size-dimension" aria-label="尺寸 2.9 cm">
+                <span class="size-dimension-label">2.9 cm</span>
+              </div>
+              <div class="size-view-strip">
+                <div class="size-view-crop size-view-front">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 正视图">
+                </div>
+                <div class="size-view-crop size-view-side">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 侧视图">
+                </div>
+                <div class="size-view-crop size-view-back">
+                  <img class="size-view-img" src="assets/size-detail/three-views.png?v=20260623" alt="XATOM 背视图">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="title-frame" id="partners-title" aria-label="大模型合作者标题">
-      <h2 class="editable-title">大模型合作者</h2>
-      <p class="editable-subtitle">多种智能大模型联动，守护智能生活</p>
+<section class="asset-frame content" id="size-cable" aria-label="Type-C 充电线尺寸" style="--asset-width: 1224px">
+      <div class="size-cable-frame">
+        <img class="size-cable-base" src="assets/09-wireframe-base.png?v=20260703a" width="1296" height="724" alt="XATOM Type-C 充电线尺寸">
+        <div class="size-cable-right">
+          <img class="size-cable-wireframe" src="assets/线框图.png?v=20260624" width="676" height="272" alt="XATOM Type-C 线框尺寸图">
+          <p class="size-cable-caption">XATOM 机芯长宽高约为2.9cm，约等于三个 type-c 充电口宽度</p>
+        </div>
+      </div>
     </section>
 
-    <section class="asset-frame content" id="partners" aria-label="大模型合作者内容" style="--asset-width: 1200px">
-      <div class="logo-marquee" aria-label="大模型合作者自动滚动">
-        <div class="logo-marquee-track">
-          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="XATOM 大模型合作者">
-          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="" aria-hidden="true">
+<section class="title-frame" id="steps-title" aria-label="使用步骤标题">
+      <h2 class="editable-title">使用步骤</h2>
+      <p class="editable-subtitle">两种使用方式提供选择</p>
+    </section>
+
+<section class="asset-frame content" id="steps-daily" aria-label="日常物品使用步骤" style="--asset-width: 1200px">
+      <div class="steps-daily-frame">
+        <div class="steps-daily-inner">
+          <div class="steps-daily-left">
+            <div class="steps-daily-cards" aria-label="日常物品安装示意">
+              <div class="step-card step-card-one">
+                <span class="step-card-badge" aria-hidden="true">1</span>
+                <img class="step-card-img front" src="assets/steps-daily/bunny-front.png?v=20260623" alt="兔子正面">
+                <img class="step-card-img back" src="assets/steps-daily/bunny-back.png?v=20260623" alt="兔子背面">
+              </div>
+              <div class="step-card step-card-two">
+                <span class="step-card-badge" aria-hidden="true">2</span>
+                <img class="step-card-img install" src="assets/steps-daily/bunny-install.png?v=20260623" alt="将机芯塞入兔子玩偶">
+              </div>
+            </div>
+            <div class="steps-daily-copy" aria-label="日常物品使用步骤文字">
+              <h3>使用步骤</h3>
+              <ol>
+                <li>
+                  <span class="step-dot" aria-hidden="true">1</span>
+                  <span>选择一个你喜欢的日常物品，需要留有足后的空间放置机芯</span>
+                </li>
+                <li>
+                  <span class="step-dot" aria-hidden="true">2</span>
+                  <span>将机芯塞入物品之中，即可开始使用</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="step-card step-card-hero">
+            <img class="step-card-img scene" src="assets/steps-daily/bunny-scene.png?v=20260623" alt="发光兔子摆件场景">
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="asset-frame content" id="steps-print" aria-label="3D 打印使用步骤" style="--asset-width: 1200px">
+      <div class="steps-print-frame">
+        <div class="steps-print-panel">
+          <div class="step-print-card step-print-hero">
+            <img class="step-print-img print-scene-img" src="assets/steps-print/desk-scene.png?v=20260623" alt="3D 打印成品场景">
+          </div>
+          <div class="step-print-right">
+            <div class="step-print-row" aria-label="3D 打印步骤图片">
+              <div class="step-print-card step-print-card-one">
+                <span class="step-print-badge" aria-hidden="true">1</span>
+                <img class="step-print-img duck-front-img" src="assets/steps-print/duck-front.png?v=20260623" alt="鸭子模型正面">
+              </div>
+              <div class="step-print-card step-print-card-two">
+                <span class="step-print-badge" aria-hidden="true">2</span>
+                <img class="step-print-img duck-pair-img" src="assets/steps-print/duck-pair.png?v=20260623" alt="鸭子模型正反面">
+              </div>
+            </div>
+            <div class="step-print-row">
+              <div class="step-print-card step-print-card-three">
+                <span class="step-print-badge" aria-hidden="true">3</span>
+                <img class="step-print-img duck-back-img" src="assets/steps-print/duck-back.png?v=20260623" alt="鸭子模型背面机芯">
+              </div>
+              <div class="steps-print-copy" aria-label="3D 打印使用步骤文字">
+                <h3>使用步骤</h3>
+                <ol>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">1</span>
+                    <span>上传图片一张你喜欢的图片</span>
+                  </li>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">2</span>
+                    <span>工厂 3D 打印生成实物模型</span>
+                  </li>
+                  <li>
+                    <span class="step-dot" aria-hidden="true">3</span>
+                    <span>将机芯塞入预留的空间内，开始使用</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="title-frame" id="kit-title" aria-label="产品清单标题">
+      <h2 class="editable-title">产品清单</h2>
+      <p class="editable-subtitle">产品配套出售，无需额外购买配件</p>
+    </section>
+
+<section class="asset-frame content" id="kit" aria-label="产品清单内容" style="--asset-width: 1200px">
+      <div class="kit-frame">
+        <div class="kit-gallery" aria-label="产品配套图片">
+          <div class="kit-column kit-column-keychain">
+            <div class="kit-product kit-keychain">
+              <img src="assets/kit-keychain.png" width="177" height="447" alt="赠送机芯外壳">
+              <span class="kit-number">1</span>
+            </div>
+          </div>
+          <div class="kit-column kit-column-core">
+            <div class="kit-product kit-core">
+              <img src="assets/kit-core.png" width="170" height="166" alt="方形机芯本体">
+              <span class="kit-number">2</span>
+            </div>
+            <div class="kit-product kit-cable">
+              <img src="assets/kit-cable.png" width="67" height="203" alt="type-c充电线">
+              <span class="kit-number">3</span>
+            </div>
+          </div>
+          <div class="kit-column kit-column-packaging">
+            <div class="kit-product kit-packaging">
+              <img src="assets/kit-packaging-comic.png" width="285" height="161" alt="包装盒反面">
+              <span class="kit-number">4</span>
+            </div>
+            <div class="kit-product kit-packaging">
+              <img src="assets/kit-packaging-qr.png" width="285" height="161" alt="包装盒反面">
+              <span class="kit-number">5</span>
+            </div>
+          </div>
+        </div>
+        <div class="kit-legend" aria-label="产品清单文字">
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">1</span>
+            <span class="kit-legend-text">赠送机芯外壳</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">2</span>
+            <span class="kit-legend-text">方形机芯本体</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">3</span>
+            <span class="kit-legend-text">type-c充电线</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">4</span>
+            <span class="kit-legend-text">包装盒反面</span>
+          </div>
+          <div class="kit-legend-item">
+            <span class="kit-legend-number">5</span>
+            <span class="kit-legend-text">包装盒反面</span>
+          </div>
         </div>
       </div>
     </section>
@@ -2140,6 +2347,18 @@
       window.addEventListener("resize", requestParallax);
       requestParallax();
     })();
+
+    (() => {
+      const designWidth = 1440;
+      const updatePageScale = () => {
+        const scale = Math.min(1, window.innerWidth / designWidth);
+        document.documentElement.style.setProperty("--page-scale", scale.toFixed(5));
+      };
+
+      updatePageScale();
+      window.addEventListener("resize", updatePageScale, { passive: true });
+    })();
+  
   </script>
 </body>
 </html>
