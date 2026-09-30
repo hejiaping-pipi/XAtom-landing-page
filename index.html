@@ -1,2145 +1,526 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=1440">
-  <meta name="description" content="XATOM 智能硬件产品落地页">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XATOM</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background: #f4f6fb;
-    }
-
-    body {
-      margin: 0;
-      min-width: 1440px;
-      color: #222;
-      font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-
-    .landing {
-      width: 1440px;
-      margin: 0 auto;
-      overflow: hidden;
-      background: #fff url("assets/background.png?v=20260623") top center / 1440px auto repeat-y;
-      box-shadow: 0 18px 50px rgba(50, 60, 90, .08);
-    }
-
-    .asset-frame {
-      position: relative;
-      width: 100%;
-      background: transparent;
-    }
-
-    .asset-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .asset-frame.content img {
-      width: var(--asset-width);
-      margin: 0 auto;
-    }
-
-    .intro-frame {
-      position: relative;
-      width: 1200px;
-      height: 609px;
-      margin: 0 auto;
-      background: transparent;
-    }
-
-    .intro-copy {
-      position: absolute;
-      left: 139px;
-      top: 256px;
-      width: 410px;
-      color: #303030;
-      background: transparent;
-    }
-
-    .intro-copy h3 {
-      margin: 0 0 18px;
-      color: #303030;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      outline: 0;
-    }
-
-    .intro-copy p {
-      margin: 0 0 18px;
-      color: #303030;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 21px;
-      letter-spacing: 0;
-      outline: 0;
-    }
-
-    .intro-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .asset-frame.content .intro-product-img {
-      position: absolute;
-      left: 652px;
-      top: 98px;
-      display: block;
-      width: 408px;
-      height: auto;
-      margin: 0;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-
-    .size-detail-frame {
-      position: relative;
-      width: 1200px;
-      height: 346px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 12px;
-      background: transparent;
-    }
-
-    .size-detail-inner {
-      position: absolute;
-      top: 80px;
-      left: 175.33px;
-      display: flex;
-      gap: 34px;
-      align-items: flex-start;
-    }
-
-    .size-detail-title {
-      margin: 0;
-      color: #303030;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 20px;
-    }
-
-    .size-structure {
-      display: flex;
-      width: 286.34px;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .size-structure-body {
-      display: flex;
-      width: 286.34px;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .size-chip-card {
-      position: relative;
-      width: 139px;
-      height: 140px;
-      flex: 0 0 139px;
-      overflow: hidden;
-    }
-
-    .asset-frame.content .size-chip-img {
-      position: absolute;
-      top: -22.83px;
-      left: -38.5px;
-      width: 217px;
-      height: 201.81px;
-      max-width: none;
-      margin: 0;
-      object-fit: fill;
-    }
-
-    .size-chip-marker {
-      position: absolute;
-      z-index: 2;
-      display: grid;
-      width: 13.86px;
-      height: 13.86px;
-      place-items: center;
-      border-radius: 50%;
-      color: #7b69ff;
-      background: #fff;
-      font-size: 6.93px;
-      font-weight: 400;
-      line-height: 4.62px;
-      letter-spacing: .3465px;
-    }
-
-    .size-chip-marker-one { left: 103px; top: 97px; }
-    .size-chip-marker-two { left: 33px; top: 74px; }
-    .size-chip-marker-three { left: 26px; top: 32px; }
-    .size-chip-marker-four { left: 63px; top: 104px; }
-    .size-chip-marker-five { left: 19px; top: 90.29px; }
-
-    .size-legend {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding: 0 11.55px;
-    }
-
-    .size-legend-row {
-      display: flex;
-      gap: 9.24px;
-      align-items: center;
-      color: #303030;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-      white-space: nowrap;
-    }
-
-    .size-legend-dot {
-      display: grid;
-      width: 16px;
-      height: 16px;
-      flex: 0 0 16px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: #b0a5ff;
-      font-size: 12px;
-      line-height: 18px;
-    }
-
-    .size-views {
-      display: flex;
-      width: 529px;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .size-views-body {
-      position: relative;
-      width: 529px;
-      height: 150px;
-      overflow: hidden;
-    }
-
-    .size-view-strip {
-      position: absolute;
-      top: 2px;
-      left: 70px;
-      display: flex;
-      gap: 17px;
-      align-items: center;
-    }
-
-    .size-view-crop {
-      position: relative;
-      flex: 0 0 auto;
-      overflow: hidden;
-    }
-
-    .size-view-front { width: 132px; height: 133.15px; }
-    .size-view-side { width: 125px; height: 129.96px; }
-    .size-view-back { width: 147.89px; height: 132.85px; }
-
-    .asset-frame.content .size-view-img {
-      position: absolute;
-      max-width: none;
-      margin: 0;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .size-view-front .size-view-img {
-      left: -70.4px;
-      top: -12.48px;
-      width: 480.82px;
-      height: 320.49px;
-    }
-
-    .asset-frame.content .size-view-side .size-view-img {
-      left: -273.31px;
-      top: -12.67px;
-      width: 480.39px;
-      height: 320.27px;
-    }
-
-    .asset-frame.content .size-view-back .size-view-img {
-      left: -78.12px;
-      top: -184.09px;
-      width: 524.96px;
-      height: 350px;
-    }
-
-    .size-dimension {
-      position: absolute;
-      top: 4px;
-      left: 15px;
-      width: 55px;
-      height: 130px;
-      color: #7b69ff;
-    }
-
-    .size-dimension::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 31.46px;
-      width: 0;
-      height: 130px;
-      border-left: 1px dashed #b0a5ff;
-    }
-
-    .size-dimension::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 31.46px;
-      width: 38.33px;
-      height: 130px;
-      border-top: 1px solid #b0a5ff;
-      border-bottom: 1px solid #b0a5ff;
-    }
-
-    .size-dimension-label {
-      position: absolute;
-      top: 58px;
-      left: 0;
-      width: 39px;
-      color: #7b69ff;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 18px;
-      white-space: nowrap;
-    }
-
-    .size-cable-frame {
-      position: relative;
-      width: 1224px;
-      height: 522px;
-      margin: 0 auto;
-    }
-
-    .asset-frame.content .size-cable-base {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 690px;
-      height: auto;
-      margin: 0;
-    }
-
-    .size-cable-right {
-      position: absolute;
-      top: 132px;
-      left: 728px;
-      display: flex;
-      width: 514px;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .asset-frame.content .size-cable-wireframe {
-      width: 514px;
-      height: auto;
-      margin: 0;
-    }
-
-    .size-cable-caption {
-      width: max-content;
-      max-width: 560px;
-      margin: 0;
-      color: #303030;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .hero-carousel {
-      position: relative;
-      width: 1440px;
-      height: 783px;
-      overflow: hidden;
-      background: #eef5ff;
-    }
-
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      width: 1440px;
-      height: 783px;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity .7s ease;
-    }
-
-    .hero-slide.is-active {
-      opacity: 1;
-    }
-
-    .hero-copy {
-      position: absolute;
-      top: var(--copy-top);
-      left: var(--copy-left);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--copy-gap, 32px);
-      width: var(--copy-width);
-      color: var(--copy-title-color, #0c0c0c);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .45s ease;
-    }
-
-    .hero-copy.is-active {
-      opacity: 1;
-    }
-
-    .hero-heading {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-copy .hero-logo {
-      display: block;
-      width: var(--logo-width, 230px);
-      height: 84px;
-      margin: 0;
-    }
-
-    .hero-copy.logo-light .hero-logo {
-      filter: brightness(0) invert(1);
-    }
-
-    .hero-copy h1 {
-      margin: 0 0 var(--title-gap);
-      color: var(--copy-title-color, #0c0c0c);
-      font-family: "Chakra Petch", "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: var(--title-size);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-
-    .hero-copy .hero-kicker {
-      margin: 0;
-      color: var(--copy-accent-color, #7b69ff);
-      font-size: var(--kicker-size);
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: var(--kicker-letter-spacing, 1.2px);
-    }
-
-    .hero-copy .hero-desc {
-      margin: 0 0 0 var(--desc-offset, 0px);
-      width: var(--desc-width);
-      color: var(--copy-desc-color, #434343);
-      font-size: var(--desc-size);
-      font-weight: 400;
-      line-height: var(--desc-line-height);
-    }
-
-    .hero-pagination {
-      position: absolute;
-      left: 50%;
-      bottom: 32px;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transform: translateX(-50%);
-    }
-
-    .hero-page-dot {
-      width: 14px;
-      height: 14px;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, .72);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .55);
-      box-shadow: 0 2px 8px rgba(70, 88, 120, .12);
-      cursor: pointer;
-      transition: width .25s ease, background .25s ease, box-shadow .25s ease;
-    }
-
-    .hero-page-dot.is-active {
-      width: 44px;
-      background: #7468ff;
-      box-shadow: 0 4px 12px rgba(116, 104, 255, .28);
-    }
-
-    .hero-page-dot:focus-visible {
-      outline: 2px solid rgba(116, 104, 255, .75);
-      outline-offset: 3px;
-    }
-
-    .feature-switcher {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 1200px;
-      margin: 0 auto;
-    }
-
-    .feature-switcher img {
-      order: 2;
-      width: 1200px;
-      height: auto;
-      display: block;
-    }
-
-    .feature-tab-hit-area {
-      order: 1;
-      z-index: 2;
-      display: flex;
-      width: 680px;
-      height: 54px;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0 auto 32px;
-      padding: 5px 8px;
-      grid-template-columns: repeat(6, 1fr);
-      border: 1px solid #d7d2ff;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, .88);
-      box-shadow: 0 4px 12px 0 rgba(123, 105, 255, .06);
-    }
-
-    .feature-tab {
-      min-width: 96px;
-      height: 38px;
-      padding: 0 16px;
-      border: 0;
-      border-radius: 20px;
-      color: #303030;
-      background: transparent;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 38px;
-      white-space: nowrap;
-      transition: color .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-
-    .feature-tab[aria-selected="true"] {
-      color: #fff;
-      background: #7468ff;
-      box-shadow: none;
-    }
-
-    .feature-tab:focus-visible {
-      outline: 2px solid rgba(123, 105, 255, .8);
-      outline-offset: 2px;
-    }
-
-    .logo-marquee {
-      width: 1200px;
-      height: 208px;
-      margin: 0 auto;
-      overflow: hidden;
-      background: transparent;
-    }
-
-    .logo-marquee-track {
-      display: flex;
-      width: max-content;
-      height: 208px;
-      animation: logo-scroll 22s linear infinite;
-    }
-
-    .asset-frame.content .logo-marquee img {
-      flex: 0 0 1824px;
-      width: 1824px;
-      height: 208px;
-      object-fit: contain;
-    }
-
-    .logo-marquee:hover .logo-marquee-track {
-      animation-play-state: paused;
-    }
-
-    #partners-title {
-      padding-bottom: 22px;
-    }
-
-    .about-frame {
-      display: flex;
-      width: 1200px;
-      flex-direction: column;
-      gap: 80px;
-      margin: 0 auto;
-      padding: 80px;
-      border-radius: 12px;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .about-row {
-      display: flex;
-      gap: 48px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-row.reverse {
-      align-items: center;
-    }
-
-    .about-copy {
-      display: flex;
-      flex: 1 1 0;
-      flex-direction: column;
-      gap: 20px;
-      min-width: 0;
-      color: #303030;
-    }
-
-    .about-copy h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-    }
-
-    .about-copy p {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 20px;
-    }
-
-    .about-image {
-      flex: 0 0 auto;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .about-row.reverse .about-image {
-      background: transparent;
-    }
-
-    .asset-frame.content .about-image img {
-      display: block;
-      width: 526px;
-      height: 296px;
-      margin: 0;
-      object-fit: cover;
-    }
-
-    .asset-frame.content .about-row.reverse .about-image img {
-      width: 370px;
-      height: 334px;
-    }
-
-    .contact-footer {
-      width: 100%;
-      box-sizing: border-box;
-      height: 345px;
-      margin-top: 120px;
-      padding: 80px 0;
-      color: #fff;
-      background: #5b5a5a;
-    }
-
-    .contact-footer h2 {
-      width: 128px;
-      height: 45px;
-      margin: 0;
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 45px;
-    }
-
-    .contact-footer-inner {
-      display: flex;
-      box-sizing: border-box;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1440px;
-      height: 185px;
-      margin: 0 auto;
-      padding: 0 106px;
-      gap: 20px;
-    }
-
-    .contact-content {
-      display: flex;
-      width: 320px;
-      height: 145px;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-    }
-
-    .contact-list {
-      display: flex;
-      width: 320px;
-      height: 68px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 20px;
-      line-height: 28px;
-    }
-
-    .contact-list li {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .contact-dot {
-      display: block;
-      width: 28px;
-      height: 28px;
-      flex: 0 0 28px;
-    }
-
-    .contact-dot img {
-      display: block;
-      width: 28px;
-      height: 28px;
-    }
-
-    .contact-qr {
-      display: block;
-      box-sizing: border-box;
-      width: 205px;
-      height: 191.18px;
-      padding: 14px;
-      object-fit: contain;
-      background: #fff;
-      width: 140px;
-      height: 130px;
-      object-fit: contain;
-      background: #fff;
-    }
-
-    #partners,
-    #partners.scroll-animate,
-    #partners.scroll-animate.is-visible {
-      opacity: 1;
-      filter: none;
-      transform: none;
-      transition: none;
-    }
-
-    #partners .logo-marquee {
-      transform: none;
-    }
-
-    .scene-showcase-carousel {
-      position: relative;
-      width: 1200px;
-      height: 443.69px;
-      margin: 0 auto;
-      overflow: visible;
-      background: transparent;
-    }
-
-    .scene-showcase-card {
-      position: absolute;
-      contain: paint;
-      overflow: hidden;
-      border-radius: 11.3974px;
-      pointer-events: none;
-      transition:
-        left .32s cubic-bezier(.22, 1, .36, 1),
-        top .32s cubic-bezier(.22, 1, .36, 1),
-        width .32s cubic-bezier(.22, 1, .36, 1),
-        height .32s cubic-bezier(.22, 1, .36, 1);
-      will-change: left, top, width, height;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
-    .scene-showcase-card::after {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: rgba(0, 0, 0, .7);
-      content: "";
-      pointer-events: none;
-    }
-
-    .asset-frame.content .scene-showcase-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
-    .scene-showcase-carousel.is-animating .scene-showcase-prev,
-    .scene-showcase-carousel.is-animating .scene-showcase-next {
-      pointer-events: none;
-    }
-
-    .scene-showcase-play {
-      position: absolute;
-      top: 173.15px;
-      left: 549.21px;
-      z-index: 5;
-      width: 98.33px;
-      height: 98.33px;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .asset-frame.content .scene-showcase-play img {
-      display: block;
-      width: 98.33px;
-      height: 98.33px;
-    }
-
-    .scene-showcase-play:focus-visible {
-      outline: none;
-    }
-
-    .scene-showcase-card.is-resetting {
-      transition: none;
-      visibility: hidden;
-    }
-
-    .scene-showcase-card.pos-left {
-      top: 137.47px;
-      left: 66.5px;
-      z-index: 1;
-      width: 300px;
-      height: 168.75px;
-      opacity: 1;
-    }
-
-    .scene-showcase-card.pos-center {
-      top: 38.4px;
-      left: 273.88px;
-      z-index: 2;
-      width: 652.25px;
-      height: 366.89px;
-      opacity: 1;
-      border-radius: 15.5191px;
-      filter: drop-shadow(0 20px 20px rgba(0, 0, 0, .07));
-    }
-
-    .scene-showcase-card.pos-center::after {
-      display: none;
-    }
-
-    .scene-showcase-card.pos-right {
-      top: 137.47px;
-      left: 834px;
-      z-index: 1;
-      width: 300px;
-      height: 168.75px;
-      opacity: 1;
-      border-radius: 11.3204px;
-    }
-
-    .scene-showcase-card.pos-exit-left {
-      top: 137.47px;
-      left: -257px;
-      z-index: 0;
-      width: 300px;
-      height: 168.75px;
-      opacity: 1;
-    }
-
-    .scene-showcase-card.pos-exit-right {
-      top: 137.47px;
-      left: 1157px;
-      z-index: 0;
-      width: 300px;
-      height: 168.75px;
-      opacity: 1;
-    }
-
-    .scene-showcase-prev,
-    .scene-showcase-next {
-      position: absolute;
-      top: 187.05px;
-      z-index: 5;
-      width: 44px;
-      height: 44px;
-      border: 0;
-      border-radius: 50%;
-      color: transparent;
-      background: transparent;
-      cursor: pointer;
-    }
-
-.scene-showcase-prev {
-  left: 6px;
-  top: 201.05px;
-}
-
-    .scene-showcase-next {
-      right: 6px;
-    }
-
-    .asset-frame.content .scene-showcase-prev img,
-    .asset-frame.content .scene-showcase-next img {
-      display: block;
-      width: 84px;
-      height: 84px;
-      margin: -20px;
-    }
-
-    .scene-showcase-prev:hover,
-    .scene-showcase-prev:focus-visible,
-    .scene-showcase-next:hover,
-    .scene-showcase-next:focus-visible {
-      outline: none;
-    }
-
-    .scene-card-grid {
-      width: 1200px;
-      height: 810px;
-      margin: 0 auto;
-      padding-top: 58px;
-      position: relative;
-      background: transparent;
-      display: grid;
-      grid-template-columns: repeat(3, 386px);
-      grid-auto-rows: 298px;
-      gap: 56px 21px;
-    }
-
-    .scene-card {
-      position: relative;
-      box-sizing: border-box;
-      width: 386px;
-      height: 298px;
-      padding: 40px 28px 26px;
-      border-radius: 12px;
-      border: 1px solid #e4e4e4;
-      background: #fff;
-      box-shadow: 0 18px 30px 0 rgba(123, 105, 255, 0.06);
-      cursor: pointer;
-      transition: border-color .22s ease, box-shadow .22s ease;
-    }
-
-    .scene-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 386px;
-      height: 132px;
-      border-radius: 0;
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(236, 225, 255, .4) 100%);
-      pointer-events: none;
-    }
-
-    .scene-card:hover,
-    .scene-card.is-active {
-      z-index: 2;
-      border-color: #e4e4e4;
-      box-shadow: 0 18px 30px 0 rgba(123, 105, 255, 0.06);
-    }
-
-    .scene-card h3 {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 38px;
-      color: #30323d;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
-    .scene-card p {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 18px;
-      color: #323642;
-      font-size: 14px;
-      line-height: 1.72;
-      letter-spacing: .01em;
-    }
-
-    .scene-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .asset-frame.content .scene-card .scene-card-icon {
-      position: absolute;
-      top: 20px;
-      left: 278px;
-      display: block;
-      width: 88px;
-      height: 88px;
-      max-width: none;
-      margin: 0;
-      object-fit: contain;
-      overflow: visible;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .steps-daily-frame {
-      position: relative;
-      width: 1137px;
-      height: 366px;
-      margin: 0 auto;
-      padding: 40px;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .steps-daily-inner {
-      display: flex;
-      width: 1057px;
-      gap: 32px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .steps-daily-left {
-      display: flex;
-      flex: 0 0 478px;
-      height: 286px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .steps-daily-cards {
-      display: flex;
-      width: 478px;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .step-card {
-      position: relative;
-      flex: 0 0 auto;
-      overflow: hidden;
-      border: 1px solid #d7d2ff;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .step-card-one {
-      width: 268.139px;
-      height: 173.897px;
-    }
-
-    .step-card-two {
-      width: 197px;
-      height: 171px;
-    }
-
-    .step-card-hero {
-      width: 547px;
-      height: 285px;
-      border: 1px solid #d7d2ff;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .step-card-badge {
-      position: absolute;
-      top: 7.95px;
-      left: 7.95px;
-      z-index: 2;
-      display: inline-grid;
-      width: 16px;
-      height: 16px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: #b0a5ff;
-      font-size: 11.248px;
-      font-weight: 400;
-      line-height: 15.748px;
-    }
-
-    .step-card-img {
-      position: absolute;
-      display: block;
-      width: auto;
-      max-width: none;
-      margin: 0;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .asset-frame.content .steps-daily-frame .step-card-img {
-      margin: 0;
-      max-width: none;
-    }
-
-    .asset-frame.content .steps-daily-frame .step-card-img.front {
-      left: -69.25px;
-      top: .38px;
-      width: 284.9px;
-      height: 160.3px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-daily-frame .step-card-img.back {
-      left: 53.78px;
-      top: 5.73px;
-      width: 282.2px;
-      height: 158.803px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-daily-frame .step-card-img.install {
-      left: -1px;
-      top: 6px;
-      width: 262.96px;
-      height: 147.988px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-daily-frame .step-card-img.scene {
-      left: -61.43px;
-      top: -23.4px;
-      width: 622.7px;
-      height: 350.9px;
-      object-fit: fill;
-    }
-
-    .steps-daily-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding: 0 8px;
-      color: #303030;
-      background: transparent;
-    }
-
-    .steps-daily-copy h3 {
-      width: fit-content;
-      margin: 0;
-      color: #303030;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      outline: 0;
-    }
-
-    .steps-daily-copy ol {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .steps-daily-copy li {
-      display: flex;
-      align-items: center;
-      color: #303030;
-      font-size: 14px;
-      line-height: 20px;
-      outline: 0;
-    }
-
-    .steps-daily-copy .step-dot {
-      display: inline-grid;
-      flex: 0 0 16px;
-      width: 16px;
-      height: 16px;
-      margin-right: 8px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: #b0a5ff;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-    }
-
-    .steps-print-frame {
-      position: relative;
-      width: 1200px;
-      height: 450px;
-      padding: 0 40px 40px;
-      margin: 0 auto;
-    }
-
-    .steps-print-panel {
-      display: flex;
-      width: 1120px;
-      height: 410px;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      padding: 40px;
-      border-radius: 8px;
-      background: rgba(242, 240, 255, .4);
-    }
-
-    .step-print-card {
-      position: relative;
-      flex: 0 0 auto;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .step-print-hero {
-      width: 547px;
-      height: 330px;
-    }
-
-    .step-print-right {
-      display: flex;
-      flex: 0 0 453px;
-      height: 330px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .step-print-row {
-      display: flex;
-      width: 453px;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .step-print-card-one,
-    .step-print-card-three {
-      width: 152.852px;
-      height: 152.852px;
-    }
-
-    .step-print-card-two {
-      width: 280.578px;
-      height: 152.852px;
-    }
-
-    .step-print-badge {
-      position: absolute;
-      top: 7.45px;
-      left: 7.45px;
-      z-index: 2;
-      display: inline-grid;
-      width: 16px;
-      height: 16px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: #b0a5ff;
-      font-size: 10.744px;
-      font-weight: 400;
-      line-height: 15.042px;
-    }
-
-    .step-print-img {
-      position: absolute;
-      display: block;
-      max-width: none;
-      margin: 0;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .asset-frame.content .steps-print-frame .step-print-img {
-      max-width: none;
-      margin: 0;
-    }
-
-    .asset-frame.content .steps-print-frame .print-scene-img {
-      left: -120.3px;
-      top: -39.7px;
-      width: 763.9px;
-      height: 430px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-print-frame .duck-front-img {
-      left: 14.85px;
-      top: -.27px;
-      width: 123.15px;
-      height: 153.882px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-print-frame .duck-pair-img {
-      left: 31.41px;
-      top: 11.52px;
-      width: 251.84px;
-      height: 167.93px;
-      object-fit: fill;
-    }
-
-    .asset-frame.content .steps-print-frame .duck-back-img {
-      left: 18.84px;
-      top: .02px;
-      width: 139.242px;
-      height: 159.2px;
-      object-fit: fill;
-    }
-
-    .steps-print-copy {
-      display: flex;
-      width: 260px;
-      flex-direction: column;
-      gap: 12px;
-      padding: 0;
-      color: #303030;
-      background: transparent;
-    }
-
-    .steps-print-copy h3 {
-      width: fit-content;
-      margin: 0;
-      color: #303030;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      outline: 0;
-    }
-
-    .steps-print-copy ol {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .steps-print-copy li {
-      display: flex;
-      align-items: center;
-      color: #303030;
-      font-size: 14px;
-      line-height: 20px;
-      outline: 0;
-    }
-
-    .steps-print-copy .step-dot {
-      display: inline-grid;
-      flex: 0 0 16px;
-      width: 16px;
-      height: 16px;
-      margin-right: 8px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: #b0a5ff;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-    }
-
-    .kit-frame {
-      position: relative;
-      width: 1200px;
-      height: 724px;
-      margin: 0 auto;
-    }
-
-    .asset-frame.content .kit-frame > img {
-      width: 1200px;
-      height: 724px;
-      margin: 0;
-      object-fit: contain;
-    }
-
-    .kit-marker,
-    .kit-legend-number {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      width: 24px;
-      height: 24px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      color: #7b69ff;
-      background: rgba(91, 70, 211, .1);
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .kit-marker {
-      transform: translate(-50%, -50%);
-    }
-
-    .kit-marker-one { left: 150px; top: 659px; }
-    .kit-marker-two { left: 499px; top: 260px; }
-    .kit-marker-three { left: 500px; top: 664px; }
-    .kit-marker-four { left: 927px; top: 284px; }
-    .kit-marker-five { left: 926px; top: 649px; }
-
-    .kit-legend {
-      position: absolute;
-      left: 84px;
-      top: 686px;
-      z-index: 2;
-      display: grid;
-      width: 1110px;
-      grid-template-columns: 210px 210px 210px 210px 250px;
-      column-gap: 0;
-      align-items: center;
-      color: #303030;
-      font-size: 14px;
-      line-height: normal;
-    }
-
-    .kit-legend-item {
-      display: flex;
-      align-items: center;
-      min-width: 0;
-      outline: 0;
-    }
-
-    .kit-legend-number {
-      position: static;
-      flex: 0 0 24px;
-      margin-right: 20px;
-    }
-
-    .kit-legend-text {
-      white-space: nowrap;
-    }
-
-    .video-showcase {
-      position: relative;
-      width: 1200px;
-      height: 956px;
-      margin: 0 auto;
-      background: transparent;
-    }
-
-    .video-cover-img {
-      display: block;
-      width: 1200px;
-      height: 956px;
-    }
-
-    .asset-frame.content .video-main-cover {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      z-index: 1;
-      display: none;
-      width: 1200px;
-      height: 675px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 0;
-    }
-
-    .asset-frame.content .video-main-cover.is-active {
-      display: block;
-    }
-
-    .asset-frame.content .video-main-cover[hidden] {
-      display: none !important;
-    }
-
-    .video-player-layer {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      z-index: 2;
-      display: none;
-      width: 1200px;
-      height: 675px;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #000;
-    }
-
-    .video-player-layer.is-active {
-      display: block;
-    }
-
-    .video-player-layer video {
-      display: block;
-      width: 1200px;
-      height: 675px;
-      object-fit: cover;
-    }
-
-    .video-play-hotspot,
-    .video-thumb-hotspot {
-      position: absolute;
-      z-index: 3;
-      padding: 0;
-      border: 0;
-      appearance: none;
-      -webkit-appearance: none;
-      color: transparent;
-      background: rgba(123, 105, 255, .001);
-      cursor: pointer;
-    }
-
-    .video-play-hotspot {
-      top: 80px;
-      left: 0;
-      width: 1200px;
-      height: 675px;
-    }
-
-    .video-player-layer.is-active + .video-play-hotspot {
-      display: none;
-    }
-
-    .video-thumb-hotspot {
-      top: 796px;
-      height: 80px;
-      box-sizing: border-box;
-      border: 0;
-      border-radius: 5px;
-      background: transparent;
-      box-shadow: none;
-      outline: none;
-    }
-
-    .video-thumb-hotspot:hover,
-    .video-thumb-hotspot:focus,
-    .video-thumb-hotspot:active {
-      border: 0;
-      background: transparent;
-      box-shadow: none;
-      outline: none;
-    }
-
-    .video-thumb-hotspot.is-selected {
-      border: 2px solid #7b69ff;
-      background: transparent;
-      box-shadow: none;
-      outline: none;
-    }
-
-    .video-thumb-one {
-      left: 460px;
-      width: 130px;
-    }
-
-    .video-thumb-two {
-      left: 610px;
-      width: 130px;
-    }
-
-    .scroll-animate {
-      --parallax-y: 0px;
-      opacity: 0;
-      filter: blur(8px);
-      transform: translate3d(0, 72px, 0) scale(.985);
-      transform-origin: center top;
-      transition:
-        opacity .82s cubic-bezier(.22, 1, .36, 1),
-        filter .82s cubic-bezier(.22, 1, .36, 1),
-        transform .92s cubic-bezier(.22, 1, .36, 1);
-      will-change: opacity, filter, transform;
-    }
-
-    .scroll-animate.is-visible {
-      opacity: 1;
-      filter: blur(0);
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-
-    .scroll-animate.is-visible > img,
-    .scroll-animate.is-visible > .feature-switcher,
-    .scroll-animate.is-visible > .video-showcase,
-    .scroll-animate.is-visible > .logo-marquee {
-      transform: translate3d(0, var(--parallax-y), 0);
-      transition: transform .16s linear;
-      will-change: transform;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .scroll-animate,
-      .scroll-animate.is-visible,
-      .scroll-animate.is-visible > img,
-      .scroll-animate.is-visible > .feature-switcher,
-      .scroll-animate.is-visible > .video-showcase,
-      .scroll-animate.is-visible > .logo-marquee {
-        opacity: 1;
-        filter: none;
-        transform: none;
-        transition: none;
-      }
-    }
-
-    @keyframes logo-scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-1824px);
-      }
-    }
-
-    .title-frame {
-      position: relative;
-      width: 100%;
-      padding: 92px 24px 42px;
-      text-align: center;
-      background: transparent;
-    }
-
-    .editable-title,
-    .editable-subtitle {
-      display: block;
-      width: fit-content;
-      max-width: 760px;
-      margin-right: auto;
-      margin-left: auto;
-      border-radius: 8px;
-      outline: 0;
-      cursor: default;
-    }
-
-    .editable-title {
-      margin-top: 0;
-      margin-bottom: 14px;
-      color: #303036;
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1.22;
-      letter-spacing: .02em;
-    }
-
-    .editable-subtitle {
-      margin-top: 0;
-      margin-bottom: 0;
-      color: #7468ff;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .back-top {
-      position: fixed;
-      right: 26px;
-      bottom: 26px;
-      z-index: 10;
-      display: grid;
-      width: 64px;
-      height: 64px;
-      place-items: center;
-      background: url("assets/回到顶部.svg?v=20260715") center / contain no-repeat;
-      text-decoration: none;
-      text-indent: -9999px;
-      overflow: hidden;
-    }
-
-    .nav-shell {
-      position: relative;
-      width: 1440px;
-      height: 60px;
-    }
-
-    .nav-hotspot {
-      position: absolute;
-      top: 0;
-      z-index: 2;
-      height: 60px;
-      text-indent: -9999px;
-      overflow: hidden;
-    }
-
-    .nav-hotspot-home {
-      left: 144px;
-      width: 38px;
-    }
-
-    .nav-hotspot-product {
-      left: 210px;
-      width: 68px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="styles.css?v=home-responsive-fit-5" />
+  <link rel="stylesheet" href="footer.css?v=footer-home-fixed-artboard-3" />
+  <link rel="stylesheet" href="mobile.css?v=1" />
 </head>
-<body>
-  <main class="landing" id="top" data-figma-section-node="496:231" data-section-width="1440">
-    <section class="asset-frame full" id="nav" aria-label="顶部导航">
-      <div class="nav-shell">
-        <img src="assets/navigation.svg?v=20260730" width="1440" height="60" alt="XATOM 顶部导航">
-        <a class="nav-hotspot nav-hotspot-home" href="index.html" aria-label="首页" aria-current="page">首页</a>
-        <a class="nav-hotspot nav-hotspot-product" href="product.html" aria-label="产品详情">产品详情</a>
+<body class="home-page">
+  <header class="nav">
+    <div class="header-main-links">
+        <a class="wordmark" href="#home" aria-label="XATOM home">
+          <img src="assets/xatom-logo.svg" alt="" />
+        </a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="home-navigation">Menu</button>
+      <nav id="home-navigation" class="nav-main" aria-label="Primary navigation"><a class="is-active" href="#home" aria-current="page">Homepage</a><a href="xatom-device.html">XAtom Device</a><a href="#scenarios">Personalized Body</a><a class="is-disabled" aria-disabled="true" tabindex="-1">Shop</a><a href="about-us.html">About Us</a></nav>
+    </div>
+    <nav class="nav-tools">
+      <button class="locale locale-english"><span class="locale-label">English</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
+      <button class="locale locale-british"><span class="locale-label">British</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
+      <a class="nav-icon search" href="#search" aria-label="Search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866 0.325 5.642 0.373 3.007 3.007C0.373 5.642 0.325 9.866 2.901 12.442C5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336L17 17"></path></svg></a>
+      <a class="nav-icon login" href="#login" aria-label="Login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9C11.209 9 13 7.2091 13 5C13 2.7909 11.209 1 9 1C6.791 1 5 2.7909 5 5C5 7.2091 6.791 9 9 9Z"></path><path d="M1 17C1 15.9391 1.421 14.9217 2.172 14.1716C2.922 13.4214 3.939 13 5 13H13C14.061 13 15.078 13.4214 15.828 14.1716C16.579 14.9217 17 15.9391 17 17"></path></svg></a>
+      <a class="nav-icon bag" href="#cart" aria-label="Cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1H17L18 17H2L3 1Z"></path><path d="M7 4C7 4.7956 7.316 5.5587 7.879 6.1213C8.441 6.6839 9.204 7 10 7C10.796 7 11.559 6.6839 12.121 6.1213C12.684 5.5587 13 4.7956 13 4"></path></svg></a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero frame" aria-label="XATOM highlights">
+      <article class="hero-slide hero-slide-1 is-active" aria-hidden="false"><img src="assets/hero/1.png" alt="Five XATOM devices in different colors" fetchpriority="high" /></article>
+      <article class="hero-slide hero-slide-2" aria-hidden="true"><img src="assets/hero/2.png" alt="XATOM devices demonstrating multiple everyday roles" /></article>
+      <article class="hero-slide hero-slide-3" aria-hidden="true"><img src="assets/hero/3.png" alt="XATOM integrated into a bedside lamp for day and night" /></article>
+      <article class="hero-slide hero-slide-4" aria-hidden="true"><img src="assets/hero/4.png" alt="Personalized XATOM casings and modular combinations" /></article>
+      <article class="hero-slide hero-slide-5" aria-hidden="true"><img src="assets/hero/5.png" alt="Four XATOM camera modules in different colors" /></article>
+      <article class="hero-slide hero-slide-6" aria-hidden="true"><img src="assets/hero/6-background.png" alt="Three XATOM devices balanced vertically" />
+        <div class="hero-slide-copy">
+          <img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" />
+          <p>XATOM is a smart, miniature AI interaction device designed around the core concepts of compact size, seamless integration, and powerful intelligence. Thanks to its embedded design, it can be integrated into everyday objects for easy portability, bringing intelligence to every aspect of daily life.</p>
+          <a class="button" href="xatom-device.html">Get XAtom</a>
+        </div>
+      </article>
+      <div class="hero-pagination" aria-label="Hero pages">
+        <img class="hero-pagination-art" src="assets/home/frame-976.svg" alt="" />
+        <div class="hero-page-tabs" role="tablist" aria-label="Hero carousel pages">
+          <button class="is-active" type="button" role="tab" aria-selected="true" aria-label="Hero page 1"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Hero page 2"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Hero page 3"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Hero page 4"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Hero page 5"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Hero page 6"></button>
+        </div>
+        <button class="hero-autoplay-toggle" type="button" aria-label="Next banner"></button>
       </div>
     </section>
 
-    <section class="asset-frame full" id="hero" aria-label="首页主视觉">
-      <div class="hero-carousel" data-hero-carousel aria-label="XATOM banner 自动轮播">
-        <img class="hero-slide is-active" src="assets/banner/1.png?v=20260703" width="2880" height="1566" alt="XATOM banner 1">
-        <img class="hero-slide" src="assets/banner/2.png?v=20260703" width="2880" height="1566" alt="XATOM banner 2">
-        <img class="hero-slide" src="assets/banner/3.png?v=20260703" width="2880" height="1566" alt="XATOM banner 3">
-        <img class="hero-slide" src="assets/banner/4.png?v=20260703" width="2880" height="1566" alt="XATOM banner 4">
-        <div class="hero-copy is-active" aria-label="XATOM banner 1 文字" style="--copy-left:80px; --copy-top:90px; --copy-width:614px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:614px; --desc-line-height:28px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">迷你·百变·智能</p>
-          </div>
-          <p class="hero-desc">一款随时以多元角色身份陪伴在你身边的语音交互智能 AI 助手</p>
-        </div>
-        <div class="hero-copy logo-light" aria-label="XATOM banner 2 文字" style="--copy-left:80px; --copy-top:517px; --copy-width:1000px; --copy-gap:32px; --copy-title-color:#fff; --copy-accent-color:#fff; --copy-desc-color:#fff; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:1000px; --desc-line-height:33.6px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">多场景·自然·个性</p>
-          </div>
-          <p class="hero-desc">支持多场景智能交互，无论居家、办公、出行还是车载环境，都能轻松搭配使用，让智能陪伴融入生活的每一个角落，随时随地满足你的多元需求。</p>
-        </div>
-        <div class="hero-copy" aria-label="XATOM banner 3 文字" style="--copy-left:80px; --copy-top:266px; --copy-width:401px; --copy-gap:32px; --logo-width:230px; --kicker-size:20px; --desc-size:16px; --desc-width:401px; --desc-line-height:28px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">聪明·高效·有趣</p>
-          </div>
-          <p class="hero-desc">接通多种领先大语言模型，切换海量风格明星 IP 语音包，融合多元 AI 能力带来有趣的智能体验。</p>
-        </div>
-        <div class="hero-copy" aria-label="XATOM banner 4 文字" style="--copy-left:80px; --copy-top:111px; --copy-width:562px; --copy-gap:32px; --logo-width:230px; --kicker-size:24px; --kicker-letter-spacing:1.44px; --desc-size:19.2px; --desc-width:562px; --desc-line-height:33.6px;">
-          <div class="hero-heading">
-            <img class="hero-logo" src="assets/xatom-logo.svg?v=20260703" width="230" height="84" alt="XATOM">
-            <p class="hero-kicker">自由·独特·个性</p>
-          </div>
-          <p class="hero-desc">提供多种个性化外壳与模块化组合方案，支持自由搭配、随心创作，解锁属于你的模块化智能新体验。</p>
-        </div>
-        <div class="hero-pagination" aria-label="Banner 页码">
-          <button class="hero-page-dot is-active" type="button" aria-label="切换到第 1 张" aria-current="true" data-hero-page="0"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 2 张" data-hero-page="1"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 3 张" data-hero-page="2"></button>
-          <button class="hero-page-dot" type="button" aria-label="切换到第 4 张" data-hero-page="3"></button>
-        </div>
+    <section class="section scenario-intro" id="scenarios">
+      <div class="section-head">
+        <div><h2>More than one way.<br />Play with AI.</h2><p>XAtom covers almost all common scenarios.</p></div>
+        <div class="arrows" aria-label="Scenario video navigation"><button class="carousel-arrow carousel-arrow--solid" type="button" aria-label="Previous video"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg></button><button class="carousel-arrow carousel-arrow--solid" type="button" aria-label="Next video"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg></button></div>
+      </div>
+      <div class="wide-cards">
+        <article class="feature-card large">
+          <img src="assets/home/scenario-taxi.png" alt="XATOM taxi scenario" />
+          <button class="scenario-play" type="button" aria-label="Play older man ordering a taxi scenario"><img src="assets/home/scenario-play.svg" alt="" /></button>
+          <div class="feature-card-shade" aria-hidden="true"></div>
+          <div class="feature-label">Older man order a taxi.</div>
+        </article>
+        <article class="feature-card large second" aria-hidden="true">
+          <img src="assets/home/scenario-taxi.png" alt="" />
+          <span class="scenario-play" aria-hidden="true"><img src="assets/home/scenario-play.svg" alt="" /></span>
+          <div class="feature-card-shade" aria-hidden="true"></div>
+          <div class="feature-label">Older man order a taxi.</div>
+        </article>
       </div>
     </section>
 
-    <section class="title-frame" id="intro-title" aria-label="产品介绍标题">
-      <h2 class="editable-title">产品介绍</h2>
-      <p class="editable-subtitle">将智能嵌入生活，让每一件物品都拥有对话的能力</p>
-    </section>
-
-    <section class="asset-frame content" id="intro" aria-label="产品介绍内容" style="--asset-width: 1200px">
-      <div class="intro-frame">
-        <div class="intro-copy" aria-label="XATOM 产品简介文字">
-          <h3>XATOM 产品简介</h3>
-          <p>XATOM 是一款基于智能硬件打造的微型 AI 交互设备，以“小体积、高融合、强智能”为核心设计理念，将人工智能能力浓缩于极致轻巧的硬件形态之中。</p>
-          <p>灵活的模块化结构，XATOM 能够无缝嵌入各类日常物品与生活场景，从家居摆件、玩具潮玩到车载设备、文创产品，让传统物件拥有感知、理解与交流的能力。</p>
-        </div>
-        <img class="intro-product-img" src="assets/intro/product.png?v=20260703a" width="812" height="908" alt="XATOM 产品三色展示">
-      </div>
-    </section>
-
-    <section class="title-frame" id="video-title" aria-label="视频介绍标题">
-      <h2 class="editable-title">视频介绍</h2>
-      <p class="editable-subtitle">视频将为 XATOM 硬件产品带来详细介绍</p>
-    </section>
-
-    <section class="asset-frame content" id="video" aria-label="视频介绍内容" style="--asset-width: 1200px">
-      <div class="video-showcase" data-video-showcase>
-        <img class="video-cover-img" src="assets/06.png?v=20260616-cover" width="1200" height="956" alt="XATOM 视频介绍封面">
-        <img class="video-main-cover" data-video-main-cover alt="" hidden aria-hidden="true">
-        <div class="video-player-layer" data-video-player-layer>
-          <video id="main-video" src="assets/视频介绍/01.mp4?v=20260616" preload="metadata" playsinline controls></video>
-        </div>
-        <button class="video-play-hotspot" type="button" aria-label="播放当前视频"></button>
-        <button class="video-thumb-hotspot video-thumb-one is-selected" type="button" aria-label="选择视频 1" data-video-src="assets/视频介绍/01.mp4" data-cover-src=""></button>
-        <button class="video-thumb-hotspot video-thumb-two" type="button" aria-label="选择视频 2" data-video-src="assets/视频介绍/02.mp4" data-cover-src="assets/视频介绍/产品展示.png"></button>
-      </div>
-    </section>
-
-    <section class="title-frame" id="scenes-title" aria-label="多场景玩法标题">
-      <h2 class="editable-title">多场景玩法</h2>
-      <p class="editable-subtitle">多种场景覆盖，让智能无处不在</p>
-    </section>
-
-    <section class="asset-frame content" id="scenes-showcase" aria-label="多场景玩法展示图" style="--asset-width: 1200px">
-      <div class="scene-showcase-carousel" data-scene-showcase-carousel>
-        <div class="scene-showcase-card pos-left" data-card="0" aria-hidden="true">
-          <img src="assets/多场景/1.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <div class="scene-showcase-card pos-center" data-card="1" aria-hidden="true">
-          <img src="assets/多场景/3.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <div class="scene-showcase-card pos-right" data-card="2" aria-hidden="true">
-          <img src="assets/多场景/2.png?v=20260617" width="505" height="284" alt="">
-        </div>
-        <button class="scene-showcase-play" type="button" aria-label="播放当前场景视频">
-          <img class="scene-play-default" src="assets/多场景/播放按钮.svg?v=20260617" width="76" height="76" alt="">
-        </button>
-        <button class="scene-showcase-prev" type="button" aria-label="切换到上一个场景视频" data-scene-showcase-prev>
-          <img src="assets/scene-carousel-prev.svg" width="84" height="84" alt="">
-        </button>
-        <button class="scene-showcase-next" type="button" aria-label="切换到下一个场景视频" data-scene-showcase-next>
-          <img src="assets/scene-carousel-next.svg" width="84" height="84" alt="">
-        </button>
-      </div>
-    </section>
-
-    <section class="title-frame" id="about-title" aria-label="关于我们标题">
-      <h2 class="editable-title">关于我们</h2>
-      <p class="editable-subtitle">带领 AI 走进真实的生活</p>
-    </section>
-
-    <section class="asset-frame content" id="about" aria-label="关于我们内容" style="--asset-width: 1200px">
-      <div class="about-frame">
-        <div class="about-row">
-          <div class="about-copy">
-            <h3>XATOM 品牌理念</h3>
-            <p>XATOM 坚信，AI 不应局限于屏幕和固定终端。尽管大语言模型已赋予 AI 理解、思考与对话能力，但当前交互仍依赖手机、电脑、音箱和车机。XATOM 希望打破这一边界，让 AI 真正走出屏幕、进入现实世界。</p>
-            <p>XATOM 致力于打造新一代 AI Physical Agent，让 AI 走入真实生活，成为能够感知环境、连接设备并持续陪伴用户的物理智能伙伴，实现随时响应、随处可用。</p>
+    <section class="section adaptive" id="adaptive">
+      <div class="adaptive-frame">
+        <div class="section-head">
+          <div class="adaptive-heading">
+            <h2><span>One XAtom</span><span>Many different Roles.</span></h2>
+            <p>One AI core that adapts to your life.</p>
           </div>
-          <figure class="about-image">
-            <img src="assets/brand-philosophy.png" width="526" height="296" alt="XATOM 品牌理念插图">
-          </figure>
-        </div>
-        <div class="about-row reverse">
-          <figure class="about-image">
-            <img src="assets/ai-platform.png" width="370" height="334" alt="XATOM AI 平台插图">
-          </figure>
-          <div class="about-copy">
-            <h3>面向未来的新一代 AI 智能体平台</h3>
-            <p>XATOM 是面向未来的 AI 智能体平台，融合大语言模型、多模态 AI、边缘计算、云端服务、IoT 控制与低功耗硬件，打造能够理解用户、感知环境、思考行动并持续陪伴的新一代智能终端。</p>
-            <p>不同于传统智能音箱、车机等固定设备，XATOM 希望让 AI 从被动响应指令的工具，转变为随身陪伴、主动理解并连接现实世界的智能伙伴，真正走出屏幕，融入日常生活。</p>
+          <div class="arrows" aria-label="Scenario navigation">
+            <button class="carousel-arrow carousel-arrow--solid scenario-previous" type="button" aria-label="Previous slide"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5L7 10L12.5 15.5" /></svg></button>
+            <button class="carousel-arrow carousel-arrow--solid scenario-next" type="button" aria-label="Next slide"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5L13 10L7.5 15.5" /></svg></button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="title-frame" id="partners-title" aria-label="大模型合作者标题">
-      <h2 class="editable-title">大模型合作者</h2>
-      <p class="editable-subtitle">多种智能大模型联动，守护智能生活</p>
-    </section>
-
-    <section class="asset-frame content" id="partners" aria-label="大模型合作者内容" style="--asset-width: 1200px">
-      <div class="logo-marquee" aria-label="大模型合作者自动滚动">
-        <div class="logo-marquee-track">
-          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="XATOM 大模型合作者">
-          <img src="assets/frame-620.svg?v=20260616" width="1824" height="208" alt="" aria-hidden="true">
+        <div class="scenario-grid">
+          <article class="scenario-card scenario-card-1" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-1-travelers.png" alt="Traveler wearing a XATOM companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Travelers</span>
+              <button class="scenario-detail" type="button" aria-label="Open Travelers details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Smart Tour Guide</h3><p>XATOM is a personal cultural guide offering real-time stories and insights about nearby sites.<br />It delivers location-based recommendations for a deeper, more meaningful travel experience.</p></div>
+          </article>
+          <article class="scenario-card scenario-card-2" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-2-teenager.png" alt="Teenager exploring a museum with a XATOM companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Teenager</span>
+              <button class="scenario-detail" type="button" aria-label="Open Teenager details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Travel Companions</h3><p>XATOM is an AI travel companion offering conversation, local recommendations, and itinerary planning.<br />It adapts plans in real time and provides emergency assistance for safer, smoother journeys.</p></div>
+          </article>
+          <article class="scenario-card scenario-card-3" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-3-fitness.png" alt="Fitness enthusiast training beside a XATOM companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Fitness enthusiasts</span>
+              <button class="scenario-detail" type="button" aria-label="Open Fitness enthusiasts details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Workout Partner</h3><p>XATOM keeps workouts on track with voice coaching, progress guidance, and hands-free encouragement.</p></div>
+          </article>
+          <article class="scenario-card scenario-card-4" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-4-students.png" alt="Student studying beside a XATOM companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Students</span>
+              <button class="scenario-detail" type="button" aria-label="Open Students details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Private Coach</h3><p>XATOM is a personal AI learning companion for languages, exams, and new skills.<br />It offers voice-based explanations, Q&amp;A, and personalized study planning.</p></div>
+          </article>
+          <article class="scenario-card scenario-card-5" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-5-business.png" alt="Business traveler wearing a XATOM companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Business</span>
+              <button class="scenario-detail" type="button" aria-label="Open Business details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Travel Assistant</h3><p>XATOM supports schedules, reminders, communication, and travel planning throughout busy workdays.</p></div>
+          </article>
+          <article class="scenario-card scenario-card-6" role="button" tabindex="0" aria-expanded="false">
+            <img class="scenario-photo" src="assets/home/role-6-explorer.png" alt="Explorer carrying a XATOM safety companion" />
+            <div class="card-toolbar">
+              <span class="scenario-tag">Explorer</span>
+              <button class="scenario-detail" type="button" aria-label="Open Explorer details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
+            </div>
+            <div class="card-overlay"><h3>Safety Guard</h3><p>XATOM provides hands-free guidance, safety checks, and emergency support for outdoor exploration.</p></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <footer class="contact-footer" id="contact" aria-label="联系我们">
-      <div class="contact-footer-inner">
-        <div class="contact-content">
-          <h2>联系我们</h2>
-          <ul class="contact-list">
-            <li><span class="contact-dot" aria-hidden="true"><img src="assets/contact-mail.svg" width="28" height="28" alt=""></span><span>yangming76@qiniu.com</span></li>
-            <li><span class="contact-dot" aria-hidden="true"><img src="assets/contact-location.svg" width="28" height="28" alt=""></span><span>Moli Space T2,Shanghai,China</span></li>
-          </ul>
+    <section class="section simple-use" id="simple-use" aria-labelledby="simple-use-title">
+      <div class="simple-use-glow simple-use-glow-left" aria-hidden="true"></div>
+      <div class="simple-use-glow simple-use-glow-right" aria-hidden="true"></div>
+
+      <div class="simple-use-content">
+        <h2 class="mobile-simple-heading">Use it extremely Simple</h2>
+        <div class="simple-use-stage">
+          <button class="carousel-arrow carousel-arrow--outline simple-use-arrow simple-use-previous" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
+          </button>
+
+          <article class="simple-use-card" aria-live="polite">
+            <div class="simple-use-slide simple-use-slide-1 is-active" data-simple-use-slide aria-hidden="false" role="group" aria-roledescription="slide" aria-label="1 of 4">
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-1-clean.png" alt="" />
+              <div class="simple-use-heading">
+                <h2 id="simple-use-title">Use it extremely Simple</h2>
+                <p>You can start using it simply by turning it on.</p>
+              </div>
+              <span class="simple-use-copy simple-use-copy-short">Short press to open</span>
+              <span class="simple-use-copy simple-use-copy-long">Long press to close</span>
+              <span class="simple-use-copy simple-use-copy-double">Double press to switch wifi/5G</span>
+              <span class="simple-use-copy simple-use-copy-press">Press × 2</span>
+            </div>
+
+            <div class="simple-use-slide simple-use-slide-2" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="2 of 4">
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-2-clean.png" alt="" />
+              <div class="simple-use-heading">
+                <h2>Privacy Protection</h2>
+                <p>Uses LiDAR instead of cameras to detect status.</p>
+              </div>
+              <div class="simple-use-detection-copy">
+                <h3>Detects Multiple Scenarios</h3>
+                <p>Accurately identifies people, objects and movements<br />to ensure safer and smarter interaction.</p>
+              </div>
+              <span class="simple-use-spatial-label">3D Spatial Perception</span>
+              <div class="simple-use-detection-label simple-use-detection-people">
+                <strong>People Detection</strong>
+                <span>Recognizes people<br />and tracks movement.</span>
+              </div>
+              <div class="simple-use-detection-label simple-use-detection-posture">
+                <strong>Posture Recognition</strong>
+                <span>Identifies different<br />body postures.</span>
+              </div>
+              <div class="simple-use-detection-label simple-use-detection-fall">
+                <strong>Fall Detection</strong>
+                <span>Detects abnormal<br />postures and triggers alerts.</span>
+              </div>
+            </div>
+
+            <div class="simple-use-slide simple-use-slide-3" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="3 of 4">
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-3-clean.png" alt="" />
+              <div class="simple-use-heading">
+                <h2>Personalized language pack</h2>
+                <p>Freely choose voice packs featuring your favorite animals, celebrities, and anime characters.</p>
+              </div>
+              <span class="simple-use-voice-label simple-use-voice-pop">Pop Star</span>
+              <span class="simple-use-voice-label simple-use-voice-fashion">Fashionista Girl</span>
+              <span class="simple-use-voice-label simple-use-voice-cheerful">Cheerful Companion</span>
+              <span class="simple-use-voice-label simple-use-voice-gentle">Gentle Female</span>
+              <span class="simple-use-voice-label simple-use-voice-warm">Warm Narrator</span>
+              <span class="simple-use-voice-label simple-use-voice-playful">Playful Cat</span>
+              <span class="simple-use-voice-label simple-use-voice-fairy">Little Fairy</span>
+            </div>
+
+            <div class="simple-use-slide simple-use-slide-4" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="4 of 4">
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-4-clean.png" alt="" />
+              <div class="simple-use-heading">
+                <h2>Powerful AI capabilities</h2>
+                <p>Diverse large-scale AI models help address issues.</p>
+              </div>
+              <span class="simple-use-model-label simple-use-model-claude">Claude</span>
+              <span class="simple-use-model-label simple-use-model-palm">PaLM</span>
+              <span class="simple-use-model-label simple-use-model-chatgpt">ChatGPT</span>
+              <span class="simple-use-model-label simple-use-model-gemini">Gemini</span>
+              <span class="simple-use-model-label simple-use-model-deepseek">DeepSeek</span>
+              <span class="simple-use-model-label simple-use-model-llama">Llama</span>
+              <span class="simple-use-model-label simple-use-model-mistral">Mistral</span>
+              <span class="simple-use-model-label simple-use-model-phi">Phi</span>
+              <span class="simple-use-model-label simple-use-model-grok">Grok</span>
+            </div>
+          </article>
+
+          <button class="carousel-arrow carousel-arrow--outline simple-use-arrow simple-use-next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
         </div>
-        <img class="contact-qr" src="assets/wecom-qr.png" width="205" height="191" alt="企业微信二维码">
+
+        <div class="simple-use-features" aria-label="XATOM capabilities">
+          <div class="simple-use-feature-art" aria-hidden="true">
+            <img src="assets/simple-use/frame-732.svg" alt="" />
+          </div>
+          <div class="simple-use-feature-labels">
+            <span class="feature-label-voice">Voice Interaction</span>
+            <span class="feature-label-print">3D Print</span>
+            <span class="feature-label-creative">Creative</span>
+            <span class="feature-label-lidar">Lidar Detect</span>
+            <span class="feature-label-models">AI Models</span>
+            <span class="feature-label-personalized">Personalized</span>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="section capture-moments" id="capture-moments" aria-labelledby="capture-title">
+      <div class="capture-heading">
+        <h2 id="capture-title">
+          <span>One XAtom</span>
+          <span>Exists Everywhere</span>
+        </h2>
+        <p>XAtom can be used in a wide range of everyday situations.</p>
+      </div>
+
+      <div class="capture-carousel">
+        <div class="capture-slide is-active" id="capture-panel-1" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-1" aria-hidden="false">
+          <img src="assets/home/everywhere-cafe.png" alt="Woman reading a menu in a coffee shop beside a small companion figure" />
+        </div>
+        <div class="capture-slide" id="capture-panel-2" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-2" aria-hidden="true">
+          <img src="assets/capture/2-clean.png" alt="Cyclist riding through the city at sunset" />
+        </div>
+        <div class="capture-slide" id="capture-panel-3" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-3" aria-hidden="true">
+          <img src="assets/capture/3-clean.png" alt="Older couple walking together outdoors" />
+        </div>
+        <div class="capture-slide" id="capture-panel-4" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-4" aria-hidden="true">
+          <img src="assets/capture/4-clean.png" alt="Baby in a warm nursery beside a soft rabbit toy" />
+        </div>
+        <div class="capture-slide" id="capture-panel-5" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-5" aria-hidden="true">
+          <img src="assets/capture/5-clean.png" alt="Child drawing at a desk beside a squirrel figure" />
+        </div>
+
+        <div class="capture-gradient" aria-hidden="true"></div>
+
+        <div class="capture-tabs" role="tablist" aria-label="Everyday situations">
+          <button class="capture-tab is-active" id="capture-tab-1" type="button" role="tab" aria-selected="true" aria-controls="capture-panel-1" data-capture-tab="0">
+            <span>Coffee Shop</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
+          <button class="capture-tab" id="capture-tab-2" type="button" role="tab" aria-selected="false" aria-controls="capture-panel-2" data-capture-tab="1" tabindex="-1">
+            <span>City Cycling</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
+          <button class="capture-tab" id="capture-tab-3" type="button" role="tab" aria-selected="false" aria-controls="capture-panel-3" data-capture-tab="2" tabindex="-1">
+            <span>Hanging Out</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
+          <button class="capture-tab" id="capture-tab-4" type="button" role="tab" aria-selected="false" aria-controls="capture-panel-4" data-capture-tab="3" tabindex="-1">
+            <span>Baby Room</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
+          <button class="capture-tab capture-tab-last" id="capture-tab-5" type="button" role="tab" aria-selected="false" aria-controls="capture-panel-5" data-capture-tab="4" tabindex="-1">
+            <span>On The Desk</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how-it-works" aria-labelledby="how-title">
+      <h2 class="how-title" id="how-title">See how it works</h2>
+      <div class="how-steps">
+        <article class="how-step how-step-voice">
+          <div class="how-step-copy">
+            <h3>Talk</h3>
+            <p>Perform all operations via voice interaction.</p>
+          </div>
+          <div class="how-visual how-voice-visual">
+            <img src="assets/how/voice-interaction-original.png" alt="Voice interaction with XATOM" />
+          </div>
+        </article>
+
+        <article class="how-step how-step-ai">
+          <div class="how-step-copy">
+            <h3>understand</h3>
+            <p>AI models understands your task.</p>
+          </div>
+          <div class="how-visual how-ai-visual">
+            <img class="ai-card-reference" src="assets/how/frame-831.svg" alt="OpenAI, DeepSeek, Meta, Gemini, and Claude with completed and pending AI tasks" />
+          </div>
+        </article>
+
+        <article class="how-step how-step-mcp">
+          <div class="how-step-copy">
+            <h3>connect</h3>
+            <p>MCP connects online and offline channels.</p>
+          </div>
+          <div class="how-visual how-mcp-visual">
+            <img src="assets/how/mcp-workflow-original.png" alt="MCP ordering workflow with XATOM" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell-showcase" id="outcomes" aria-labelledby="shell-showcase-title">
+      <div class="shell-glow shell-glow-left" aria-hidden="true"></div>
+      <div class="shell-glow shell-glow-right" aria-hidden="true"></div>
+
+      <div class="shell-showcase-header">
+        <div class="shell-showcase-copy">
+          <h2 id="shell-showcase-title">
+            <span>One XAtom.</span>
+            <span>Many different shapes.</span>
+          </h2>
+          <p>One AI core that adapts to different shapes.</p>
+        </div>
+
+        <div class="shell-showcase-controls" aria-label="Shell collection navigation">
+          <button class="carousel-arrow carousel-arrow--solid shell-previous" type="button" aria-label="Previous shells">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"></path></svg>
+          </button>
+          <button class="carousel-arrow carousel-arrow--solid shell-next" type="button" aria-label="Next shells">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5.5 5.5-5.5 5.5"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="shell-collection-viewport" role="group" aria-label="Eight customizable XATOM shells including a wizard fox, dinosaur, lucky cat, bear, statues and astronaut characters">
+        <div class="shell-collection-track" aria-hidden="true">
+          <span class="shell-frame"><img src="assets/shells/shell-1.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-2.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-3.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-4.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-5.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-6.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-7.png" alt="" /></span>
+          <span class="shell-frame"><img src="assets/shells/shell-8.png" alt="" /></span>
+        </div>
+      </div>
+
+      <div class="shell-benefits" aria-label="XATOM shell benefits">
+        <div class="shell-benefit shell-benefit-craft">
+          <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
+          <span class="shell-benefit-label">Premium Craft</span>
+        </div>
+        <div class="shell-benefit shell-benefit-designs">
+          <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
+          <span class="shell-benefit-label">Varied Designs</span>
+        </div>
+        <div class="shell-benefit shell-benefit-custom">
+          <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
+          <span class="shell-benefit-label">Custom Made</span>
+        </div>
+        <div class="shell-benefit shell-benefit-collector">
+          <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
+          <span class="shell-benefit-label">Collector’s Choice</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section personalized-gifts" id="personalized-gifts" aria-labelledby="personalized-gifts-title">
+      <img class="personalized-gifts-image" src="assets/home/xatom-style.png" width="1440" height="812" alt="A collection of customizable XATOM character shells displayed on wooden stands" />
+      <div class="personalized-gifts-overlay" aria-hidden="true"></div>
+      <div class="personalized-gifts-content">
+        <h2 id="personalized-gifts-title">Your XAtom Style.</h2>
+        <a class="personalized-gifts-button" href="#models"><span>Shop All</span></a>
+      </div>
+    </section>
+
+    <section class="section supported-models" id="models" aria-labelledby="supported-models-title">
+      <div class="supported-models-heading">
+        <h2 id="supported-models-title">Support of major AI models</h2>
+        <p>Comprehensive support for major AI models in the industry.</p>
+      </div>
+
+      <div class="supported-models-grid" role="list" aria-label="Supported AI models">
+        <div class="supported-models-row">
+          <article class="supported-model-card model-claude" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Claude</span>
+          </article>
+          <article class="supported-model-card model-gemini" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Gemini</span>
+          </article>
+          <article class="supported-model-card model-deepseek" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">DeepSeek</span>
+          </article>
+          <article class="supported-model-card model-qwen" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Qwen</span>
+          </article>
+        </div>
+
+        <div class="supported-models-row">
+          <article class="supported-model-card model-zhipu" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Zhipu</span>
+          </article>
+          <article class="supported-model-card model-codex" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Codex</span>
+          </article>
+          <article class="supported-model-card model-openclaw" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">OpenClaw</span>
+          </article>
+          <article class="supported-model-card model-phi" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">PHI</span>
+          </article>
+        </div>
+
+        <div class="supported-models-row">
+          <article class="supported-model-card model-liama" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Liama</span>
+          </article>
+          <article class="supported-model-card model-mistral" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Mistral</span>
+          </article>
+          <article class="supported-model-card model-chatgpt" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">ChatGPT</span>
+          </article>
+          <article class="supported-model-card model-grok" role="listitem">
+            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
+            <span class="supported-model-name">Grok</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-promo" aria-labelledby="final-promo-title">
+      <div class="final-promo-heading">
+        <h2 id="final-promo-title">Support of major AI models</h2>
+        <p>Comprehensive support for major AI models in the industry.</p>
+      </div>
+      <div class="final-promo-visual">
+        <img src="assets/home/final-promo.png" alt="A woman carrying a bag with a personalized XATOM companion" />
+        <div class="final-promo-shade" aria-hidden="true"></div>
+        <div class="final-promo-action">
+          <img src="assets/xatom-logo.svg" alt="XATOM" />
+          <a href="xatom-device.html">Get XAtom</a>
+        </div>
+      </div>
+    </section>
+    <div class="home-footer-gap" aria-hidden="true"></div>
   </main>
 
-  <a class="back-top" href="#top" aria-label="返回顶部">↑</a>
-  <script>
-    (() => {
-      const carousel = document.querySelector("[data-hero-carousel]");
-      if (!carousel) return;
-
-      const slides = [...carousel.querySelectorAll(".hero-slide")];
-      const copies = [...carousel.querySelectorAll(".hero-copy")];
-      const dots = [...carousel.querySelectorAll("[data-hero-page]")];
-      let active = 0;
-
-      slides.forEach(slide => {
-        new Image().src = slide.currentSrc || slide.src;
-      });
-
-      const showSlide = next => {
-        slides[active].classList.remove("is-active");
-        copies[active]?.classList.remove("is-active");
-        dots[active]?.classList.remove("is-active");
-        dots[active]?.removeAttribute("aria-current");
-        active = (next + slides.length) % slides.length;
-        slides[active].classList.add("is-active");
-        copies[active]?.classList.add("is-active");
-        dots[active]?.classList.add("is-active");
-        dots[active]?.setAttribute("aria-current", "true");
-      };
-
-      let timer = setInterval(() => {
-        showSlide(active + 1);
-      }, 4000);
-
-      dots.forEach(dot => {
-        dot.addEventListener("click", () => {
-          clearInterval(timer);
-          showSlide(Number(dot.dataset.heroPage));
-          timer = setInterval(() => {
-            showSlide(active + 1);
-          }, 4000);
-        });
-      });
-    })();
-
-    (() => {
-      const switcher = document.querySelector("[data-feature-switcher]");
-      if (!switcher) return;
-
-      const image = switcher.querySelector("#feature-image");
-      const tabs = [...switcher.querySelectorAll(".feature-tab")];
-
-      const activate = tab => {
-        const src = tab.dataset.featureSrc;
-        const name = tab.dataset.featureName;
-        image.src = `${src}?v=20260624d`;
-        image.alt = `XATOM 产品特色：${name}`;
-        image.height = Number(tab.dataset.featureHeight || 720);
-        tabs.forEach(item => {
-          item.setAttribute("aria-selected", String(item === tab));
-          item.tabIndex = item === tab ? 0 : -1;
-        });
-      };
-
-      tabs.forEach((tab, index) => {
-        new Image().src = `${tab.dataset.featureSrc}?v=20260624d`;
-        tab.tabIndex = index === 0 ? 0 : -1;
-        tab.addEventListener("click", () => {
-          activate(tab);
-        });
-        tab.addEventListener("keydown", event => {
-          const direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
-          if (!direction) return;
-          event.preventDefault();
-          const next = tabs[(index + direction + tabs.length) % tabs.length];
-          activate(next);
-          next.focus();
-        });
-      });
-    })();
-
-    (() => {
-      const carousel = document.querySelector("[data-scene-showcase-carousel]");
-      if (!carousel) return;
-
-      const cards = [...carousel.querySelectorAll("[data-card]")];
-      const prevButton = carousel.querySelector("[data-scene-showcase-prev]");
-      const nextButton = carousel.querySelector("[data-scene-showcase-next]");
-      const positions = ["pos-left", "pos-center", "pos-right", "pos-exit-left", "pos-exit-right"];
-      let order = [0, 1, 2];
-      let isAnimating = false;
-
-      const moveTo = (card, position, reset = false) => {
-        card.classList.remove(...positions, "is-resetting");
-        if (reset) card.classList.add("is-resetting");
-        card.classList.add(position);
-        if (reset) {
-          card.offsetHeight;
-          window.requestAnimationFrame(() => {
-            window.requestAnimationFrame(() => {
-              card.classList.remove("is-resetting");
-            });
-          });
-        }
-      };
-
-      const finishAnimation = nextOrder => {
-        window.setTimeout(() => {
-          order = nextOrder;
-          isAnimating = false;
-          carousel.classList.remove("is-animating");
-        }, 320);
-      };
-
-      nextButton?.addEventListener("click", () => {
-        if (isAnimating) return;
-        isAnimating = true;
-        carousel.classList.add("is-animating");
-
-        const leftCard = cards[order[0]];
-        const centerCard = cards[order[1]];
-        const rightCard = cards[order[2]];
-
-        moveTo(leftCard, "pos-exit-left");
-        moveTo(centerCard, "pos-left");
-        moveTo(rightCard, "pos-center");
-
-        window.setTimeout(() => {
-          moveTo(leftCard, "pos-right", true);
-        }, 320);
-        finishAnimation([order[1], order[2], order[0]]);
-      });
-
-      prevButton?.addEventListener("click", () => {
-        if (isAnimating) return;
-        isAnimating = true;
-        carousel.classList.add("is-animating");
-
-        const leftCard = cards[order[0]];
-        const centerCard = cards[order[1]];
-        const rightCard = cards[order[2]];
-
-        moveTo(rightCard, "pos-exit-right");
-        moveTo(centerCard, "pos-right");
-        moveTo(leftCard, "pos-center");
-
-        window.setTimeout(() => {
-          moveTo(rightCard, "pos-left", true);
-        }, 320);
-        finishAnimation([order[2], order[0], order[1]]);
-      });
-    })();
-
-    (() => {
-      const sceneCards = [...document.querySelectorAll("#scenes .scene-card")];
-      if (!sceneCards.length) return;
-
-      const activateCard = card => {
-        sceneCards.forEach(item => item.classList.toggle("is-active", item === card));
-      };
-
-      sceneCards.forEach(card => {
-        card.addEventListener("click", event => {
-          activateCard(card);
-        });
-        card.addEventListener("keydown", event => {
-          if (event.key !== "Enter" && event.key !== " ") return;
-          event.preventDefault();
-          activateCard(card);
-        });
-      });
-    })();
-
-    (() => {
-      const showcase = document.querySelector("[data-video-showcase]");
-      if (!showcase) return;
-
-      const playerLayer = showcase.querySelector("[data-video-player-layer]");
-      const mainVideo = showcase.querySelector("#main-video");
-      const mainCover = showcase.querySelector("[data-video-main-cover]");
-      const playHotspot = showcase.querySelector(".video-play-hotspot");
-      const thumbs = [...showcase.querySelectorAll(".video-thumb-hotspot")];
-
-      const showCover = () => {
-        mainVideo.pause();
-        try {
-          mainVideo.currentTime = 0;
-        } catch (error) {
-          // Some browsers wait for metadata before allowing currentTime changes.
-        }
-        playerLayer.classList.remove("is-active");
-      };
-
-      const updateCover = thumb => {
-        const coverSrc = thumb.dataset.coverSrc;
-        if (coverSrc) {
-          mainCover.setAttribute("src", `${coverSrc}?v=20260616-cover2`);
-          mainCover.hidden = false;
-          mainCover.setAttribute("aria-hidden", "false");
-          mainCover.classList.add("is-active");
-          return;
-        }
-
-        mainCover.classList.remove("is-active");
-        mainCover.hidden = true;
-        mainCover.setAttribute("aria-hidden", "true");
-        mainCover.removeAttribute("src");
-      };
-
-      const switchVideo = thumb => {
-        showCover();
-        const src = `${thumb.dataset.videoSrc}?v=20260616`;
-        if (mainVideo.getAttribute("src") !== src) {
-          mainVideo.setAttribute("src", src);
-          mainVideo.load();
-        }
-        thumbs.forEach(item => item.classList.toggle("is-selected", item === thumb));
-        updateCover(thumb);
-      };
-
-      const playSelectedVideo = () => {
-        playerLayer.classList.add("is-active");
-        mainVideo.controls = true;
-        mainVideo.play().catch(() => {
-          playerLayer.classList.remove("is-active");
-        });
-      };
-
-      playHotspot.addEventListener("click", playSelectedVideo);
-      mainVideo.addEventListener("ended", showCover);
-
-      showcase.addEventListener("click", event => {
-        const thumb = event.target.closest(".video-thumb-hotspot");
-        if (!thumb || !showcase.contains(thumb)) return;
-        switchVideo(thumb);
-      });
-
-      updateCover(thumbs.find(thumb => thumb.classList.contains("is-selected")) || thumbs[0]);
-    })();
-
-    (() => {
-      const frames = [...document.querySelectorAll(".title-frame, .asset-frame.content")]
-        .filter(frame => frame.id !== "partners");
-      if (!frames.length) return;
-
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      frames.forEach((frame, index) => {
-        frame.classList.add("scroll-animate");
-        frame.style.transitionDelay = `${Math.min(index % 3, 2) * 60}ms`;
-      });
-
-      if (reduceMotion) {
-        frames.forEach(frame => frame.classList.add("is-visible"));
-        return;
-      }
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            return;
-          }
-
-          if (entry.boundingClientRect.top > window.innerHeight) {
-            entry.target.classList.remove("is-visible");
-          }
-        });
-      }, {
-        threshold: .18,
-        rootMargin: "0px 0px -8% 0px"
-      });
-
-      frames.forEach(frame => observer.observe(frame));
-
-      let ticking = false;
-      const updateParallax = () => {
-        const viewportCenter = window.innerHeight / 2;
-        frames.forEach(frame => {
-          if (!frame.classList.contains("is-visible")) return;
-          const rect = frame.getBoundingClientRect();
-          const frameCenter = rect.top + rect.height / 2;
-          const offset = Math.max(-26, Math.min(26, (viewportCenter - frameCenter) * .035));
-          frame.style.setProperty("--parallax-y", `${offset.toFixed(2)}px`);
-        });
-        ticking = false;
-      };
-
-      const requestParallax = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(updateParallax);
-      };
-
-      window.addEventListener("scroll", requestParallax, { passive: true });
-      window.addEventListener("resize", requestParallax);
-      requestParallax();
-    })();
-  </script>
+  <footer class="site-footer home-site-footer" id="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <div class="site-footer-brand">
+          <img class="site-footer-logo" src="assets/xatom-logo.svg" alt="XATOM" />
+          <p>Amplify human intelligence</p>
+          <p>Ask AI about Xatom</p>
+          <div class="site-footer-ai" aria-label="AI services">
+            <span class="site-footer-sprite" style="--sprite-x:180px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span>
+            <span class="site-footer-sprite" style="--sprite-x:216px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span>
+            <span class="site-footer-sprite" style="--sprite-x:252px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span>
+            <span class="site-footer-sprite" style="--sprite-x:288px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span>
+            <span class="site-footer-sprite" style="--sprite-x:324px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span>
+          </div>
+        </div>
+        <div class="site-footer-column site-footer-contact">
+          <h2>Contact us</h2>
+          <a href="mailto:garyyang@qiniu.com"><span class="site-footer-sprite mail-icon" style="--sprite-x:576px;--sprite-y:246.565px"><img src="assets/footer.svg" alt="" /></span><span>garyyang@qiniu.com</span></a>
+          <p><span class="site-footer-sprite" style="--sprite-x:573.5px;--sprite-y:273px"><img src="assets/footer.svg" alt="" /></span><span>Moli Space T2,Shanghai,China</span></p>
+        </div>
+        <div class="site-footer-column site-footer-social">
+          <h2>Search us</h2>
+          <div class="site-footer-social-links">
+            <a href="#facebook" aria-label="Facebook"><span class="site-footer-sprite" style="--sprite-x:1052px;--sprite-y:268px"><img src="assets/footer.svg" alt="" /></span></a>
+            <a href="#instagram" aria-label="Instagram"><span class="site-footer-sprite" style="--sprite-x:1097px;--sprite-y:268px"><img src="assets/footer.svg" alt="" /></span></a>
+            <a href="#x" aria-label="X"><span class="site-footer-sprite" style="--sprite-x:1143px;--sprite-y:268px"><img src="assets/footer.svg" alt="" /></span></a>
+            <a href="#tiktok" aria-label="TikTok"><span class="site-footer-sprite" style="--sprite-x:1188px;--sprite-y:268px"><img src="assets/footer.svg" alt="" /></span></a>
+            <a href="#youtube" aria-label="YouTube"><span class="site-footer-sprite" style="--sprite-x:1235px;--sprite-y:268px"><img src="assets/footer.svg" alt="" /></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <p>Copyright © 2026 XATOM. Reserve all rights.</p>
+        <nav class="site-footer-legal" aria-label="Legal navigation">
+          <a href="#privacy">Private Policy</a><i aria-hidden="true"></i>
+          <a href="#terms">Use Item</a><i aria-hidden="true"></i>
+          <a href="#refunds">Sale and Refund</a><i aria-hidden="true"></i>
+          <a href="#legal">Law Information</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js?v=home-responsive-fit-5" defer></script>
 </body>
 </html>
