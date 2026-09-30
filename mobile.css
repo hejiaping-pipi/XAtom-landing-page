@@ -2,7 +2,7 @@
 .mobile-menu-toggle,.mobile-simple-heading{display:none}
 @media(max-width:767px){.mobile-simple-heading{display:block}}
 @media(max-width:767px){
-  body.home-page{width:100%;min-width:0;zoom:1;margin:0;overflow-x:clip}
+  body.home-page{--mobile-layout-width:max(360px,100vw);width:100%;min-width:360px;zoom:1;margin:0;overflow-x:auto}
   body.home-page #home,body.home-page .nav,body.home-page .frame,body.home-page .section,body.home-page .site-footer{width:100%;max-width:100%;min-width:0}
   body.home-page .nav{height:auto;min-height:64px;padding:16px 20px;position:relative;display:block}
   body.home-page .header-main-links{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0}
@@ -13,8 +13,8 @@
   body.home-page .nav-tools{position:static;display:none;width:100%;height:auto;margin-top:12px;gap:20px}
   body.home-page .nav:has(.nav-main.is-open) .nav-tools{display:flex}
   body.home-page .nav-tools button{display:flex}
-  body.home-page .hero{height:calc(100vw * .5646 + 76px);min-height:0;background:#fff;overflow:hidden}
-  body.home-page .hero .hero-slide{width:100%;height:calc(100vw * .5646);background-size:100% auto}
+  body.home-page .hero{height:calc(var(--mobile-layout-width) * .5646 + 76px);min-height:0;background:#fff;overflow:hidden}
+  body.home-page .hero .hero-slide{width:100%;height:calc(var(--mobile-layout-width) * .5646);background-size:100% auto}
   body.home-page .hero .hero-slide>img:first-child{width:100%;height:auto;left:0;top:0}
   body.home-page .hero-slide-6 .hero-slide-copy{left:6%;top:20%;width:48%;height:auto;gap:8px}
   body.home-page .hero-slide-6 .hero-slide-logo{width:90px;height:auto}
@@ -35,7 +35,7 @@
   .scenario-play img{width:100%;height:100%}
   body.home-page .adaptive-frame{width:100%;height:auto;padding:0;gap:28px;overflow:hidden}
   body.home-page .adaptive .scenario-grid{display:flex;width:max-content;height:auto;overflow:visible;gap:16px}
-  body.home-page .adaptive .scenario-card,body.home-page .adaptive .scenario-card.is-expanded{width:calc(100vw - 56px);flex-basis:calc(100vw - 56px);height:460px;min-width:0}
+  body.home-page .adaptive .scenario-card,body.home-page .adaptive .scenario-card.is-expanded{width:calc(var(--mobile-layout-width) - 56px);flex-basis:calc(var(--mobile-layout-width) - 56px);height:460px;min-width:0}
   body.home-page .adaptive .scenario-photo{width:100%;height:100%;left:0;top:0}
   body.home-page .adaptive .card-toolbar{width:100%;left:0;padding:20px;box-sizing:border-box}
   body.home-page .adaptive .scenario-tag{font-size:18px;white-space:normal}
