@@ -6,9 +6,29 @@
   <title>XATOM Device</title>
   <link rel="stylesheet" href="product.css?v=product-shop-disabled-7" />
   <link rel="stylesheet" href="footer.css?v=footer-svg-1" />
+  <link rel="stylesheet" href="mobile-navigation.css?v=1" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
 </head>
-<body>
+<body class="product-body">
+  <header class="mobile-site-nav" data-mobile-nav>
+    <div class="mobile-site-header-row">
+      <a class="mobile-site-wordmark" href="index.html#home" aria-label="XATOM home"><img src="assets/xatom-logo.svg" alt="" /></a>
+      <nav class="mobile-site-actions" aria-label="Quick actions">
+        <a class="mobile-site-action" href="#search" aria-label="Search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866.325 5.642.373 3.007 3.007.373 5.642.325 9.866 2.901 12.442 5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336 17 17"/></svg></a>
+        <a class="mobile-site-action" href="#cart" aria-label="Cart, 0 items"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1h14l1 16H2L3 1Z"/><path d="M7 4a3 3 0 0 0 6 0"/></svg><span class="mobile-site-cart-count" aria-hidden="true">0</span></a>
+      </nav>
+      <button class="mobile-site-menu-toggle" type="button" aria-expanded="false" aria-controls="product-mobile-menu" aria-label="Open menu" data-mobile-nav-toggle><span class="mobile-site-menu-label">Menu</span><span class="mobile-site-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    </div>
+    <div class="mobile-site-menu-panel" id="product-mobile-menu" data-mobile-nav-panel>
+      <nav class="mobile-site-main-nav" aria-label="Primary navigation"><a href="index.html#home">Homepage</a><a class="is-active" href="xatom-device.html" aria-current="page">XAtom Device</a><a href="index.html#scenarios">Personalized Body</a><a class="is-disabled" aria-disabled="true" tabindex="-1">Shop</a><a href="about-us.html">About Us</a></nav>
+      <div class="mobile-site-divider" aria-hidden="true"></div>
+      <nav class="mobile-site-utilities" aria-label="Utility navigation">
+        <a class="mobile-site-utility has-chevron" href="#login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M1 17c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4"/></svg><span>Account</span></a>
+        <a class="mobile-site-utility" href="#search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866.325 5.642.373 3.007 3.007.373 5.642.325 9.866 2.901 12.442 5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336 17 17"/></svg><span>Search</span></a>
+        <a class="mobile-site-utility" href="#cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1h14l1 16H2L3 1Z"/><path d="M7 4a3 3 0 0 0 6 0"/></svg><span>Cart</span></a>
+      </nav>
+    </div>
+  </header>
   <main class="product-page">
     <header class="product-nav">
       <div class="product-primary-links">
@@ -215,6 +235,7 @@
     </footer>
   </main>
   <script src="product.js?v=product-shop-disabled-7"></script>
+  <script src="mobile-navigation.js?v=1" defer></script>
   <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>
