@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XATOM Device</title>
-  <link rel="stylesheet" href="product.css?v=product-shop-disabled-7" />
+  <link rel="stylesheet" href="product.css?v=product-purchase-mobile-1" />
   <link rel="stylesheet" href="footer.css?v=footer-svg-1" />
-  <link rel="stylesheet" href="mobile-navigation.css?v=1" />
+  <link rel="stylesheet" href="mobile-navigation.css?v=2" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
 </head>
 <body class="product-body">
@@ -79,7 +79,7 @@
               </span>
               <strong>4.8</strong>
             </div>
-            <div class="price"><strong>$00.00</strong><del>$139.99</del><span>Save 39%</span></div>
+            <div class="price"><span class="price-label">Price:</span><strong>$00.00</strong><del>$139.99</del><span class="price-discount">Save 39%</span></div>
           </div>
           <div class="colour-picker">
             <strong>COLOR: <span data-colour-name>Blush/Muted</span></strong>
@@ -88,9 +88,9 @@
           <div class="quantity-picker">
             <strong>Quantity:</strong>
             <div class="quantity-control" role="group" aria-label="Quantity">
-              <button type="button" aria-label="Increase quantity" data-quantity-increase></button>
-              <output aria-live="polite" data-quantity-value>4</output>
               <button type="button" aria-label="Decrease quantity" data-quantity-decrease></button>
+              <output aria-live="polite" data-quantity-value>1</output>
+              <button type="button" aria-label="Increase quantity" data-quantity-increase></button>
             </div>
           </div>
           <div class="purchase-actions"><button type="button">Shop Now</button><button type="button">ADD TO CART</button></div>
@@ -99,6 +99,7 @@
       </div>
     </section>
 
+    <div class="product-lower-content">
     <section class="product-feature product-size" aria-labelledby="size-title">
       <div class="feature-heading">
         <h2 id="size-title">Dimensions and size</h2>
@@ -233,6 +234,7 @@
         </div>
       </div>
     </footer>
+    </div>
   </main>
   <script src="product.js?v=product-shop-disabled-7"></script>
   <script src="mobile-navigation.js?v=1" defer></script>

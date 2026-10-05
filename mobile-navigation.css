@@ -7,7 +7,7 @@
   body.mobile-site-nav-open{overflow:hidden!important;overscroll-behavior:none}
 
   body.product-body{width:100%;min-width:360px;zoom:1!important;overflow-x:hidden}
-  body.product-body .product-page{zoom:var(--product-preview-scale,1)}
+  body.product-body .product-page{zoom:1}
   body.product-body .product-nav{display:none!important}
   body.about-body .about-nav{display:none!important}
 
