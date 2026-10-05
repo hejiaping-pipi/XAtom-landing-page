@@ -1,0 +1,40 @@
+.about-menu-toggle{display:none}
+@media(max-width:767px){
+ html{min-width:360px}
+ body{width:100%;min-width:360px;overflow-x:auto}
+ .about-nav{width:100%;height:auto;min-height:64px;padding:10px 20px;display:block}
+ .about-primary-links{width:100%;min-width:0;height:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0}
+ .about-menu-toggle{display:block;min-height:44px;padding:8px 12px;border:1px solid #ded7d1;border-radius:8px;background:#fff;color:#484848;font-size:14px}
+ .about-main-nav{display:none;flex:0 0 100%;width:100%;flex-direction:column;align-items:stretch;gap:0;padding-top:12px}
+ .about-main-nav.is-open{display:flex}
+ .about-main-nav a{min-height:44px;display:flex;align-items:center;white-space:normal}
+ .about-tools{display:none;width:100%;margin-top:12px;gap:20px}
+ .about-nav:has(.is-open) .about-tools{display:flex}
+ .about-page{width:100%;overflow:hidden}
+ .about-hero{height:auto;aspect-ratio:4/3}
+ .about-play{left:20px;bottom:20px;width:44px;height:44px}
+ .about-play-icon{width:100%;height:100%}
+ .about-section{height:auto;padding:48px 20px;gap:28px}
+ .about-heading{width:100%;gap:16px}
+ .about-heading h1,.about-heading h2{font-size:28px;line-height:1.2;letter-spacing:-.5px;overflow-wrap:anywhere}
+ .about-heading p{font-size:18px;line-height:1.5}
+ .platform-content{width:100%;gap:24px}
+ .platform-illustration{width:100%;height:auto}
+ .platform-content>p,.physical-copy{width:100%;font-size:16px;line-height:1.6;text-align:left}
+ .bits-visual{height:auto;aspect-ratio:4/3;border-radius:12px}
+ .bits-visual>p{left:20px;right:20px;bottom:24px;transform:none;font-size:26px;line-height:1.2;white-space:normal;text-align:center}
+ .bits-layer-base{top:0}
+ .bits-layer-overlay{top:0}
+ .physical-visual{height:auto;aspect-ratio:4/3;border-radius:12px}
+ .physical-visual img{width:100%;height:100%;top:0;object-fit:cover}
+ .site-footer{width:100%;height:auto;padding:48px 24px;margin-top:40px}
+ .site-footer-inner,.site-footer-top,.site-footer-bottom{width:100%;height:auto;gap:32px}
+ .site-footer-top{flex-direction:column;align-items:flex-start;padding:0 0 32px}
+ .site-footer-column{width:100%;height:auto;gap:16px}
+ .site-footer-column h2{margin:0}
+ .site-footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+ .site-footer-bottom>p{width:100%;height:auto;font-size:14px;white-space:normal}
+ .site-footer-legal{width:100%;height:auto;flex-wrap:wrap;gap:8px 16px}
+ .site-footer-legal a{height:auto;min-height:44px;display:flex;align-items:center;font-size:14px}
+ .site-footer-legal i{display:none}
+}

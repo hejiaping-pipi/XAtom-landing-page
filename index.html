@@ -4,25 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XATOM</title>
-  <link rel="stylesheet" href="styles.css?v=home-responsive-fit-5" />
+  <link rel="stylesheet" href="styles.css?v=home-responsive-fit-6" />
   <link rel="stylesheet" href="footer.css?v=footer-home-fixed-artboard-3" />
-  <link rel="stylesheet" href="mobile.css?v=3-min-width-360" />
+  <link rel="stylesheet" href="mobile.css?v=19-plaud-mobile-navigation" />
+  <link rel="stylesheet" href="scroll-motion.css?v=2" />
 </head>
 <body class="home-page">
   <header class="nav">
-    <div class="header-main-links">
+      <div class="header-main-links">
         <a class="wordmark" href="#home" aria-label="XATOM home">
           <img src="assets/xatom-logo.svg" alt="" />
         </a>
-      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="home-navigation">Menu</button>
-      <nav id="home-navigation" class="nav-main" aria-label="Primary navigation"><a class="is-active" href="#home" aria-current="page">Homepage</a><a href="xatom-device.html">XAtom Device</a><a href="#scenarios">Personalized Body</a><a class="is-disabled" aria-disabled="true" tabindex="-1">Shop</a><a href="about-us.html">About Us</a></nav>
-    </div>
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="home-mobile-menu" aria-label="Open menu">
+          <span class="mobile-menu-toggle-label">Menu</span>
+          <span class="mobile-menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <div class="mobile-menu-panel" id="home-mobile-menu">
+          <nav id="home-navigation" class="nav-main" aria-label="Primary navigation"><a class="is-active" href="#home" aria-current="page">Homepage</a><a href="xatom-device.html">XAtom Device</a><a href="#scenarios">Personalized Body</a><a class="is-disabled" aria-disabled="true" tabindex="-1">Shop</a><a href="about-us.html">About Us</a></nav>
+          <div class="mobile-nav-divider" aria-hidden="true"></div>
+          <nav class="mobile-nav-utilities" aria-label="Utility navigation">
+            <a class="mobile-nav-utility mobile-nav-account has-chevron" href="#login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9C11.209 9 13 7.2091 13 5C13 2.7909 11.209 1 9 1C6.791 1 5 2.7909 5 5C5 7.2091 6.791 9 9 9Z"></path><path d="M1 17C1 15.9391 1.421 14.9217 2.172 14.1716C2.922 13.4214 3.939 13 5 13H13C14.061 13 15.078 13.4214 15.828 14.1716C16.579 14.9217 17 15.9391 17 17"></path></svg><span>Account</span></a>
+            <a class="mobile-nav-utility" href="#search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866 0.325 5.642 0.373 3.007 3.007C0.373 5.642 0.325 9.866 2.901 12.442C5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336L17 17"></path></svg><span>Search</span></a>
+            <a class="mobile-nav-utility" href="#cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1H17L18 17H2L3 1Z"></path><path d="M7 4C7 4.7956 7.316 5.5587 7.879 6.1213C8.441 6.6839 9.204 7 10 7C10.796 7 11.559 6.6839 12.121 6.1213C12.684 5.5587 13 4.7956 13 4"></path></svg><span>Cart</span></a>
+          </nav>
+        </div>
+      </div>
     <nav class="nav-tools">
       <button class="locale locale-english"><span class="locale-label">English</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
       <button class="locale locale-british"><span class="locale-label">British</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
       <a class="nav-icon search" href="#search" aria-label="Search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866 0.325 5.642 0.373 3.007 3.007C0.373 5.642 0.325 9.866 2.901 12.442C5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336L17 17"></path></svg></a>
       <a class="nav-icon login" href="#login" aria-label="Login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9C11.209 9 13 7.2091 13 5C13 2.7909 11.209 1 9 1C6.791 1 5 2.7909 5 5C5 7.2091 6.791 9 9 9Z"></path><path d="M1 17C1 15.9391 1.421 14.9217 2.172 14.1716C2.922 13.4214 3.939 13 5 13H13C14.061 13 15.078 13.4214 15.828 14.1716C16.579 14.9217 17 15.9391 17 17"></path></svg></a>
-      <a class="nav-icon bag" href="#cart" aria-label="Cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1H17L18 17H2L3 1Z"></path><path d="M7 4C7 4.7956 7.316 5.5587 7.879 6.1213C8.441 6.6839 9.204 7 10 7C10.796 7 11.559 6.6839 12.121 6.1213C12.684 5.5587 13 4.7956 13 4"></path></svg></a>
+      <a class="nav-icon bag" href="#cart" aria-label="Cart, 0 items"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1H17L18 17H2L3 1Z"></path><path d="M7 4C7 4.7956 7.316 5.5587 7.879 6.1213C8.441 6.6839 9.204 7 10 7C10.796 7 11.559 6.6839 12.121 6.1213C12.684 5.5587 13 4.7956 13 4"></path></svg><span class="mobile-cart-count" aria-hidden="true">0</span></a>
     </nav>
   </header>
 
@@ -255,18 +267,23 @@
       <div class="capture-carousel">
         <div class="capture-slide is-active" id="capture-panel-1" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-1" aria-hidden="false">
           <img src="assets/home/everywhere-cafe.png" alt="Woman reading a menu in a coffee shop beside a small companion figure" />
+          <p class="capture-mobile-caption">Coffee Shop</p>
         </div>
         <div class="capture-slide" id="capture-panel-2" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-2" aria-hidden="true">
           <img src="assets/capture/2-clean.png" alt="Cyclist riding through the city at sunset" />
+          <p class="capture-mobile-caption">City Cycling</p>
         </div>
         <div class="capture-slide" id="capture-panel-3" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-3" aria-hidden="true">
           <img src="assets/capture/3-clean.png" alt="Older couple walking together outdoors" />
+          <p class="capture-mobile-caption">Hanging Out</p>
         </div>
         <div class="capture-slide" id="capture-panel-4" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-4" aria-hidden="true">
           <img src="assets/capture/4-clean.png" alt="Baby in a warm nursery beside a soft rabbit toy" />
+          <p class="capture-mobile-caption">Baby Room</p>
         </div>
         <div class="capture-slide" id="capture-panel-5" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-5" aria-hidden="true">
           <img src="assets/capture/5-clean.png" alt="Child drawing at a desk beside a squirrel figure" />
+          <p class="capture-mobile-caption">On The Desk</p>
         </div>
 
         <div class="capture-gradient" aria-hidden="true"></div>
@@ -369,18 +386,22 @@
 
       <div class="shell-benefits" aria-label="XATOM shell benefits">
         <div class="shell-benefit shell-benefit-craft">
+          <img class="shell-benefit-mobile-icon" src="assets/shells/mobile/craft.svg" alt="" aria-hidden="true" />
           <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
           <span class="shell-benefit-label">Premium Craft</span>
         </div>
         <div class="shell-benefit shell-benefit-designs">
+          <img class="shell-benefit-mobile-icon" src="assets/shells/mobile/designs.svg" alt="" aria-hidden="true" />
           <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
           <span class="shell-benefit-label">Varied Designs</span>
         </div>
         <div class="shell-benefit shell-benefit-custom">
+          <img class="shell-benefit-mobile-icon" src="assets/shells/mobile/custom.svg" alt="" aria-hidden="true" />
           <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
           <span class="shell-benefit-label">Custom Made</span>
         </div>
         <div class="shell-benefit shell-benefit-collector">
+          <img class="shell-benefit-mobile-icon" src="assets/shells/mobile/collector.svg" alt="" aria-hidden="true" />
           <span class="shell-benefit-icon" aria-hidden="true"><img src="assets/shells/frame-872.svg" width="915" height="72" alt="" /></span>
           <span class="shell-benefit-label">Collector’s Choice</span>
         </div>
@@ -521,6 +542,7 @@
       </div>
     </div>
   </footer>
-  <script src="script.js?v=home-responsive-fit-5" defer></script>
+  <script src="script.js?v=no-motion-13-mobile-navigation" defer></script>
+  <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>

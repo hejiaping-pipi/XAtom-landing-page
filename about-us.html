@@ -7,6 +7,8 @@
   <title>About Us | XATOM</title>
   <link rel="stylesheet" href="about.css?v=about-play-toggle-1" />
   <link rel="stylesheet" href="footer.css?v=footer-svg-1" />
+  <link rel="stylesheet" href="about-mobile.css?v=1" />
+  <link rel="stylesheet" href="scroll-motion.css?v=2" />
 </head>
 <body>
   <header class="about-nav">
@@ -14,7 +16,8 @@
       <a class="about-wordmark" href="index.html#home" aria-label="XATOM home">
         <img src="assets/xatom-logo.svg" alt="XATOM" />
       </a>
-      <nav class="about-main-nav" aria-label="Primary navigation">
+      <button class="about-menu-toggle" type="button" aria-expanded="false" aria-controls="about-navigation">Menu</button>
+      <nav id="about-navigation" class="about-main-nav" aria-label="Primary navigation">
         <a href="index.html#home">Homepage</a>
         <a href="xatom-device.html">XAtom Device</a>
         <a href="index.html#scenarios">Personalized Body</a>
@@ -120,6 +123,7 @@
       </div>
     </div>
   </footer>
-  <script src="about.js?v=play-toggle-1" defer></script>
+  <script src="about.js?v=mobile-menu-1?v=play-toggle-1" defer></script>
+  <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>

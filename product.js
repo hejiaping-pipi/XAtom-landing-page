@@ -1,6 +1,6 @@
 const syncProductPreviewScale = () => {
   const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-  const scale = Math.min(1, viewportWidth / 1440);
+  const scale = Math.min(1, Math.max(360, viewportWidth) / 1440);
   document.documentElement.style.setProperty('--product-preview-scale', String(scale));
 };
 
