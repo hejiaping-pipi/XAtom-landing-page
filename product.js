@@ -2,9 +2,9 @@ const syncProductPreviewScale = () => {
   const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
   const scale = Math.min(1, Math.max(360, viewportWidth) / 1440);
   document.documentElement.style.setProperty('--product-preview-scale', String(scale));
-  document.documentElement.style.setProperty('--product-mobile-feature-title-size', `${24 / scale}px`);
-  document.documentElement.style.setProperty('--product-mobile-feature-title-line', `${28 / scale}px`);
-  document.documentElement.style.setProperty('--product-mobile-feature-copy-size', `${16 / scale}px`);
+  document.documentElement.style.setProperty('--product-mobile-feature-title-size', `${28 / scale}px`);
+  document.documentElement.style.setProperty('--product-mobile-feature-title-line', `${34 / scale}px`);
+  document.documentElement.style.setProperty('--product-mobile-feature-copy-size', `${14 / scale}px`);
   document.documentElement.style.setProperty('--product-mobile-feature-copy-line', `${20 / scale}px`);
 };
 

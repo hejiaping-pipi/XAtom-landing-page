@@ -176,6 +176,27 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
     height:783px;
     zoom:var(--product-preview-scale,1);
   }
+  body.product-body .product-hero-copy{
+    left:80px;
+    top:300px;
+    width:1280px;
+    height:auto;
+    gap:40px;
+  }
+  body.product-body .product-hero-copy h1{
+    width:100%;
+    height:auto;
+    font-size:var(--product-mobile-feature-title-size,112px);
+    line-height:var(--product-mobile-feature-title-line,136px);
+    white-space:normal;
+  }
+  body.product-body .product-hero-copy p{
+    width:100%;
+    height:auto;
+    font-size:var(--product-mobile-feature-copy-size,56px);
+    line-height:var(--product-mobile-feature-copy-line,80px);
+    white-space:normal;
+  }
   body.product-body .product-purchase{
     position:relative;
     left:0;
@@ -272,7 +293,7 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
     margin:0;
     color:#171717;
     font-family:Outfit,Roboto,Arial,Helvetica,sans-serif!important;
-    font-size:34px;
+    font-size:28px;
     line-height:1.08;
     font-weight:400;
     letter-spacing:-.6px;
@@ -407,23 +428,23 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
     overflow:hidden;
   }
   body.product-body .product-size{top:0}
-  body.product-body .product-size .feature-heading{
+  body.product-body .feature-heading{
     width:1000px;
     height:240px;
     gap:32px;
-    font-size:24px;
+    font-size:28px;
   }
-  body.product-body .product-size .feature-heading h2{
+  body.product-body .feature-heading h2{
     width:100%;
     height:auto;
-    font-size:var(--product-mobile-feature-title-size,96px);
-    line-height:var(--product-mobile-feature-title-line,112px);
+    font-size:var(--product-mobile-feature-title-size,112px);
+    line-height:var(--product-mobile-feature-title-line,136px);
     white-space:nowrap;
   }
-  body.product-body .product-size .feature-heading p{
+  body.product-body .feature-heading p{
     width:100%;
     height:auto;
-    font-size:var(--product-mobile-feature-copy-size,64px);
+    font-size:var(--product-mobile-feature-copy-size,56px);
     line-height:var(--product-mobile-feature-copy-line,80px);
     white-space:nowrap;
   }
@@ -431,4 +452,15 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
   body.product-body .product-ways{top:2243px}
   body.product-body .product-gift-set{top:4133px}
   body.product-body .personalized-banner{top:5915px}
+  body.product-body .personalized-copy{
+    left:220px;
+    width:1000px;
+    height:auto;
+  }
+  body.product-body .personalized-copy h2{
+    width:100%;
+    height:auto;
+    font-size:var(--product-mobile-feature-title-size,112px);
+    line-height:var(--product-mobile-feature-title-line,136px);
+  }
 }

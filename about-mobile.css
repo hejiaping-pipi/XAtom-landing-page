@@ -17,12 +17,12 @@
  .about-section{height:auto;padding:48px 20px;gap:28px}
  .about-heading{width:100%;gap:16px}
  .about-heading h1,.about-heading h2{font-size:28px;line-height:1.2;letter-spacing:-.5px;overflow-wrap:anywhere}
- .about-heading p{font-size:18px;line-height:1.5}
+ .about-heading p{font-size:14px;line-height:1.5}
  .platform-content{width:100%;gap:24px}
  .platform-illustration{width:100%;height:auto}
  .platform-content>p,.physical-copy{width:100%;font-size:16px;line-height:1.6;text-align:left}
  .bits-visual{height:auto;aspect-ratio:4/3;border-radius:12px}
- .bits-visual>p{left:20px;right:20px;bottom:24px;transform:none;font-size:26px;line-height:1.2;white-space:normal;text-align:center}
+ .bits-visual>p{left:20px;right:20px;bottom:24px;transform:none;font-size:28px;line-height:1.2;white-space:normal;text-align:center}
  .bits-layer-base{top:0}
  .bits-layer-overlay{top:0}
  .physical-visual{height:auto;aspect-ratio:4/3;border-radius:12px}
