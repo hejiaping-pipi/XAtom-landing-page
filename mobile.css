@@ -521,4 +521,50 @@
     font-size:12px;
     line-height:12px;
   }
+
+  /* Final mobile type scale from the 363px review pass. */
+  body.home-page .adaptive-heading h2,
+  body.home-page .adaptive-heading h2 span,
+  body.home-page .capture-heading h2,
+  body.home-page .capture-heading h2 span,
+  body.home-page .section .how-title,
+  body.home-page .shell-showcase-copy h2,
+  body.home-page .shell-showcase-copy h2 span,
+  body.home-page .supported-models-heading h2,
+  body.home-page .final-promo-heading h2{
+    font-size:28px;
+    line-height:1.15;
+  }
+  body.home-page .capture-heading h2{
+    width:100%;
+    text-align:left;
+  }
+  body.home-page .capture-heading h2 span{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  /* Footer type and logo proportions for the compact mobile stack. */
+  body.home-page .home-site-footer .site-footer-brand{
+    font-size:12px;
+    font-weight:300;
+  }
+  body.home-page .home-site-footer .site-footer-logo{
+    width:120px;
+    height:22.8px;
+  }
+  body.home-page .home-site-footer .site-footer-column h2{
+    height:auto;
+    font-size:20px;
+    line-height:24px;
+  }
+  body.home-page .home-site-footer .site-footer-contact a,
+  body.home-page .home-site-footer .site-footer-contact p,
+  body.home-page .home-site-footer .site-footer-contact a span:last-child,
+  body.home-page .home-site-footer .site-footer-contact p span:last-child{
+    height:auto;
+    font-size:14px;
+    font-weight:300;
+    line-height:18px;
+  }
 }
