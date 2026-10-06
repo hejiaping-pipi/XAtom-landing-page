@@ -2,6 +2,7 @@ const syncProductPreviewScale = () => {
   const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
   const scale = Math.min(1, Math.max(360, viewportWidth) / 1440);
   document.documentElement.style.setProperty('--product-preview-scale', String(scale));
+  document.documentElement.style.setProperty('--product-mobile-text-zoom', String(1 / scale));
   document.documentElement.style.setProperty('--product-mobile-feature-title-size', `${28 / scale}px`);
   document.documentElement.style.setProperty('--product-mobile-feature-title-line', `${34 / scale}px`);
   document.documentElement.style.setProperty('--product-mobile-feature-copy-size', `${14 / scale}px`);

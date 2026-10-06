@@ -429,23 +429,23 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
   }
   body.product-body .product-size{top:0}
   body.product-body .feature-heading{
-    width:1000px;
-    height:240px;
-    gap:32px;
-    font-size:28px;
+    width:calc(1000px * var(--product-preview-scale, .25));
+    height:calc(240px * var(--product-preview-scale, .25));
+    gap:calc(32px * var(--product-preview-scale, .25));
+    zoom:var(--product-mobile-text-zoom, 4);
   }
   body.product-body .feature-heading h2{
     width:100%;
     height:auto;
-    font-size:var(--product-mobile-feature-title-size,112px);
-    line-height:var(--product-mobile-feature-title-line,136px);
+    font-size:28px;
+    line-height:34px;
     white-space:nowrap;
   }
   body.product-body .feature-heading p{
     width:100%;
     height:auto;
-    font-size:var(--product-mobile-feature-copy-size,56px);
-    line-height:var(--product-mobile-feature-copy-line,80px);
+    font-size:14px;
+    line-height:20px;
     white-space:nowrap;
   }
   body.product-body .product-fashion{top:1049px}
