@@ -548,3 +548,11 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .way-step p span{width:28px;height:28px;flex-basis:28px;font-size:20px;line-height:28px}
  body.product-body .way-panel .way-background{left:0;width:1440px;object-fit:cover}
 }
+
+@media(max-width:767px){
+ body.product-body .way-copy{width:422px}
+ body.product-body .way-step{width:422px}
+ body.product-body .way-step p{width:100%;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+ body.product-body .way-model-views + p{width:418px;max-width:418px}
+ body.product-body .way-model-insert + p{width:421px;max-width:421px}
+}
