@@ -650,3 +650,18 @@
  body.home-page .simple-use .simple-use-card{margin-inline:auto}
  body.home-page .simple-use-stage,body.home-page .capture-carousel{touch-action:pan-y pinch-zoom;cursor:grab}
 }
+
+/* Prevent iOS text autosizing inside scaled diagram cards. */
+@media(max-width:767px){
+ body.home-page .simple-use-card,body.home-page .simple-use-card *{
+   -webkit-text-size-adjust:none;text-size-adjust:none;
+ }
+ body.home-page .simple-use-detection-copy p{line-height:15px}
+ body.home-page .simple-use-spatial-label{line-height:13px}
+ body.home-page .simple-use-detection-label{width:96px}
+ body.home-page .simple-use-detection-people{left:515px}
+ body.home-page .simple-use-detection-posture{left:611px}
+ body.home-page .simple-use-detection-fall{left:708px}
+ body.home-page .simple-use-detection-label strong{font-size:9.5px;line-height:12px;white-space:normal}
+ body.home-page .simple-use-detection-label span{font-size:8.8px;line-height:11px}
+}
