@@ -170,3 +170,35 @@
 }
 
 body.home-page .home-site-footer{width:1440px;max-width:none}
+
+@media(max-width:767px){
+  body.product-body .site-footer .site-footer-inner,body.product-body .site-footer .site-footer-top,body.product-body .site-footer .site-footer-bottom{width:100%;height:auto;gap:32px}
+  body.product-body .site-footer .site-footer-top{display:flex;flex-direction:column;align-items:flex-start;padding:0 0 32px}
+  body.product-body .site-footer .site-footer-column{height:auto;width:100%;gap:16px}
+  body.product-body .site-footer .site-footer-column h2{margin:0}
+  body.product-body .site-footer .site-footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+  body.product-body .site-footer .site-footer-bottom>p{width:100%;height:auto;font-size:14px;white-space:normal}
+  body.product-body .site-footer .site-footer-brand p{font-size:12px;font-weight:300;line-height:15px}
+  body.product-body .site-footer .site-footer-legal{width:100%;height:auto;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:16px}
+  body.product-body .site-footer .site-footer-legal a{height:auto;min-height:0;display:block;font-size:12px;font-weight:300;line-height:15px}
+  body.product-body .site-footer .site-footer-legal i{display:none}
+ body.product-body .site-footer-logo{width:120px;height:22.8px}
+ body.product-body .site-footer-column h2{height:auto;font-size:20px;line-height:24px}
+ body.product-body .site-footer-contact a,body.product-body .site-footer-contact p{height:auto;font-size:14px;font-weight:300;line-height:18px}
+}
+
+/* Uploaded footer artwork shared by all mobile pages. */
+.mobile-footer-art{display:none}
+@media(max-width:767px){
+ body .site-footer#site-footer{
+   position:relative!important;left:0!important;bottom:auto!important;
+   width:100%!important;max-width:100%!important;height:auto!important;
+   min-height:0!important;padding:0!important;display:block!important;
+   overflow:hidden;zoom:1!important;
+ }
+ body .site-footer#site-footer>.site-footer-inner{display:none!important}
+ body .site-footer#site-footer>.mobile-footer-art{
+   display:block!important;width:100%!important;max-width:100%!important;
+   height:auto!important;margin:0;aspect-ratio:375 / 367;
+ }
+}

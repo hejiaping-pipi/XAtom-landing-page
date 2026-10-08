@@ -3,11 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (() => {
+      const width = Number(new URLSearchParams(window.location.search).get('mobile-preview'));
+      if (Number.isFinite(width) && width >= 320 && width <= 767) {
+        document.documentElement.dataset.mobilePreview = '';
+        document.documentElement.style.setProperty('--mobile-preview-width', `${width}px`);
+      }
+    })();
+  </script>
   <title>XATOM</title>
   <link rel="stylesheet" href="styles.css?v=home-responsive-fit-6" />
-  <link rel="stylesheet" href="footer.css?v=footer-home-fixed-artboard-3" />
-  <link rel="stylesheet" href="mobile.css?v=21-mobile-type-refinements" />
+  <link rel="stylesheet" href="footer.css?v=mobile-svg-3" />
+  <link rel="stylesheet" href="mobile.css?v=27-swipe-centering" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
+  <style>
+    html[data-mobile-preview]{min-width:0;background:#171717}
+    html[data-mobile-preview] body.home-page{
+      --mobile-layout-width:var(--mobile-preview-width);
+      width:var(--mobile-preview-width);
+      min-width:0;
+      max-width:var(--mobile-preview-width);
+      margin:0 auto;
+      overflow-x:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+  </style>
 </head>
 <body class="home-page">
   <header class="nav">
@@ -40,18 +61,18 @@
 
   <main id="home">
     <section class="hero frame" aria-label="XATOM highlights">
-      <article class="hero-slide hero-slide-1 is-active" aria-hidden="false"><img src="assets/hero/1.png" alt="Five XATOM devices in different colors" fetchpriority="high" /></article>
-      <article class="hero-slide hero-slide-2" aria-hidden="true"><img src="assets/hero/2.png" alt="XATOM devices demonstrating multiple everyday roles" /></article>
-      <article class="hero-slide hero-slide-3" aria-hidden="true"><img src="assets/hero/3.png" alt="XATOM integrated into a bedside lamp for day and night" /></article>
-      <article class="hero-slide hero-slide-4" aria-hidden="true"><img src="assets/hero/4.png" alt="Personalized XATOM casings and modular combinations" /></article>
-      <article class="hero-slide hero-slide-5" aria-hidden="true"><img src="assets/hero/5.png" alt="Four XATOM camera modules in different colors" /></article>
-      <article class="hero-slide hero-slide-6" aria-hidden="true"><img src="assets/hero/6-background.png" alt="Three XATOM devices balanced vertically" />
+      <article class="hero-slide hero-slide-1 is-active" aria-hidden="false"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-1.png" /><img src="assets/hero/1.png" alt="Five XATOM devices in different colors" fetchpriority="high" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div></article>
+      <article class="hero-slide hero-slide-2" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-2.png" /><img src="assets/hero/2.png" alt="XATOM devices demonstrating multiple everyday roles" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Mini · Versatile · Smart</p></div></article>
+      <article class="hero-slide hero-slide-3" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-3.png" /><img src="assets/hero/3.png" alt="XATOM integrated into a bedside lamp for day and night" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Versatile Settings · Natural · Distinctive Style</p></div><img class="hero-mobile-clock" src="assets/hero/mobile-7.svg" alt="24 hours" /></article>
+      <article class="hero-slide hero-slide-4" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-4.png" /><img src="assets/hero/4.png" alt="Personalized XATOM casings and modular combinations" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Freedom · Uniqueness · Individuality</p></div></article>
+      <article class="hero-slide hero-slide-5" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-5.png" /><img src="assets/hero/5.png" alt="Four XATOM camera modules in different colors" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div></article>
+      <article class="hero-slide hero-slide-6" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-6.png" /><img src="assets/hero/6-background.png" alt="Three XATOM devices balanced vertically" /></picture>
         <div class="hero-slide-copy">
           <img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" />
           <p>XATOM is a smart, miniature AI interaction device designed around the core concepts of compact size, seamless integration, and powerful intelligence. Thanks to its embedded design, it can be integrated into everyday objects for easy portability, bringing intelligence to every aspect of daily life.</p>
           <a class="button" href="xatom-device.html">Get XAtom</a>
         </div>
-      </article>
+      <div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>XATOM is a smart, miniature AI interaction device.</p><a href="xatom-device.html">Get XAtom</a></div></article>
       <div class="hero-pagination" aria-label="Hero pages">
         <img class="hero-pagination-art" src="assets/home/frame-976.svg" alt="" />
         <div class="hero-page-tabs" role="tablist" aria-label="Hero carousel pages">
@@ -101,7 +122,7 @@
         </div>
         <div class="scenario-grid">
           <article class="scenario-card scenario-card-1" role="button" tabindex="0" aria-expanded="false">
-            <img class="scenario-photo" src="assets/home/role-1-travelers.png" alt="Traveler wearing a XATOM companion" />
+            <picture><source media="(max-width:767px)" srcset="assets/home/role-1-travelers-mobile.png" /><img class="scenario-photo" src="assets/home/role-1-travelers.png" alt="Traveler wearing a XATOM companion" /></picture>
             <div class="card-toolbar">
               <span class="scenario-tag">Travelers</span>
               <button class="scenario-detail" type="button" aria-label="Open Travelers details"><img class="scenario-detail-plus" src="assets/home/role-plus.svg" alt="" /><img class="scenario-detail-minus" src="assets/home/role-minus.svg" alt="" /></button>
@@ -266,23 +287,23 @@
 
       <div class="capture-carousel">
         <div class="capture-slide is-active" id="capture-panel-1" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-1" aria-hidden="false">
-          <img src="assets/home/everywhere-cafe.png" alt="Woman reading a menu in a coffee shop beside a small companion figure" />
+          <picture><source media="(max-width:767px)" srcset="assets/capture/mobile/1.png" /><img src="assets/home/everywhere-cafe.png" alt="Woman reading a menu in a coffee shop beside a small companion figure" /></picture>
           <p class="capture-mobile-caption">Coffee Shop</p>
         </div>
         <div class="capture-slide" id="capture-panel-2" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-2" aria-hidden="true">
-          <img src="assets/capture/2-clean.png" alt="Cyclist riding through the city at sunset" />
+          <picture><source media="(max-width:767px)" srcset="assets/capture/mobile/2.png" /><img src="assets/capture/2-clean.png" alt="Cyclist riding through the city at sunset" /></picture>
           <p class="capture-mobile-caption">City Cycling</p>
         </div>
         <div class="capture-slide" id="capture-panel-3" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-3" aria-hidden="true">
-          <img src="assets/capture/3-clean.png" alt="Older couple walking together outdoors" />
+          <picture><source media="(max-width:767px)" srcset="assets/capture/mobile/3.png" /><img src="assets/capture/3-clean.png" alt="Older couple walking together outdoors" /></picture>
           <p class="capture-mobile-caption">Hanging Out</p>
         </div>
         <div class="capture-slide" id="capture-panel-4" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-4" aria-hidden="true">
-          <img src="assets/capture/4-clean.png" alt="Baby in a warm nursery beside a soft rabbit toy" />
+          <picture><source media="(max-width:767px)" srcset="assets/capture/mobile/4.png" /><img src="assets/capture/4-clean.png" alt="Baby in a warm nursery beside a soft rabbit toy" /></picture>
           <p class="capture-mobile-caption">Baby Room</p>
         </div>
         <div class="capture-slide" id="capture-panel-5" data-capture-slide role="tabpanel" aria-labelledby="capture-tab-5" aria-hidden="true">
-          <img src="assets/capture/5-clean.png" alt="Child drawing at a desk beside a squirrel figure" />
+          <picture><source media="(max-width:767px)" srcset="assets/capture/mobile/5.png" /><img src="assets/capture/5-clean.png" alt="Child drawing at a desk beside a squirrel figure" /></picture>
           <p class="capture-mobile-caption">On The Desk</p>
         </div>
 
@@ -409,7 +430,7 @@
     </section>
 
     <section class="section personalized-gifts" id="personalized-gifts" aria-labelledby="personalized-gifts-title">
-      <img class="personalized-gifts-image" src="assets/home/xatom-style.png" width="1440" height="812" alt="A collection of customizable XATOM character shells displayed on wooden stands" />
+      <picture><source media="(max-width:767px)" srcset="assets/home/xatom-style-mobile.png" /><img class="personalized-gifts-image" src="assets/home/xatom-style.png" width="1440" height="812" alt="A collection of customizable XATOM character shells displayed on wooden stands" /></picture>
       <div class="personalized-gifts-overlay" aria-hidden="true"></div>
       <div class="personalized-gifts-content">
         <h2 id="personalized-gifts-title">Your XAtom Style.</h2>
@@ -423,63 +444,8 @@
         <p>Comprehensive support for major AI models in the industry.</p>
       </div>
 
-      <div class="supported-models-grid" role="list" aria-label="Supported AI models">
-        <div class="supported-models-row">
-          <article class="supported-model-card model-claude" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Claude</span>
-          </article>
-          <article class="supported-model-card model-gemini" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Gemini</span>
-          </article>
-          <article class="supported-model-card model-deepseek" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">DeepSeek</span>
-          </article>
-          <article class="supported-model-card model-qwen" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Qwen</span>
-          </article>
-        </div>
-
-        <div class="supported-models-row">
-          <article class="supported-model-card model-zhipu" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Zhipu</span>
-          </article>
-          <article class="supported-model-card model-codex" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Codex</span>
-          </article>
-          <article class="supported-model-card model-openclaw" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">OpenClaw</span>
-          </article>
-          <article class="supported-model-card model-phi" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">PHI</span>
-          </article>
-        </div>
-
-        <div class="supported-models-row">
-          <article class="supported-model-card model-liama" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Liama</span>
-          </article>
-          <article class="supported-model-card model-mistral" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Mistral</span>
-          </article>
-          <article class="supported-model-card model-chatgpt" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">ChatGPT</span>
-          </article>
-          <article class="supported-model-card model-grok" role="listitem">
-            <span class="supported-model-icon" aria-hidden="true"><img src="assets/ai-models/seventh-part.svg" width="1435" height="906" alt="" /></span>
-            <span class="supported-model-name">Grok</span>
-          </article>
-        </div>
+      <div class="supported-models-art-frame">
+        <picture class="supported-models-picture"><source media="(max-width:767px)" srcset="assets/ai-models/frame-735-mobile-v2.svg" /><img class="supported-models-art" src="assets/ai-models/frame-735.svg" width="321" height="159" alt="Supported AI models" /></picture>
       </div>
     </section>
 
@@ -501,6 +467,7 @@
   </main>
 
   <footer class="site-footer home-site-footer" id="site-footer">
+      <img class="mobile-footer-art" src="assets/footer-mobile.svg" width="375" height="367" alt="XATOM — Amplify human intelligence. Contact: garyyang@qiniu.com. Moli Space T2, Shanghai, China. Copyright 2026 XATOM." />
     <div class="site-footer-inner">
       <div class="site-footer-top">
         <div class="site-footer-brand">
@@ -542,7 +509,7 @@
       </div>
     </div>
   </footer>
-  <script src="script.js?v=no-motion-13-mobile-navigation" defer></script>
+  <script src="script.js?v=15-pointer-swipes" defer></script>
   <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>

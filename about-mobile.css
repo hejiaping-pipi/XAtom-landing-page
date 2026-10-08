@@ -38,3 +38,11 @@
  .site-footer-legal a{height:auto;min-height:44px;display:flex;align-items:center;font-size:14px}
  .site-footer-legal i{display:none}
 }
+
+@media(max-width:767px){
+ body.about-body .platform-content>p,body.about-body .physical-copy{text-align:center}
+ body.about-body .site-footer-logo{width:120px;height:22.8px}
+ body.about-body .site-footer-brand{font-weight:300;opacity:.8}
+ body.about-body .site-footer-brand p,body.about-body .site-footer-legal a{font-weight:300}
+ body.about-body .site-footer-legal,body.about-body .site-footer-contact>a,body.about-body .site-footer-contact>p{opacity:.8}
+}

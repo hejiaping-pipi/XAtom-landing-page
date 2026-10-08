@@ -2353,6 +2353,22 @@ body{overflow-x:hidden}
   padding:0;
   gap:53.07px;
 }
+.supported-models-art-frame{
+  width:1148px;
+  height:327.69px;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.supported-models-art{
+  display:block;
+  width:auto;
+  max-width:100%;
+  height:327.69px;
+  user-select:none;
+  -webkit-user-drag:none;
+}
 .supported-models-row{
   width:1148px;
   height:73.85px;

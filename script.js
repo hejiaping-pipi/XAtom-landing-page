@@ -144,46 +144,23 @@ setMobileMenuState(false);
 
 const enableMobileSwipe = (surface, changeSlide) => {
   if (!surface) return;
-  let gesture = null;
-  let touchGesture = null;
-  const clearGesture = (event) => {
-    if (!gesture || gesture.id !== event.pointerId) return;
-    gesture = null;
-    if (surface.hasPointerCapture(event.pointerId)) surface.releasePointerCapture(event.pointerId);
-  };
-  surface.addEventListener('dragstart', (event) => {
-    if (window.matchMedia('(max-width:767px)').matches) event.preventDefault();
-  });
-  surface.addEventListener('pointerdown', (event) => {
-    if (!window.matchMedia('(max-width:767px)').matches || event.pointerType === 'touch' || event.button !== 0 || event.isPrimary === false) return;
-    gesture = { id: event.pointerId, x: event.clientX, y: event.clientY };
+  let gesture;
+  surface.style.touchAction = 'pan-y pinch-zoom';
+  surface.addEventListener('dragstart', event => event.preventDefault());
+  surface.addEventListener('pointerdown', event => {
+    if (!window.matchMedia('(max-width:767px)').matches || event.button !== 0 || event.isPrimary === false || event.target.closest('button,a')) return;
+    gesture = { id:event.pointerId, x:event.clientX, y:event.clientY };
     surface.setPointerCapture(event.pointerId);
   });
-  surface.addEventListener('pointerup', (event) => {
+  surface.addEventListener('pointerup', event => {
     if (!gesture || gesture.id !== event.pointerId) return;
-    const dx = event.clientX - gesture.x;
-    const dy = event.clientY - gesture.y;
-    clearGesture(event);
-    if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy) * 1.3) changeSlide(dx < 0 ? 1 : -1);
+    const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
+    gesture = null;
+    if (surface.hasPointerCapture(event.pointerId)) surface.releasePointerCapture(event.pointerId);
+    if (Math.abs(dx) >= 30 && Math.abs(dx) > Math.abs(dy) * 1.3) changeSlide(dx < 0 ? 1 : -1);
   });
-  surface.addEventListener('pointercancel', clearGesture);
-  surface.addEventListener('lostpointercapture', clearGesture);
-  surface.addEventListener('touchstart', (event) => {
-    if (!window.matchMedia('(max-width:767px)').matches || event.touches.length !== 1) return;
-    const touch = event.touches[0];
-    touchGesture = { x: touch.clientX, y: touch.clientY };
-  }, { passive: true });
-  surface.addEventListener('touchend', (event) => {
-    if (!touchGesture || !window.matchMedia('(max-width:767px)').matches) return;
-    const touch = event.changedTouches[0];
-    const dx = touch.clientX - touchGesture.x;
-    const dy = touch.clientY - touchGesture.y;
-    touchGesture = null;
-    if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy) * 1.3) changeSlide(dx < 0 ? 1 : -1);
-  }, { passive: true });
-  surface.addEventListener('touchcancel', () => {
-    touchGesture = null;
-  }, { passive: true });
+  surface.addEventListener('pointercancel', () => { gesture = null; });
+  surface.addEventListener('lostpointercapture', () => { gesture = null; });
 };
 
 const createMobilePagination = (parent, count, label, selectPage, playback = false) => {
@@ -241,6 +218,7 @@ if (heroSlides.length > 1) {
   const syncPlayback = () => {
     mobilePages.playButton.classList.toggle('is-playing', !playbackPaused);
     mobilePages.playButton.setAttribute('aria-label', playbackPaused ? 'Play slideshow' : 'Pause slideshow');
+    mobilePages.playButton.querySelector('img').src = playbackPaused ? 'assets/home/mobile-hero-play.svg' : 'assets/home/mobile-hero-pause.svg';
   };
   mobilePages.playButton.addEventListener('click', () => {
     playbackPaused = !playbackPaused;
@@ -456,7 +434,7 @@ if (simpleUseSection) {
     mobilePages.sync(activeSlide);
   };
 
-  enableMobileSwipe(simpleUseSection.querySelector('.simple-use-card'), (direction) => showSimpleUseSlide(activeSlide + direction));
+  enableMobileSwipe(simpleUseSection.querySelector('.simple-use-stage'), (direction) => showSimpleUseSlide(activeSlide + direction));
 
   previousButton.addEventListener('click', () => showSimpleUseSlide(activeSlide - 1));
   nextButton.addEventListener('click', () => showSimpleUseSlide(activeSlide + 1));
@@ -567,4 +545,11 @@ if (shellShowcase) {
 
   viewport.addEventListener('pointerup', finishShellDrag);
   viewport.addEventListener('pointercancel', finishShellDrag);
+}
+
+const simpleStage = document.querySelector('.simple-use-stage');
+if (simpleStage && 'ResizeObserver' in window) {
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--mobile-diagram-scale', String(Math.min(1, simpleStage.clientWidth / 901)));
+  }).observe(simpleStage);
 }

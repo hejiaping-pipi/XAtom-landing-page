@@ -3,11 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (() => {
+      const width = Number(new URLSearchParams(window.location.search).get('mobile-preview'));
+      if (Number.isFinite(width) && width >= 320 && width <= 767) {
+        document.documentElement.dataset.mobilePreview = '';
+        document.documentElement.style.setProperty('--mobile-preview-width', `${width}px`);
+      }
+    })();
+  </script>
   <title>XATOM Device</title>
-  <link rel="stylesheet" href="product.css?v=product-mobile-layout-9" />
-  <link rel="stylesheet" href="footer.css?v=footer-svg-1" />
-  <link rel="stylesheet" href="mobile-navigation.css?v=2" />
+  <link rel="stylesheet" href="product.css?v=product-mobile-layout-13" />
+  <link rel="stylesheet" href="footer.css?v=mobile-svg-3" />
+  <link rel="stylesheet" href="mobile-navigation.css?v=3" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
+  <style>
+    html[data-mobile-preview]{min-width:0;background:#171717}
+    html[data-mobile-preview] body.product-body{
+      width:var(--mobile-preview-width);
+      min-width:0;
+      max-width:var(--mobile-preview-width);
+      margin:0 auto;
+      overflow-x:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+  </style>
 </head>
 <body class="product-body">
   <header class="mobile-site-nav" data-mobile-nav>
@@ -53,7 +73,7 @@
     </header>
 
     <section class="product-hero" aria-labelledby="product-hero-title">
-      <img class="product-hero-image" src="assets/device/hero.png" alt="XATOM AI assistant in four colours" />
+      <picture><source media="(max-width:767px)" srcset="assets/device/hero-mobile.png" /><img class="product-hero-image" src="assets/device/hero.png" alt="XATOM AI assistant in four colours" /></picture>
       <div class="product-hero-copy">
         <h1 id="product-hero-title">Physical Muse AI assistant</h1>
         <p>The new generation of intelligent agents is compact, agile, and portable, enabling instant access to AI capabilities.</p>
@@ -106,9 +126,11 @@
         <p>Smallest agent hardware.</p>
       </div>
       <div class="size-visual">
+        <div class="size-image-frame">
         <img class="size-background" src="assets/device/size-bg.png" alt="XATOM device on a wooden desk" />
         <div class="size-shade"></div>
         <img class="size-diagram" src="assets/device/size-diagram.svg" alt="XATOM is approximately 2.9 centimetres wide" />
+        </div>
         <p>XATOM movement measures approximately 2.9 cm in length, width, and height—roughly equivalent to the width of three USB-C charging ports.</p>
       </div>
     </section>
@@ -192,7 +214,10 @@
       </div>
     </section>
 
+
+    </div>
     <footer class="product-footer site-footer" id="site-footer">
+      <img class="mobile-footer-art" src="assets/footer-mobile.svg" width="375" height="367" alt="XATOM — Amplify human intelligence. Contact: garyyang@qiniu.com. Moli Space T2, Shanghai, China. Copyright 2026 XATOM." />
       <div class="site-footer-inner">
         <div class="site-footer-top">
           <div class="site-footer-brand">
@@ -234,9 +259,8 @@
         </div>
       </div>
     </footer>
-    </div>
   </main>
-  <script src="product.js?v=product-mobile-layout-9"></script>
+  <script src="product.js?v=product-mobile-layout-13"></script>
   <script src="mobile-navigation.js?v=1" defer></script>
   <script src="scroll-motion.js?v=4-product-text-targets" defer></script>
 </body>

@@ -1,6 +1,9 @@
 const syncProductPreviewScale = () => {
-  const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-  const scale = Math.min(1, Math.max(360, viewportWidth) / 1440);
+  const requestedPreviewWidth = Number(new URLSearchParams(window.location.search).get('mobile-preview'));
+  const viewportWidth = Number.isFinite(requestedPreviewWidth) && requestedPreviewWidth >= 320 && requestedPreviewWidth <= 767
+    ? requestedPreviewWidth
+    : window.innerWidth || document.documentElement.clientWidth;
+  const scale = Math.min(1, Math.max(1, viewportWidth) / 1440);
   document.documentElement.style.setProperty('--product-preview-scale', String(scale));
   document.documentElement.style.setProperty('--product-mobile-text-zoom', String(1 / scale));
   document.documentElement.style.setProperty('--product-mobile-feature-title-size', `${28 / scale}px`);

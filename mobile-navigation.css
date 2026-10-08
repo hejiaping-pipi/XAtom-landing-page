@@ -6,7 +6,7 @@
   html.mobile-site-nav-open,
   body.mobile-site-nav-open{overflow:hidden!important;overscroll-behavior:none}
 
-  body.product-body{width:100%;min-width:360px;zoom:1!important;overflow-x:hidden}
+  body.product-body{width:100%;min-width:0;zoom:1!important;overflow-x:hidden}
   body.product-body .product-page{zoom:1}
   body.product-body .product-nav{display:none!important}
   body.about-body .about-nav{display:none!important}
@@ -264,3 +264,5 @@
   .mobile-site-nav.is-menu-open .mobile-site-menu-icon i:nth-child(2){opacity:0}
   .mobile-site-nav.is-menu-open .mobile-site-menu-icon i:nth-child(3){transform:rotate(-45deg)}
 }
+
+@media(max-width:767px){html:has(body.product-body){min-width:0}}
