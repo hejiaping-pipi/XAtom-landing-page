@@ -1,18 +1,67 @@
-/* Homepage mobile layout; desktop artboard remains in styles.css. */
-.mobile-menu-toggle,.mobile-simple-heading{display:none}
-@media(max-width:767px){.mobile-simple-heading{display:block}}
+/* Mobile-only layouts. */
+.mobile-menu-toggle{display:none}
+.mobile-menu-panel{display:contents}
+.mobile-nav-divider,.mobile-nav-utilities,.mobile-cart-count{display:none}
+
 @media(max-width:767px){
+  html.scroll-motion-ready body.home-page .scroll-reveal{
+    transform:translate3d(0,22px,0);
+    transition-duration:.62s;
+    transition-delay:min(calc(var(--reveal-order,0) * 55ms),220ms);
+  }
+  html.scroll-motion-ready body.home-page .scroll-reveal.scroll-reveal-media{
+    transform:translate3d(0,22px,0) scale(.99);
+  }
+  html.scroll-motion-ready body.home-page .scroll-reveal.is-scroll-visible{
+    transform:translate3d(0,0,0) scale(1);
+  }
+}
+
+
+@media(max-width:767px){
+  html{min-width:360px}
   body.home-page{--mobile-layout-width:max(360px,100vw);width:100%;min-width:360px;zoom:1;margin:0;overflow-x:auto}
+  html.mobile-nav-open,body.home-page.mobile-nav-open{overflow:hidden;overscroll-behavior:none}
   body.home-page #home,body.home-page .nav,body.home-page .frame,body.home-page .section,body.home-page .site-footer{width:100%;max-width:100%;min-width:0}
-  body.home-page .nav{height:auto;min-height:64px;padding:16px 20px;position:relative;display:block}
-  body.home-page .header-main-links{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0}
-  .mobile-menu-toggle{display:block;min-height:44px;padding:8px 12px;border:1px solid #ded7d1;border-radius:8px;background:#fff;color:#484848;font-size:14px}
-  body.home-page .nav-main{display:none;width:100%;flex:0 0 100%;height:auto;padding:16px 0 0;gap:0;flex-direction:column;align-items:stretch}
-  body.home-page .nav-main.is-open{display:flex}
-  body.home-page .nav-main a{height:auto;min-height:44px;display:flex;align-items:center;font-size:16px}
-  body.home-page .nav-tools{position:static;display:none;width:100%;height:auto;margin-top:12px;gap:20px}
-  body.home-page .nav:has(.nav-main.is-open) .nav-tools{display:flex}
-  body.home-page .nav-tools button{display:flex}
+  body.home-page .nav{--mobile-header-height:60px;height:var(--mobile-header-height);min-height:var(--mobile-header-height);padding:2px 20px 0;position:relative;display:block;border:0;background:#fff;z-index:20;overflow:visible}
+  body.home-page .nav::before{content:"";position:absolute;z-index:2;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,#579cea 0%,#65cfd0 100%)}
+  body.home-page .header-main-links{width:100%;height:58px;display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:0}
+  body.home-page .nav .wordmark{width:86px;height:16px;flex:0 0 86px}
+  body.home-page .nav .wordmark img{width:86px;height:16px;filter:brightness(0)}
+  .mobile-menu-toggle{position:relative;z-index:4;display:flex;width:28px;height:44px;min-height:44px;padding:12px 2px;border:0;border-radius:0;background:transparent;color:#0b0b0b;align-items:center;justify-content:center}
+  .mobile-menu-toggle-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .mobile-menu-toggle-icon{position:relative;display:block;width:24px;height:20px}
+  .mobile-menu-toggle-icon i{position:absolute;left:0;width:24px;height:1.5px;border-radius:2px;background:#0b0b0b;transform-origin:center;transition:top .25s ease,transform .25s ease,opacity .18s ease}
+  .mobile-menu-toggle-icon i:nth-child(1){top:2px}
+  .mobile-menu-toggle-icon i:nth-child(2){top:9px}
+  .mobile-menu-toggle-icon i:nth-child(3){top:16px}
+  body.home-page .nav-tools{position:absolute;z-index:4;top:2px;right:61px;display:flex;width:56px;height:58px;margin:0;gap:16px;align-items:center;justify-content:flex-start}
+  body.home-page .nav-tools .locale,body.home-page .nav-tools .login{display:none}
+  body.home-page .nav-tools .nav-icon{display:flex;align-items:center;justify-content:center;color:#0b0b0b}
+  body.home-page .nav-tools .nav-icon.login{display:none}
+  body.home-page .nav-tools .nav-icon svg{stroke:#0b0b0b;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+  body.home-page .nav-tools .search{width:20px;height:20px}
+  body.home-page .nav-tools .bag{position:relative;width:20px;height:20px}
+  .mobile-cart-count{position:absolute;right:-9px;top:-10px;display:flex;width:17px;height:17px;border-radius:50%;align-items:center;justify-content:center;background:#0b0b0b;color:#fff;font-size:10px;font-weight:400;line-height:17px}
+  .mobile-menu-panel{position:fixed;z-index:3;left:0;right:0;top:var(--mobile-header-height);bottom:0;display:flex;flex-direction:column;align-items:stretch;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;background:#faf9f8;transform:translateX(-101%);visibility:hidden;pointer-events:none;transition:transform .35s cubic-bezier(.7,0,.2,1),visibility 0s linear .35s}
+  body.home-page .nav-main{display:flex;width:100%;height:auto;flex:0 0 auto;padding:8px 14px 0;gap:18px;flex-direction:column;align-items:stretch}
+  body.home-page .nav-main a{position:relative;width:100%;height:50px;min-height:50px;display:flex;align-items:center;justify-content:space-between;color:#0b0b0b!important;font-size:18px;font-weight:400;line-height:1.2;text-decoration:none}
+  body.home-page .nav-main a::after,.mobile-nav-utility.has-chevron::after{content:"";width:8px;height:8px;margin-right:4px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);flex:0 0 auto}
+  body.home-page .nav-main a.is-disabled{color:#9a9a9a!important}
+  .mobile-nav-divider{display:block;width:auto;height:1px;min-height:1px;margin:24px 14px;background:#e2e2e2}
+  .mobile-nav-utilities{display:flex;width:100%;height:auto;flex:0 0 auto;padding:0 14px 24px;gap:18px;flex-direction:column;align-items:stretch}
+  .mobile-nav-utility{position:relative;width:100%;height:50px;min-height:50px;display:flex;align-items:center;gap:12px;color:#0b0b0b;text-decoration:none;font-size:18px;font-weight:400;line-height:1.2}
+  .mobile-nav-utility svg{display:block;width:20px;height:20px;flex:0 0 20px;fill:none;stroke:#0b0b0b;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .mobile-nav-utility.has-chevron::after{margin-left:auto}
+  body.home-page .nav.is-menu-open{--mobile-header-height:56px;position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;min-height:100dvh;padding:0 14px;z-index:1000;overflow:hidden}
+  body.home-page .nav.is-menu-open::before{display:none}
+  body.home-page .nav.is-menu-open .header-main-links{height:56px}
+  body.home-page .nav.is-menu-open .nav-tools{display:none}
+  body.home-page .nav.is-menu-open .mobile-menu-panel{transform:translateX(0);visibility:visible;pointer-events:auto;transition:transform .35s cubic-bezier(.7,0,.2,1),visibility 0s linear 0s}
+  body.home-page .nav.is-menu-open .mobile-menu-toggle-icon i:nth-child(1),body.home-page .nav.is-menu-open .mobile-menu-toggle-icon i:nth-child(3){top:9px}
+  body.home-page .nav.is-menu-open .mobile-menu-toggle-icon i:nth-child(1){transform:rotate(45deg)}
+  body.home-page .nav.is-menu-open .mobile-menu-toggle-icon i:nth-child(2){opacity:0}
+  body.home-page .nav.is-menu-open .mobile-menu-toggle-icon i:nth-child(3){transform:rotate(-45deg)}
   body.home-page .hero{height:calc(var(--mobile-layout-width) * .5646 + 76px);min-height:0;background:#fff;overflow:hidden}
   body.home-page .hero .hero-slide{width:100%;height:calc(var(--mobile-layout-width) * .5646);background-size:100% auto}
   body.home-page .hero .hero-slide>img:first-child{width:100%;height:auto;left:0;top:0}
@@ -42,16 +91,6 @@
   body.home-page .adaptive .card-overlay,body.home-page .adaptive .scenario-card.is-expanded .card-overlay{left:0;bottom:0;width:100%;height:auto;min-height:0;padding:24px 20px}
   body.home-page .adaptive .card-overlay h3{width:100%;height:auto;font-size:24px;line-height:1.2}
   body.home-page .adaptive .card-overlay p{width:100%;height:auto;font-size:16px;line-height:1.45}
-  .mobile-simple-heading{margin:0 0 24px;font-size:30px;line-height:1.15;color:#484848}
-  .simple-use-content{position:relative;left:auto;top:auto;width:100%;height:auto;gap:28px}
-  .simple-use-stage{position:relative;width:100%;height:auto;display:block;padding-bottom:60px}
-  .simple-use-card{zoom:var(--mobile-diagram-scale);margin:0;width:901px;height:552.72px}
-  .simple-use-arrow{position:absolute;bottom:0;left:calc(50% - 52px)}
-  .simple-use-next{left:calc(50% + 8px)}
-  .simple-use-features{width:100%;height:auto;overflow:visible}
-  .simple-use-feature-art{display:none}
-  .simple-use-feature-labels{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;color:#846549}
-  .simple-use-feature-labels span{position:static;width:auto;height:auto;min-height:44px;padding:10px;border:1px solid #e5d9cf;border-radius:10px;font-size:14px;white-space:normal;text-align:center}
   body.home-page .capture-heading h2 span{justify-content:center}
   .capture-carousel{width:100%;height:500px;border-radius:16px}
   body.home-page .capture-slide img{width:100%;height:100%;left:0;top:0;object-fit:cover;object-position:center}
@@ -64,6 +103,7 @@
   .how-step-copy h3,.how-step-copy p{width:100%;height:auto}
   .how-visual{width:100%;height:auto;aspect-ratio:416 / 445}
   .how-visual>img{width:100%;height:100%;object-fit:contain}
+  body.home-page .how-ai-visual>.ai-card-reference{left:50%;top:8.5%;width:85%;height:auto;transform:translateX(-50%);object-fit:contain}
   .shell-showcase-header{position:relative;left:0;top:0;width:100%;height:auto;flex-wrap:wrap;gap:20px}
   .shell-showcase-copy{flex:auto}
   .shell-collection-viewport{position:relative;left:0;top:0;width:100%;height:220px;margin-top:28px}
@@ -76,10 +116,26 @@
   .personalized-gifts-overlay{inset:0;width:100%;height:100%}
   .personalized-gifts-content{left:20px;right:20px;top:auto;bottom:36px;width:auto;height:auto;gap:24px}
   .personalized-gifts-button{width:min(100%,280px);min-height:44px}
-  .supported-models-grid{width:100%;height:auto;gap:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .supported-models-grid{width:100%;max-width:680px;height:auto;margin-inline:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(13.617px,2.5vw,18px) clamp(9.078px,1.5vw,12px);align-items:stretch}
+  .supported-models-art-frame{width:100%;height:auto;margin-inline:auto;display:flex;align-items:center;justify-content:center}
+  .supported-models-art{width:100%;max-width:321px;height:auto}
   .supported-models-row{display:contents}
-  .supported-model-card,.supported-model-card.model-deepseek{width:100%;height:72px;padding:12px 8px;gap:8px}
-  .supported-model-name{font-size:14px}
+  .supported-model-card,.supported-model-card.model-deepseek{width:100%;min-width:0;height:auto;padding:8.311px 3.562px;gap:7.124px;border:0;border-radius:3.562px}
+  .supported-model-name{font-size:clamp(9.532px,2.5vw,18px);line-height:normal}
+  /* Preserve the original SVG sprite crops at the design's 12.709px icon size. */
+  .supported-model-icon{zoom:0.39715625}
+  .supported-model-card.model-claude{order:1}
+  .supported-model-card.model-gemini{order:2}
+  .supported-model-card.model-deepseek{order:3}
+  .supported-model-card.model-zhipu{order:4}
+  .supported-model-card.model-codex{order:5}
+  .supported-model-card.model-openclaw{order:6}
+  .supported-model-card.model-qwen{order:7}
+  .supported-model-card.model-phi{order:8}
+  .supported-model-card.model-grok{order:9}
+  .supported-model-card.model-liama{order:10}
+  .supported-model-card.model-mistral{order:11}
+  .supported-model-card.model-chatgpt{order:12}
   body.home-page .final-promo{padding:40px 0 0}
   .final-promo-heading{padding:0 20px;box-sizing:border-box}
   body.home-page .final-promo-visual{width:100%;height:420px}
@@ -93,73 +149,525 @@
   .home-site-footer .site-footer-column h2{margin:0}
   .home-site-footer .site-footer-bottom{flex-direction:column;align-items:flex-start;gap:20px}
   .home-site-footer .site-footer-bottom>p{width:100%;height:auto;font-size:14px;white-space:normal}
-  .home-site-footer .site-footer-legal{width:100%;height:auto;flex-wrap:wrap;gap:8px 16px}
-  .home-site-footer .site-footer-legal a{height:auto;min-height:44px;display:flex;align-items:center;font-size:14px}
+  .home-site-footer .site-footer-brand p{font-size:12px;font-weight:300;line-height:15px}
+  .home-site-footer .site-footer-legal{width:100%;height:auto;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:16px}
+  .home-site-footer .site-footer-legal a{height:auto;min-height:0;display:block;font-size:12px;font-weight:300;line-height:15px}
   .home-site-footer .site-footer-legal i{display:none}
 }
 
-/* Operation guide: flow layout on phones, independent of desktop coordinates. */
+@media(min-width:480px) and (max-width:767px){
+  .supported-model-card,.supported-model-card.model-deepseek{padding:16px 8px;gap:12px}
+  .supported-model-icon{zoom:.75}
+}
+
+/* Phone carousel controls: small markers inside full-size touch targets. */
 @media(max-width:767px){
-  body.home-page .simple-use .mobile-simple-heading{display:none}
-  body.home-page .simple-use .simple-use-content{gap:28px}
-  body.home-page .simple-use .simple-use-stage{padding-bottom:64px}
-  body.home-page .simple-use .simple-use-card{
-    zoom:1;width:100%;height:auto;min-width:0;overflow:hidden;
-    border-radius:20px;background:#fff;
-    -webkit-text-size-adjust:100%;text-size-adjust:100%;
+  body.home-page .hero{height:calc(var(--mobile-layout-width) * .5646 + 60px)}
+  body.home-page .hero-pagination{width:236px;height:44px;bottom:8px;display:flex;align-items:center;gap:8px}
+  body.home-page .hero-pagination-art{display:none}
+  body.home-page .hero-page-tabs{position:static;width:184px;height:44px;padding:0;gap:0;background:transparent;align-items:center}
+  body.home-page .hero-page-tabs button{position:relative;width:28px;height:44px;min-height:44px;flex:1 1 0;padding:0;border:0;background:transparent;border-radius:0}
+  body.home-page .hero-page-tabs button::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:8px;background:#b6b6b6}
+  body.home-page .hero-page-tabs button.is-active{width:44px;flex:0 0 44px;background:transparent}
+  body.home-page .hero-page-tabs button.is-active::after{width:28px;background:#787878}
+  body.home-page .hero-autoplay-toggle{position:relative;left:auto;top:auto;width:44px;height:44px;flex:0 0 44px;background:#f2f2f2}
+  body.home-page .hero-autoplay-toggle::after{content:"";position:absolute;left:19px;top:16px;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #999}
+  body.home-page .scenario-intro{padding-top:28px;padding-bottom:40px;gap:20px}
+  body.home-page .scenario-intro .section-head{gap:12px;position:relative;padding-bottom:48px}
+  body.home-page .scenario-intro .section-head>div:first-child{gap:12px}
+  body.home-page .scenario-intro .section-head h2{font-size:28px;line-height:1.15}
+  body.home-page .scenario-intro .section-head p{font-size:16px;line-height:1.5}
+  body.home-page .scenario-intro .arrows{position:absolute;right:0;bottom:0;height:44px}
+  body.home-page .scenario-intro .feature-card{height:auto;aspect-ratio:16 / 9;border-radius:16px}
+  body.home-page .scenario-intro .feature-label{font-size:16px;bottom:16px;left:16px}
+}
+
+/* Figma 2601:4447: fixed-size mobile role cards. */
+@media(max-width:767px){
+ body.home-page .adaptive .scenario-card,
+ body.home-page .adaptive .scenario-card.is-expanded{
+  width:420px;min-width:420px;max-width:420px;flex:0 0 420px;
+  height:595px;border-radius:0;background:#ede6e6;cursor:grab;
+ }
+ body.home-page .adaptive .scenario-card::after,
+ body.home-page .adaptive .scenario-card:not(.is-expanded)::after{
+  position:absolute;inset:0;width:420px;height:595px;
+  background:linear-gradient(180deg,#fff 60%,#5e5c5a 100%);mix-blend-mode:multiply;
+ }
+ body.home-page .adaptive .scenario-card-1 .scenario-photo{
+  inset:auto;left:-445.17px;top:-1px;width:1067.344px;height:597px;max-width:none;object-fit:cover;
+ }
+ body.home-page .adaptive .card-toolbar{
+  left:0.71px;top:0;width:420px;height:auto;padding:28px;justify-content:space-between;
+ }
+ body.home-page .adaptive .scenario-card .scenario-tag{
+  min-width:0;width:auto;height:auto;padding:8px 20px;border-radius:4px;
+  background:rgba(242,239,235,.64);backdrop-filter:blur(6px);
+  color:#303030;font-size:15.8px;line-height:22.4px;font-weight:400;letter-spacing:-.24px;
+ }
+ body.home-page .adaptive .scenario-detail{display:none}
+ body.home-page .adaptive .scenario-card .card-overlay,
+ body.home-page .adaptive .scenario-card.is-expanded .card-overlay{
+  left:0;top:457px;bottom:auto;width:417px;height:auto;min-height:0;padding:28px;
+  display:flex;flex-direction:column;gap:4px;background:none;
+ }
+ body.home-page .adaptive .scenario-card .card-overlay h3{
+  width:100%;height:auto;min-height:0;margin:0;color:#fff;
+  font-size:20px;line-height:normal;font-weight:500;letter-spacing:-.24px;
+ }
+ body.home-page .adaptive .scenario-card .card-overlay p{
+  display:block;opacity:1;width:100%;height:auto;min-height:56px;margin:0;
+  color:#fff;font-size:12px;line-height:normal;font-weight:400;
+ }
+ body.home-page .adaptive .card-overlay br{display:none}
+}
+
+/* Figma 2601:4464: retain the complete landscape card composition. */
+.mobile-simple-heading{display:none}
+@media(max-width:767px){
+ body.home-page .simple-use .simple-use-content{position:relative;left:auto;top:auto;width:100%;height:auto;gap:24px}
+ body.home-page .simple-use .simple-use-stage{position:relative;width:100%;height:auto;display:block;padding-bottom:60px}
+ body.home-page .simple-use .simple-use-card{width:901px;height:552.72px;zoom:var(--mobile-diagram-scale);margin:0;touch-action:pan-y;user-select:none}
+ body.home-page .simple-use .simple-use-heading h2{width:633.3px;height:41px;font-size:35.089px;line-height:41px;letter-spacing:normal;white-space:nowrap}
+ body.home-page .simple-use .simple-use-heading p{width:633.3px;height:16px;font-size:14px;line-height:16px;white-space:nowrap}
+ body.home-page .simple-use .simple-use-slide-art{-webkit-user-drag:none;pointer-events:none}
+ body.home-page .simple-use .simple-use-arrow{position:absolute;bottom:0;left:calc(50% - 52px)}
+ body.home-page .simple-use .simple-use-next{left:calc(50% + 8px)}
+ body.home-page .simple-use .simple-use-features{width:786px;height:88px;zoom:var(--mobile-diagram-scale)}
+}
+
+/* Mobile annotations: step typography and shell benefit scale. */
+@media(max-width:767px){
+ body.home-page .how-step-copy{gap:0}
+ body.home-page .how-step-copy h3{font-size:20px}
+ body.home-page .how-step-copy p{font-size:16px}
+ body.home-page .shell-benefit-icon{zoom:.5}
+ body.home-page .shell-benefit-label{font-size:10pt}
+}
+
+/* Figma 2601:5237: single-row mobile benefits. */
+.shell-benefit-mobile-icon{display:none}
+@media(max-width:767px){
+ body.home-page .shell-benefits{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:16px;height:auto}
+ body.home-page .shell-benefit{flex:0 0 auto;width:auto;height:auto;gap:4px}
+ body.home-page .shell-benefit-icon{display:none}
+ body.home-page .shell-benefit-mobile-icon{display:block;flex:none}
+ body.home-page .shell-benefit-label{width:auto;height:auto;min-height:0;color:#917b69;font-size:10px;line-height:normal;font-weight:300;white-space:nowrap;text-align:center}
+ body.home-page .shell-collection-viewport{height:110px}
+ body.home-page .shell-collection-track{height:102px;gap:15px}
+ body.home-page .shell-frame{width:102px;height:102px;flex-basis:102px;border-radius:7.6775px}
+ body.home-page .shell-frame::before{width:110.625px;height:104.625px;left:-4.125px;top:-3px}
+ body.home-page .shell-frame img{width:102px;height:102px}
+ body.home-page .shell-frame:nth-child(5) img{width:81.75px;height:81.75px}
+ body.home-page .shell-frame:nth-child(6) img{width:86.625px;height:86.625px;left:7.875px;top:7.125px}
+}
+
+/* Hide carousel switching controls on mobile. */
+@media(max-width:767px){
+  body.home-page .hero-pagination,
+  body.home-page .arrows,
+  body.home-page .carousel-arrow,
+  body.home-page .shell-showcase-controls,
+  body.home-page .capture-tabs{display:none}
+  body.home-page .hero{height:calc(var(--mobile-layout-width) * .5646)}
+  body.home-page .simple-use .simple-use-stage{padding-bottom:0}
+}
+
+/* Figma 2554:707: mobile slide indicators below each image module. */
+.mobile-pagination{display:none}
+@media(max-width:767px){
+  .mobile-pagination{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:16px;margin-top:16px}
+  .mobile-pagination-pages{display:flex;align-items:center;gap:4px;padding:4px 6px;height:10px;border-radius:6px;background:#f1f1f1}
+  .mobile-pagination-pages button{position:relative;display:block;flex:0 0 2px;width:2px;height:2px;min-height:0;margin:0;padding:0;border:0;border-radius:2.5px;background:#aeaeae;cursor:pointer}
+  .mobile-pagination-pages button::after{content:'';position:absolute;inset:-10px -2px}
+  .mobile-pagination-pages button.is-active{width:24px;flex-basis:24px;border-radius:5px;background:#787878}
+  .mobile-pagination button:focus-visible{outline:2px solid #846549;outline-offset:3px}
+  .mobile-pagination-play{position:relative;display:block;flex:none;width:16px;height:16px;margin:0;padding:0;border:0;background:none;cursor:pointer}
+  .mobile-pagination-play img{display:block}
+  .mobile-pagination-play.is-playing img{visibility:hidden}
+  .mobile-pagination-play.is-playing{border-radius:50%;background:#aeaeae}
+  .mobile-pagination-play.is-playing::before{content:'';position:absolute;left:5px;top:4px;width:6px;height:8px;border-left:2px solid #fff;border-right:2px solid #fff}
+  body.home-page .hero{height:calc(var(--mobile-layout-width) * .5646 + 48px)}
+  body.home-page .hero>.mobile-pagination{position:absolute;left:0;bottom:16px;margin:0}
+  body.home-page .capture-moments>.mobile-pagination{margin-top:-12px}
+}
+
+/* Keep vertical page scrolling while handling horizontal image gestures. */
+@media(max-width:767px){
+  body.home-page .adaptive .scenario-grid,
+  body.home-page .simple-use-card,
+  body.home-page .capture-carousel{touch-action:pan-y pinch-zoom;user-select:none}
+  body.home-page .adaptive .scenario-photo,
+  body.home-page .simple-use-slide-art,
+  body.home-page .capture-slide img{-webkit-user-drag:none;pointer-events:none}
+}
+
+/* Figma 2533:3695: scene captions above a shallow bottom gradient. */
+.capture-mobile-caption{display:none}
+@media(max-width:767px){
+  body.home-page .capture-gradient{inset:79.58% 0 0;background:url('assets/capture/mobile-caption-gradient.png') center / 100% 100% no-repeat;opacity:.4}
+  body.home-page .capture-mobile-caption{display:block;position:absolute;z-index:2;left:0;right:0;top:92.27%;transform:translateY(-50%);margin:0;padding:0 16px;color:#fff;font-family:Roboto,Arial,Helvetica,sans-serif;font-size:16px;font-weight:500;line-height:normal;text-align:center;pointer-events:none}
+}
+
+/* Browser annotation refinements for the compact mobile layout. */
+@media(max-width:767px){
+  body.home-page .scenario-intro .scenario-play{
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
-  body.home-page .simple-use .simple-use-slide{
-    position:relative;inset:auto;width:100%;height:auto;min-width:0;
-    display:none;flex-wrap:wrap;align-items:stretch;gap:12px;
-    padding:24px 16px;box-sizing:border-box;border-radius:0;
-    transition:none;
+  body.home-page .scenario-intro .scenario-play img{
+    width:16px;
+    height:16px;
   }
-  body.home-page .simple-use .simple-use-slide.is-active{
-    display:flex;opacity:1;visibility:visible;
+
+  body.home-page .adaptive .scenario-card,
+  body.home-page .adaptive .scenario-card.is-expanded{
+    width:calc(var(--mobile-layout-width) - 40px);
+    min-width:calc(var(--mobile-layout-width) - 40px);
+    max-width:calc(var(--mobile-layout-width) - 40px);
+    flex-basis:calc(var(--mobile-layout-width) - 40px);
+    border-radius:20px;
   }
-  body.home-page .simple-use .simple-use-heading{
-    position:static;order:-2;width:100%;height:auto;gap:12px;
-    display:flex;flex-direction:column;align-items:flex-start;
+  body.home-page .adaptive .scenario-card::after,
+  body.home-page .adaptive .scenario-card:not(.is-expanded)::after,
+  body.home-page .adaptive .card-toolbar,
+  body.home-page .adaptive .scenario-card .card-overlay,
+  body.home-page .adaptive .scenario-card.is-expanded .card-overlay{
+    width:100%;
+    max-width:100%;
   }
-  body.home-page .simple-use .simple-use-heading h2{
-    width:100%;height:auto;margin:0;font-size:28px;line-height:1.15;
-    font-weight:400;text-align:left;white-space:normal;
+  body.home-page .adaptive .scenario-card .card-overlay,
+  body.home-page .adaptive .scenario-card.is-expanded .card-overlay{
+    box-sizing:border-box;
+    padding-inline:20px;
   }
-  body.home-page .simple-use .simple-use-heading p{
-    display:block;width:100%;height:auto;margin:0;font-size:16px;
-    line-height:1.5;text-align:left;white-space:normal;
+  body.home-page .adaptive .scenario-card .card-overlay h3,
+  body.home-page .adaptive .scenario-card .card-overlay p{
+    width:100%;
+    max-width:100%;
+    overflow-wrap:anywhere;
   }
-  body.home-page .simple-use .simple-use-slide-art{
-    position:static;inset:auto;order:-1;display:block;
-    width:100%;height:auto;max-width:100%;flex:0 0 100%;
-    object-fit:contain;border-radius:12px;
+  body.home-page .adaptive .scenario-card .card-overlay p{
+    font-weight:300;
   }
-  body.home-page .simple-use .simple-use-copy,
-  body.home-page .simple-use .simple-use-spatial-label,
-  body.home-page .simple-use .simple-use-detection-label,
-  body.home-page .simple-use .simple-use-voice-label,
-  body.home-page .simple-use .simple-use-model-label{
-    position:static;inset:auto;transform:none;box-sizing:border-box;
-    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-    width:100%;height:auto;min-height:48px;margin:0;padding:12px 14px;
-    background:#f7f4f1;border:1px solid #ece5df;border-radius:10px;
-    color:#484848;font-size:16px;font-weight:400;line-height:1.5;
-    white-space:normal;text-align:left;overflow-wrap:anywhere;
+
+  body.home-page .capture-carousel,
+  body.home-page .capture-slide{
+    border-radius:20px;
   }
-  body.home-page .simple-use .simple-use-copy-press{display:none}
-  body.home-page .simple-use .simple-use-detection-copy{
-    position:static;width:100%;height:auto;margin:8px 0;transform:none;
+
+  body.home-page .how-step-copy p{
+    font-size:12px;
+    line-height:16px;
   }
-  body.home-page .simple-use .simple-use-detection-copy h3{
-    width:100%;height:auto;margin:0 0 8px;font-size:20px;line-height:1.3;white-space:normal;
+  body.home-page .how-step-ai h3,
+  body.home-page .how-step-mcp h3{
+    text-transform:capitalize;
   }
-  body.home-page .simple-use .simple-use-detection-copy p,
-  body.home-page .simple-use .simple-use-detection-label strong,
-  body.home-page .simple-use .simple-use-detection-label span{
-    position:static;width:auto;height:auto;margin:0;font-size:16px;line-height:1.5;white-space:normal;
+
+  body.home-page .personalized-gifts-button,
+  body.home-page .final-promo-action a{
+    width:172px;
+    height:28px;
+    min-height:0;
+    padding:0;
+    font-size:14px;
+    line-height:14px;
   }
-  body.home-page .simple-use .simple-use-detection-label{gap:6px}
-  body.home-page .simple-use .simple-use-voice-label,
-  body.home-page .simple-use .simple-use-model-label{width:calc((100% - 12px)/2)}
-  body.home-page .simple-use .simple-use-arrow{width:44px;height:44px;bottom:0}
+  body.home-page .personalized-gifts-button span{
+    width:auto;
+    height:auto;
+    font-size:14px;
+    line-height:14px;
+  }
+
+  /* Mobile-only browser annotations: editable captions and supporting copy. */
+  body.home-page .scenario-intro .feature-label,
+  body.home-page .capture-mobile-caption,
+  body.home-page .simple-use-feature-labels{
+    font-weight:300;
+  }
+  body.home-page .simple-use-feature-labels{
+    font-size:12px;
+  }
+  body.home-page .capture-mobile-caption{
+    font-size:16px;
+  }
+  body.home-page .scenario-intro .section-head p,
+  body.home-page .capture-heading p,
+  body.home-page .shell-showcase-copy p,
+  body.home-page .supported-models-heading p,
+  body.home-page .final-promo-heading p{
+    font-size:14px;
+  }
+
+  /* Role cards swipe horizontally; the page indicator has no play control. */
+  body.home-page .adaptive-frame>.mobile-pagination{
+    flex:none;
+    margin-top:-12px;
+  }
+
+  /* Keep every mobile model card on the same geometry and type treatment. */
+  body.home-page .supported-model-card.model-phi,
+  body.home-page .supported-model-card.model-grok{
+    height:auto;
+    padding:8.311px 3.562px;
+    gap:7.124px;
+    align-items:center;
+    justify-content:center;
+    border:0;
+    border-radius:3.562px;
+    background:#fff;
+  }
+  body.home-page .model-phi .supported-model-name,
+  body.home-page .model-grok .supported-model-name{
+    font-size:clamp(9.532px,2.5vw,18px);
+    font-weight:400;
+    line-height:normal;
+  }
+
+  /* Center the gift call-to-action in the image frame. */
+  body.home-page .personalized-gifts-content{
+    left:20px;
+    right:20px;
+    top:0;
+    bottom:0;
+    width:auto;
+    height:auto;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:24px;
+  }
+  body.home-page #personalized-gifts-title{
+    font-size:24px;
+    line-height:1.2;
+  }
+  body.home-page .personalized-gifts-button{
+    width:172px;
+    height:40px;
+  }
+
+  /* Preserve horizontal swipe without showing a native scrollbar track. */
+  body.home-page .scenario-intro .wide-cards{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  body.home-page .scenario-intro .wide-cards::-webkit-scrollbar{
+    display:none;
+    width:0;
+    height:0;
+  }
+
+  /* Exact mobile hero controls. */
+  body.home-page .mobile-pagination-play{
+    flex:0 0 16px;
+    width:16px;
+    min-width:16px;
+    max-width:16px;
+    height:16px;
+    min-height:16px;
+    max-height:16px;
+  }
+  body.home-page .mobile-pagination-play img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  body.home-page .mobile-pagination-play.is-playing::before{
+    left:31.25%;
+    top:25%;
+    width:37.5%;
+    height:50%;
+  }
+  body.home-page .hero-slide-6 .button{
+    width:88px;
+    height:32px;
+    min-height:0;
+    padding:0;
+    font-size:12px;
+    line-height:12px;
+    letter-spacing:0;
+  }
+
+  /* Latest mobile CTA and lifestyle-caption annotations. */
+  body.home-page .capture-mobile-caption{
+    font-weight:400;
+  }
+  body.home-page .final-promo-action img{
+    width:100px;
+    height:19px;
+    object-fit:contain;
+  }
+  body.home-page .final-promo-action a{
+    width:130px;
+    height:32px;
+    min-height:0;
+    padding:0;
+    font-size:12px;
+    font-weight:400;
+    line-height:12px;
+  }
+  body.home-page .personalized-gifts-button{
+    width:120px;
+    height:32px;
+    min-height:0;
+    padding:0;
+    font-size:12px;
+    line-height:12px;
+  }
+  body.home-page .personalized-gifts-button span{
+    font-size:12px;
+    line-height:12px;
+  }
+
+  /* Final mobile type scale from the 363px review pass. */
+  body.home-page .adaptive-heading h2,
+  body.home-page .adaptive-heading h2 span,
+  body.home-page .capture-heading h2,
+  body.home-page .capture-heading h2 span,
+  body.home-page .section .how-title,
+  body.home-page .shell-showcase-copy h2,
+  body.home-page .shell-showcase-copy h2 span,
+  body.home-page .supported-models-heading h2,
+  body.home-page .final-promo-heading h2{
+    font-size:28px;
+    line-height:1.15;
+  }
+  body.home-page .capture-heading h2{
+    width:100%;
+    text-align:left;
+  }
+  body.home-page .capture-heading h2 span{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  /* Footer type and logo proportions for the compact mobile stack. */
+  body.home-page .home-site-footer .site-footer-brand{
+    font-size:12px;
+    font-weight:300;
+  }
+  body.home-page .home-site-footer .site-footer-logo{
+    width:120px;
+    height:22.8px;
+  }
+  body.home-page .home-site-footer .site-footer-column h2{
+    height:auto;
+    font-size:20px;
+    line-height:24px;
+  }
+  body.home-page .home-site-footer .site-footer-contact a,
+  body.home-page .home-site-footer .site-footer-contact p,
+  body.home-page .home-site-footer .site-footer-contact a span:last-child,
+  body.home-page .home-site-footer .site-footer-contact p span:last-child{
+    height:auto;
+    font-size:14px;
+    font-weight:300;
+    line-height:18px;
+  }
+}
+
+/* Mobile asset sources retain the existing carousel and model-art geometry. */
+.supported-models-picture{display:contents}
+@media(max-width:767px){
+  body.home-page .capture-carousel{height:auto;aspect-ratio:750 / 973}
+  body.home-page .capture-slide picture{display:block;width:100%;height:100%}
+  body.home-page .supported-models-picture{display:block;width:100%;max-width:321px}
+  body.home-page .supported-models-picture .supported-models-art{display:block;width:100%;height:auto}
+}
+
+/* Figma 2601:4447 and 2618:1815: mobile compositions. */
+@media(max-width:767px){
+ body.home-page .adaptive .scenario-card,
+ body.home-page .adaptive .scenario-card.is-expanded{height:auto;aspect-ratio:420 / 595;background:#ede6e6}
+ body.home-page .adaptive .scenario-card .scenario-photo{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+ body.home-page .adaptive .scenario-card-1 .scenario-photo{inset:auto;left:-105.99%;top:-.168%;width:254.13%;height:100.336%;object-fit:cover}
+ body.home-page .adaptive .scenario-card::after,
+ body.home-page .adaptive .scenario-card:not(.is-expanded)::after{display:block;inset:0;width:100%;height:100%;background:linear-gradient(180deg,#fff 60%,#5e5c5a 100%);mix-blend-mode:multiply}
+ body.home-page .adaptive .card-toolbar{left:0;top:0;padding:6.667%;width:100%}
+ body.home-page .adaptive .scenario-card .card-overlay,
+ body.home-page .adaptive .scenario-card.is-expanded .card-overlay{position:absolute;left:0;top:auto;bottom:0;width:100%;height:auto;min-height:0;padding:6.667%;gap:4px;background:none}
+ body.home-page .adaptive .scenario-card .card-overlay h3{font-size:20px;font-weight:500;line-height:normal}
+ body.home-page .adaptive .scenario-card .card-overlay p{font-size:12px;font-weight:400;line-height:normal;min-height:56px}
+ body.home-page .personalized-gifts{left:0;height:auto;aspect-ratio:375 / 213.889;padding:0}
+ body.home-page .personalized-gifts-image{left:-16.667%;top:-15.747%;width:133.333%;height:131.861%;object-fit:cover;max-width:none}
+ body.home-page .personalized-gifts-overlay{inset:0;width:100%;height:100%;background:rgba(0,0,0,.1)}
+ body.home-page .personalized-gifts-content{inset:0;width:100%;height:100%;gap:11.111px;align-items:center;justify-content:center}
+ body.home-page #personalized-gifts-title{width:auto;height:auto;font-size:16.667px;line-height:18.056px;letter-spacing:-.3472px;font-weight:300}
+ body.home-page .personalized-gifts-button{width:118.056px;height:13.89px;min-height:0;padding:4.167px 13.889px;border-radius:1.389px}
+ body.home-page .personalized-gifts-button span{width:auto;height:auto;font-size:5.556px;line-height:5.556px;letter-spacing:.6944px}
+}
+
+/* Fit role cards to their actual clipping container, including narrow previews. */
+@media(max-width:767px){
+ body.home-page .adaptive-frame{container-type:inline-size}
+ body.home-page .adaptive .scenario-card,
+ body.home-page .adaptive .scenario-card.is-expanded{
+   width:100cqw;min-width:100cqw;max-width:100cqw;flex-basis:100cqw;
+   border-radius:20px;overflow:hidden;clip-path:inset(0 round 20px);
+ }
+}
+
+.hero-mobile-copy,.hero-mobile-clock{display:none}
+@media(max-width:767px){
+ body.home-page .hero .hero-slide{background-image:none;overflow:hidden}
+ body.home-page .hero-responsive-picture{display:block;width:100%;height:100%;position:absolute;inset:0}
+ body.home-page .hero-responsive-picture>img{position:absolute;display:block;max-width:none;object-fit:cover}
+ body.home-page .hero-slide-1 .hero-responsive-picture>img{left:-19.028%;top:-12.915%;width:139.453%;height:112.915%}
+ body.home-page .hero-slide-2 .hero-responsive-picture>img{left:-.347%;top:1.97%;width:100.025%;height:86.05%}
+ body.home-page .hero-slide-3 .hero-responsive-picture>img{left:0;top:-.779%;width:100%;height:101.558%}
+ body.home-page .hero-slide-4 .hero-responsive-picture>img{left:-.835%;top:-1.659%;width:101.733%;height:103.318%}
+ body.home-page .hero-slide-5 .hero-responsive-picture>img{left:-14.514%;top:-3.065%;width:120.903%;height:103.088%}
+ body.home-page .hero-slide-6 .hero-responsive-picture>img{left:-.141%;top:.035%;width:100.282%;height:99.965%}
+ body.home-page .hero-slide-6 .hero-slide-copy{display:none}
+ body.home-page .hero-mobile-copy{display:flex;position:absolute;z-index:3;flex-direction:column;gap:8px;color:#fff}
+ body.home-page .hero-mobile-copy>img{width:61.516px;height:11.458px;filter:brightness(0) invert(1)}
+ body.home-page .hero-mobile-copy p{margin:0;font-size:10px;line-height:12px}
+ body.home-page .hero-slide-1 .hero-mobile-copy{left:0;right:0;top:87.38%;align-items:center}
+ body.home-page .hero-slide-2 .hero-mobile-copy{left:0;right:0;top:79.44%;align-items:center}
+ body.home-page .hero-slide-3 .hero-mobile-copy{left:20px;bottom:20.833px}
+ body.home-page .hero-slide-4 .hero-mobile-copy{left:20px;top:20.833px}
+ body.home-page .hero-slide-5 .hero-mobile-copy{left:7.897%;top:16.512%}
+ body.home-page .hero-slide-5 .hero-mobile-copy>img,body.home-page .hero-slide-6 .hero-mobile-copy>img{filter:brightness(0);opacity:.72}
+ body.home-page .hero-slide-6 .hero-mobile-copy{left:7.733%;top:31.812%;width:150px;color:#717171}
+ body.home-page .hero-slide-6 .hero-mobile-copy a{margin-top:8px;width:62px;height:17px;display:flex;align-items:center;justify-content:center;border-radius:2px;background:#af9885;color:#fff;text-decoration:none;font-size:8px;letter-spacing:.5208px}
+ body.home-page .hero-mobile-clock{display:block;position:absolute;z-index:3;left:47.709%;top:43.61%;width:17.188px;height:17.188px}
+ body.home-page .hero>.mobile-pagination .mobile-pagination-play{width:12px;height:12px;min-width:12px;max-width:12px;min-height:12px;max-height:12px;flex:0 0 12px;background:none}
+ body.home-page .hero>.mobile-pagination .mobile-pagination-play img{width:12px;height:12px;visibility:visible}
+ body.home-page .hero>.mobile-pagination .mobile-pagination-play::before{display:none}
+}
+
+@media(min-width:768px){
+ .hero-responsive-picture{display:contents}
+ body.home-page .hero .hero-responsive-picture>img{position:absolute;left:0;top:0;width:1440px;height:auto;max-width:none;display:block;object-fit:contain;object-position:left top;opacity:1}
+}
+
+@media(max-width:767px){
+ body.home-page .simple-use .simple-use-card{margin-inline:auto}
+ body.home-page .simple-use-stage,body.home-page .capture-carousel{touch-action:pan-y pinch-zoom;cursor:grab}
+}
+
+/* Prevent iOS text autosizing inside scaled diagram cards. */
+@media(max-width:767px){
+ body.home-page .simple-use-card,body.home-page .simple-use-card *{
+   -webkit-text-size-adjust:none;text-size-adjust:none;
+ }
+ body.home-page .simple-use-detection-copy p{line-height:15px}
+ body.home-page .simple-use-spatial-label{line-height:13px}
+ body.home-page .simple-use-detection-label{width:96px}
+ body.home-page .simple-use-detection-people{left:515px}
+ body.home-page .simple-use-detection-posture{left:611px}
+ body.home-page .simple-use-detection-fall{left:708px}
+ body.home-page .simple-use-detection-label strong{font-size:9.5px;line-height:12px;white-space:normal}
+ body.home-page .simple-use-detection-label span{font-size:8.8px;line-height:11px}
+}
+
+/* Readable captions on every mobile lifestyle image. */
+@media(max-width:767px){
+ body.home-page .capture-gradient{display:block;inset:72% 0 0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.68));opacity:1;z-index:1;pointer-events:none}
+ body.home-page .capture-mobile-caption{z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.35)}
 }
