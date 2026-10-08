@@ -537,3 +537,14 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .product-lower-content{height:calc(7453px + var(--size-caption-space))}
  body.product-body .product-footer{position:relative;left:0;bottom:auto;width:100%;height:auto;display:block;padding:48px 24px;margin:0;zoom:1}
 }
+
+/* iOS must not enlarge text independently of the scaled illustration. */
+@media(max-width:767px){
+ body.product-body .product-page,body.product-body .product-page *{-webkit-text-size-adjust:none;text-size-adjust:none}
+ body.product-body .size-visual>p{font-weight:400}
+ body.product-body .way-copy{left:86px;width:500px}
+ body.product-body .way-step,body.product-body .way-step p{width:500px}
+ body.product-body .way-step p{font-size:28px;line-height:36px;gap:10px}
+ body.product-body .way-step p span{width:28px;height:28px;flex-basis:28px;font-size:20px;line-height:28px}
+ body.product-body .way-panel .way-background{left:0;width:1440px;object-fit:cover}
+}
