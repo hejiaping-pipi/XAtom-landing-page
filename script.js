@@ -4,7 +4,7 @@ if (homePage) {
   const homeArtboardWidth = 1440;
   const syncHomePreviewScale = () => {
     const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-    const scale = viewportWidth <= 767 ? 1 : Math.min(1, viewportWidth / homeArtboardWidth);
+    const scale = viewportWidth <= 767 ? 1 : viewportWidth / homeArtboardWidth;
     document.documentElement.style.setProperty('--mobile-diagram-scale', String(Math.min(1, (Math.max(360, viewportWidth) - 40) / 901)));
     document.documentElement.style.setProperty('--home-preview-scale', String(scale));
   };

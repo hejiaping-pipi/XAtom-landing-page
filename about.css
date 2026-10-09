@@ -68,3 +68,11 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
 .about-footer-bottom nav{width:693px;height:19px;display:flex;align-items:center;gap:20px}
 .about-footer-bottom nav a{height:19px;color:#fff;text-decoration:none;font-size:16px;line-height:19px;white-space:nowrap}
 .about-footer-bottom nav i{width:1px;height:10px;background:#fff}
+
+/* Let the desktop About page fill viewports wider than the 1440px artboard. */
+@media(min-width:1441px){
+ body.about-body{width:100%;min-width:0}
+ body.about-body .about-nav,
+ body.about-body .about-page,
+ body.about-body .about-footer{width:100%}
+}

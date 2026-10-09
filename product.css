@@ -2,7 +2,7 @@
 html{scroll-behavior:smooth}
 @font-face{font-family:"Roboto";src:url("assets/fonts/Roboto-Variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Outfit";src:url("assets/fonts/Outfit-Variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
-body{margin:0;min-width:1440px;background:#fff;color:#303030;font-family:Roboto,Arial,Helvetica,sans-serif;zoom:var(--product-preview-scale,1)}
+body{margin:0;width:1440px;min-width:1440px;background:#fff;color:#303030;font-family:Roboto,Arial,Helvetica,sans-serif;zoom:var(--product-preview-scale,1)}
 button,a{font:inherit}
 .product-page{position:relative;width:1440px;height:8926px;background:#fff;overflow:hidden}
 .product-nav{position:absolute;z-index:20;left:0;top:0;width:1440px;height:72px;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:0;background:#fff;box-shadow:0 1px 0 #e0e0e0}
@@ -605,10 +605,4 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .way-model-insert{flex-basis:203px}
  body.product-body .way-crop{z-index:1}
  body.product-body .way-step p{font-size:20px;line-height:23px}
-}
-
-/* Keep the 1440px desktop composition centered on wider displays. */
-@media(min-width:1441px){
- body.product-body{width:100%;min-width:1440px}
- body.product-body .product-page{margin-right:auto;margin-left:auto}
 }

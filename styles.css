@@ -3466,8 +3466,7 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
   transform:none;
 }
 
-/* Keep the 1440px Figma artboard intact. Script only scales it down when the
-   preview viewport is narrower; it never enlarges the page above 1:1. */
+/* Keep the 1440px Figma artboard intact and scale it to the desktop viewport. */
 body.home-page{
   width:1440px;
   min-width:1440px;
