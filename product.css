@@ -606,3 +606,9 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .way-crop{z-index:1}
  body.product-body .way-step p{font-size:20px;line-height:23px}
 }
+
+/* Keep the 1440px desktop composition centered on wider displays. */
+@media(min-width:1441px){
+ body.product-body{width:100%;min-width:1440px}
+ body.product-body .product-page{margin-right:auto;margin-left:auto}
+}
