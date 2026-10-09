@@ -556,3 +556,53 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .way-model-views + p{width:418px;max-width:418px}
  body.product-body .way-model-insert + p{width:421px;max-width:421px}
 }
+
+/* Mobile review annotations: use viewport-sized type while the feature artboard stays scaled. */
+@media(max-width:767px){
+ body.product-body .product-hero-copy h1{
+   font-size:var(--product-mobile-feature-title-size,80px);
+   line-height:1.15;
+ }
+ body.product-body .product-hero-copy p{
+   font-size:var(--product-mobile-feature-copy-size,56px);
+   line-height:var(--product-mobile-feature-copy-line,80px);
+ }
+ body.product-body .product-meta h2{
+   font-family:Roboto,Arial,Helvetica,sans-serif!important;
+   font-size:24px;
+ }
+ body.product-body .purchase-actions button{font-size:14px}
+ body.product-body .feature-heading h2{font-size:24px;line-height:30px}
+ body.product-body .feature-heading p{font-size:16px;line-height:22px}
+ body.product-body .size-visual>p{font-size:16px;line-height:22px;font-weight:300}
+ body.product-body .gift-components>p{font-size:14px;line-height:20px}
+ body.product-body .personalized-copy a{font-size:14px}
+
+ body.product-body .way-panel{isolation:isolate}
+ body.product-body .way-panel .way-background{z-index:0}
+ body.product-body .way-panel .way-gradient{z-index:1}
+ body.product-body .way-copy{
+   z-index:2;
+   top:40px;
+   height:auto;
+   gap:20px;
+ }
+ body.product-body .way-copy-model{top:20px}
+ body.product-body .way-step,
+ body.product-body .way-step:first-child,
+ body.product-body .way-step:last-child,
+ body.product-body .way-panel-model .way-step:first-child{
+   height:auto;
+   flex:none;
+   gap:10px;
+ }
+ body.product-body .way-step-media{
+   z-index:2;
+   flex:0 0 206px;
+   overflow:visible;
+ }
+ body.product-body .way-object-insert,
+ body.product-body .way-model-insert{flex-basis:203px}
+ body.product-body .way-crop{z-index:1}
+ body.product-body .way-step p{font-size:20px;line-height:23px}
+}
