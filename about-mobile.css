@@ -46,3 +46,11 @@
  body.about-body .site-footer-brand p,body.about-body .site-footer-legal a{font-weight:300}
  body.about-body .site-footer-legal,body.about-body .site-footer-contact>a,body.about-body .site-footer-contact>p{opacity:.8}
 }
+
+/* Mobile About page spacing and paragraph weights from review annotations. */
+@media(max-width:767px){
+ body.about-body .platform-content>p,body.about-body .physical-copy{font-weight:400}
+ body.about-body .about-platform,body.about-body .about-bits,body.about-body .about-physical{padding-top:60px;padding-bottom:60px}
+ body.about-body .about-platform,body.about-body .about-bits{gap:40px}
+ body.about-body .about-physical{column-gap:40px}
+}
