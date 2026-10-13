@@ -6,50 +6,57 @@ filmToggle?.addEventListener('click', () => {
   filmToggle.setAttribute('aria-label', `${isPlaying ? 'Pause' : 'Play'} XATOM brand film`);
 });
 
-const loopVideos = document.querySelectorAll('[data-loop-video]');
+const replayVideos = document.querySelectorAll('[data-replay-video]');
+const replayTimers = new Map();
+const waitingVideos = new Set();
 
-const playContinuously = (video) => {
+const setupReplayVideo = (video) => {
+  const frame = video.parentElement;
+  const replayDelay = Number(video.dataset.replayDelay) || 20000;
+
   video.muted = true;
   video.defaultMuted = true;
-  video.loop = true;
+  video.loop = false;
   video.playsInline = true;
 
   const play = () => {
-    if (video.ended) video.currentTime = 0;
+    waitingVideos.delete(video);
+    frame?.classList.remove('is-replay-waiting');
+    video.currentTime = 0;
     const playback = video.play();
     playback?.catch(() => {});
   };
 
-  const revealVideo = () => {
-    video.removeAttribute('poster');
-    play();
-  };
-
-  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) revealVideo();
-  else video.addEventListener('loadeddata', revealVideo, { once: true });
-
   video.addEventListener('ended', () => {
+    waitingVideos.add(video);
+    frame?.classList.add('is-replay-waiting');
     video.currentTime = 0;
-    play();
+    window.clearTimeout(replayTimers.get(video));
+    replayTimers.set(video, window.setTimeout(play, replayDelay));
   });
-
-  return play;
 };
 
-const resumeVideo = new Map();
-loopVideos.forEach((video) => resumeVideo.set(video, playContinuously(video)));
+replayVideos.forEach((video) => setupReplayVideo(video));
 
 if ('IntersectionObserver' in window) {
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) resumeVideo.get(entry.target)?.();
+      if (entry.isIntersecting && entry.target.paused && !waitingVideos.has(entry.target)) {
+        const playback = entry.target.play();
+        playback?.catch(() => {});
+      }
     });
   }, { threshold: 0.05 });
 
-  loopVideos.forEach((video) => videoObserver.observe(video));
+  replayVideos.forEach((video) => videoObserver.observe(video));
 }
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) return;
-  loopVideos.forEach((video) => resumeVideo.get(video)?.());
+  replayVideos.forEach((video) => {
+    if (video.paused && !waitingVideos.has(video)) {
+      const playback = video.play();
+      playback?.catch(() => {});
+    }
+  });
 });
