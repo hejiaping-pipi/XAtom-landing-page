@@ -606,3 +606,264 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
  body.product-body .way-crop{z-index:1}
  body.product-body .way-step p{font-size:20px;line-height:23px}
 }
+
+/* Product feature sequence — Figma node 2647:1791. */
+.visually-hidden{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+body.product-body .product-page{height:7247px}
+body.product-body .product-lower-content{
+  position:absolute;
+  left:0;
+  top:1663px;
+  width:1440px;
+  height:5061px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  zoom:1;
+}
+body.product-body .product-lower-content>.product-feature,
+body.product-body .product-lower-content>.personalized-banner{
+  position:relative;
+  left:auto;
+  top:auto;
+  width:1440px;
+}
+body.product-body .product-lower-content .feature-heading{
+  width:auto;
+  height:105px;
+  flex:0 0 105px;
+  gap:23px;
+}
+body.product-body .product-lower-content .feature-heading h2{
+  width:auto;
+  height:44px;
+  font-size:48px;
+  line-height:44px;
+  font-weight:400;
+  letter-spacing:-.9px;
+  white-space:nowrap;
+}
+body.product-body .product-lower-content .feature-heading p{
+  width:auto;
+  height:38px;
+  font-size:32px;
+  line-height:38px;
+  font-weight:300;
+  white-space:nowrap;
+}
+body.product-body .product-size{
+  height:1089px;
+  flex:0 0 1089px;
+  padding:120px 0 0;
+  gap:80px;
+  background:#f5f2ee;
+}
+body.product-body .fashion-images{
+  width:1440px;
+  height:784px;
+  flex:0 0 784px;
+  padding:4px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:21px;
+}
+body.product-body .fashion-image{
+  position:relative;
+  height:776px;
+  flex:0 0 auto;
+  margin:0;
+  overflow:hidden;
+}
+body.product-body .fashion-image-left{width:679px}
+body.product-body .fashion-image-right{width:660px}
+body.product-body .fashion-image img{
+  position:absolute;
+  display:block;
+  max-width:none;
+  object-fit:fill;
+}
+body.product-body .fashion-image-left img{
+  left:0;
+  top:2.4056px;
+  width:699.302px;
+  height:837.614px;
+}
+body.product-body .fashion-image-right img{
+  inset:0;
+  width:660px;
+  height:776px;
+}
+body.product-body .product-feature-scene{
+  height:1511px;
+  flex:0 0 1511px;
+  padding:120px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:80px;
+  background:#fff;
+}
+body.product-body .feature-scene-visual{
+  position:relative;
+  width:1440px;
+  height:1086px;
+  flex:0 0 1086px;
+  overflow:hidden;
+  background:#fff;
+}
+body.product-body .feature-scene-image,
+body.product-body .feature-scene-gradient,
+body.product-body .feature-scene-brand{position:absolute;display:block}
+body.product-body .product-feature-communicate .feature-scene-image{
+  left:-4px;
+  top:0;
+  width:1448px;
+  height:1086px;
+  max-width:none;
+  object-fit:cover;
+}
+body.product-body .product-feature-social .feature-scene-image{
+  left:-10px;
+  top:-31.31px;
+  width:1460px;
+  height:1212.776px;
+  max-width:none;
+  object-fit:cover;
+}
+body.product-body .feature-scene-gradient{
+  z-index:1;
+  left:-.5px;
+  top:456px;
+  width:1441px;
+  height:630px;
+  background:linear-gradient(0deg,rgba(20,10,1,.7) 0%,rgba(255,255,255,.7) 53.285%);
+  mix-blend-mode:multiply;
+}
+body.product-body .product-feature-communicate .feature-scene-gradient{left:-1px;width:1502px}
+body.product-body .feature-scene-brand{
+  z-index:2;
+  left:546px;
+  top:884px;
+  width:303px;
+  height:56.439px;
+}
+body.product-body .product-gift-heading{
+  height:305px;
+  flex:0 0 305px;
+  padding:120px 0 80px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:#f5f2ee;
+}
+body.product-body .personalized-banner{
+  z-index:1;
+  height:645px;
+  flex:0 0 645px;
+  overflow:hidden;
+  background:#fff;
+}
+body.product-body .personalized-image{
+  position:absolute;
+  left:0;
+  top:-62px;
+  width:1440px;
+  height:810.431px;
+  max-width:none;
+  object-fit:cover;
+}
+body.product-body .personalized-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(24,11,2,.2);
+}
+body.product-body .personalized-copy{
+  position:absolute;
+  left:550px;
+  top:471.22px;
+  width:340px;
+  height:124px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:32px;
+}
+body.product-body .personalized-brand{
+  display:block;
+  width:171.798px;
+  height:32px;
+  flex:0 0 32px;
+}
+body.product-body .personalized-copy a{
+  width:340px;
+  height:60px;
+  flex:0 0 60px;
+  padding:12px 40px;
+  border-radius:4px;
+  background:#fff;
+  color:#84664a;
+  font-size:16px;
+  line-height:16px;
+  font-weight:500;
+  letter-spacing:2px;
+}
+
+@media(max-width:767px){
+  body.product-body .product-page{height:auto}
+  body.product-body .product-lower-content{
+    position:relative;
+    left:0;
+    top:0;
+    width:1440px;
+    height:5601px;
+    display:flex;
+    overflow:hidden;
+    zoom:var(--product-preview-scale,1);
+  }
+  body.product-body .product-lower-content .feature-heading{
+    width:calc(1000px * var(--product-preview-scale,.25));
+    height:calc(240px * var(--product-preview-scale,.25));
+    flex:0 0 calc(240px * var(--product-preview-scale,.25));
+    gap:calc(32px * var(--product-preview-scale,.25));
+    zoom:var(--product-mobile-text-zoom,4);
+  }
+  body.product-body .product-lower-content .feature-heading h2{
+    width:100%;
+    height:auto;
+    font-size:24px;
+    line-height:30px;
+    letter-spacing:0;
+  }
+  body.product-body .product-lower-content .feature-heading p{
+    width:100%;
+    height:auto;
+    font-size:16px;
+    line-height:22px;
+  }
+  body.product-body .product-size{height:1224px;flex-basis:1224px}
+  body.product-body .product-feature-scene{height:1646px;flex-basis:1646px}
+  body.product-body .product-gift-heading{height:440px;flex-basis:440px}
+  body.product-body .personalized-banner{height:645px;flex-basis:645px}
+  body.product-body .product-footer{
+    position:relative;
+    left:0;
+    bottom:auto;
+    width:100%;
+    height:auto;
+    display:block;
+    padding:48px 24px;
+    margin:0;
+    zoom:1;
+  }
+}

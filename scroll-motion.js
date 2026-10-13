@@ -21,11 +21,11 @@
     ],
     product: [
       ['.product-purchase', ['.product-gallery', '.product-meta', '.colour-picker', '.quantity-picker', '.purchase-actions', '.payment-methods']],
-      ['.product-size', ['.feature-heading > h2', '.feature-heading > p', '.size-background', '.size-visual > p']],
-      ['.product-fashion', ['.feature-heading > h2', '.feature-heading > p', '.fashion-images > img']],
-      ['.product-ways', ['.feature-heading > h2', '.feature-heading > p', '.way-panel']],
-      ['.product-gift-set', ['.feature-heading > h2', '.feature-heading > p', '.gift-components-art', '.gift-components > p', '.gift-lifestyle']],
-      ['.personalized-banner', ['.personalized-image', '.personalized-copy > h2', '.personalized-copy > a']],
+      ['.product-size', ['.feature-heading > h2', '.feature-heading > p', '.fashion-image']],
+      ['.product-fashion', ['.feature-heading > h2', '.feature-heading > p', '.feature-scene-visual']],
+      ['.product-ways', ['.feature-heading > h2', '.feature-heading > p', '.feature-scene-visual']],
+      ['.product-gift-set', ['.feature-heading > h2', '.feature-heading > p']],
+      ['.personalized-banner', ['.personalized-image', '.personalized-copy']],
     ],
   };
 
