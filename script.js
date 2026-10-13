@@ -420,6 +420,8 @@ const simpleUseSection = document.querySelector('.simple-use');
 
 if (simpleUseSection) {
   const slides = [...simpleUseSection.querySelectorAll('[data-simple-use-slide]')];
+  const card = simpleUseSection.querySelector('.simple-use-card');
+  const featureButtons = [...simpleUseSection.querySelectorAll('[data-simple-use-target]')];
   const previousButton = simpleUseSection.querySelector('.simple-use-previous');
   const nextButton = simpleUseSection.querySelector('.simple-use-next');
   let activeSlide = 0;
@@ -431,6 +433,10 @@ if (simpleUseSection) {
     activeSlide = (nextIndex + slides.length) % slides.length;
     slides[activeSlide].classList.add('is-active');
     slides[activeSlide].setAttribute('aria-hidden', 'false');
+    card.dataset.activeSlide = String(activeSlide + 1);
+    featureButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(Number(button.dataset.simpleUseTarget) === activeSlide));
+    });
     mobilePages.sync(activeSlide);
   };
 
@@ -438,6 +444,9 @@ if (simpleUseSection) {
 
   previousButton.addEventListener('click', () => showSimpleUseSlide(activeSlide - 1));
   nextButton.addEventListener('click', () => showSimpleUseSlide(activeSlide + 1));
+  featureButtons.forEach((button) => {
+    button.addEventListener('click', () => showSimpleUseSlide(Number(button.dataset.simpleUseTarget)));
+  });
 
   simpleUseSection.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {

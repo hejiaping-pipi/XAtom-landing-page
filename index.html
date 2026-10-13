@@ -13,7 +13,7 @@
     })();
   </script>
   <title>XATOM</title>
-  <link rel="stylesheet" href="styles.css?v=home-capture-figma-1" />
+  <link rel="stylesheet" href="styles.css?v=simple-use-figma-2" />
   <link rel="stylesheet" href="footer.css?v=mobile-svg-3" />
   <link rel="stylesheet" href="mobile.css?v=29-caption-gradient" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
@@ -184,7 +184,7 @@
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
           </button>
 
-          <article class="simple-use-card" aria-live="polite">
+          <article class="simple-use-card" aria-live="polite" data-active-slide="1">
             <div class="simple-use-slide simple-use-slide-1 is-active" data-simple-use-slide aria-hidden="false" role="group" aria-roledescription="slide" aria-label="1 of 4">
               <img class="simple-use-slide-art" src="assets/simple-use/slide-1-clean.png" alt="" />
               <div class="simple-use-heading">
@@ -265,12 +265,12 @@
             <img src="assets/simple-use/frame-732.svg" alt="" />
           </div>
           <div class="simple-use-feature-labels">
-            <span class="feature-label-voice">Voice Interaction</span>
-            <span class="feature-label-print">3D Print</span>
-            <span class="feature-label-creative">Creative</span>
-            <span class="feature-label-lidar">Lidar Detect</span>
-            <span class="feature-label-models">AI Models</span>
-            <span class="feature-label-personalized">Personalized</span>
+            <button class="feature-label-voice" type="button" data-simple-use-target="0" aria-label="Show Voice Interaction card" aria-pressed="true">Voice Interaction</button>
+            <button class="feature-label-print" type="button" data-simple-use-target="2" aria-label="Show 3D Print card" aria-pressed="false">3D Print</button>
+            <button class="feature-label-creative" type="button" data-simple-use-target="2" aria-label="Show Creative card" aria-pressed="false">Creative</button>
+            <button class="feature-label-lidar" type="button" data-simple-use-target="1" aria-label="Show Lidar Detect card" aria-pressed="false">Lidar Detect</button>
+            <button class="feature-label-models" type="button" data-simple-use-target="3" aria-label="Show AI Models card" aria-pressed="false">AI Models</button>
+            <button class="feature-label-personalized" type="button" data-simple-use-target="2" aria-label="Show Personalized card" aria-pressed="false">Personalized</button>
           </div>
         </div>
       </div>
@@ -510,7 +510,7 @@
       </div>
     </div>
   </footer>
-  <script src="script.js?v=16-desktop-wide" defer></script>
+  <script src="script.js?v=simple-use-controls-1" defer></script>
   <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>

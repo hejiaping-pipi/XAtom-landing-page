@@ -1347,14 +1347,29 @@ body{overflow-x:hidden}
   font-weight:400;
   line-height:18px;
 }
-.simple-use-feature-labels span{
+.simple-use-feature-labels button{
   position:absolute;
-  top:69.33px;
-  height:18px;
+  top:0;
+  height:87.32px;
+  padding:69.33px 0 0;
   display:flex;
   align-items:center;
   justify-content:center;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  line-height:18px;
   white-space:nowrap;
+  cursor:pointer;
+}
+.simple-use-feature-labels button:hover{
+  color:#846549;
+}
+.simple-use-feature-labels button:focus-visible{
+  border-radius:10px;
+  outline:2px solid #846549;
+  outline-offset:3px;
 }
 .feature-label-voice{left:0;width:101px}
 .feature-label-print{left:170.92px;width:57.29px}
@@ -3156,12 +3171,25 @@ main{min-height:0}
 
 /* The artwork is clipped inside the card; the visible outline belongs to CSS. */
 .simple-use-card{
-  border:1px solid #c9c9c9;
+  border:0;
   background:#fff;
+  box-shadow:none;
+}
+.simple-use-card[data-active-slide="1"]{
+  border:1px solid #c9c9c9;
+}
+.simple-use-card[data-active-slide="2"]{
+  border:1.094px solid #775336;
+  box-shadow:0 4.375px 13.125px rgba(0,0,0,.08);
 }
 .simple-use-slide{
-  inset:1px;
+  inset:0;
   overflow:hidden;
+  border-radius:34.4909px;
+}
+.simple-use-card[data-active-slide="1"] .simple-use-slide,
+.simple-use-card[data-active-slide="2"] .simple-use-slide{
+  inset:1px;
   border-radius:33.49px;
 }
 .simple-use-slide-art{
