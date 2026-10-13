@@ -14,7 +14,8 @@ document.querySelectorAll('[data-mobile-nav]').forEach((header) => {
     document.body.classList.toggle('mobile-site-nav-open', shouldOpen);
     pageLayers.forEach((element) => { element.inert = shouldOpen; });
     toggle?.setAttribute('aria-expanded', String(shouldOpen));
-    toggle?.setAttribute('aria-label', shouldOpen ? 'Close menu' : 'Open menu');
+    const chinese = document.body.classList.contains('product-body') && document.documentElement.lang === 'zh-CN';
+    toggle?.setAttribute('aria-label', chinese ? (shouldOpen ? '关闭菜单' : '打开菜单') : (shouldOpen ? 'Close menu' : 'Open menu'));
     if (panel) {
       if (mobileSiteBreakpoint.matches) panel.setAttribute('aria-hidden', String(!shouldOpen));
       else panel.removeAttribute('aria-hidden');
@@ -24,6 +25,7 @@ document.querySelectorAll('[data-mobile-nav]').forEach((header) => {
   };
 
   toggle?.addEventListener('click', () => setOpen(!header.classList.contains('is-menu-open')));
+  document.addEventListener('xatom-language-change', () => setOpen(header.classList.contains('is-menu-open')));
   header.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       if (link.getAttribute('aria-disabled') === 'true') return;

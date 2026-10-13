@@ -24,6 +24,14 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
 .product-tool-icon.product-bag{width:20px;height:18px}
 .product-hero{position:absolute;left:4px;top:101px;width:1440px;height:783px;overflow:hidden}
 .product-hero-image{position:absolute;left:-20px;top:-25px;width:1480.1px;height:833px;object-fit:cover}
+.product-hero-video{position:absolute;z-index:1;left:-20px;top:-25px;width:1480.1px;height:833px;object-fit:cover;opacity:0}
+.product-hero.is-playing .product-hero-video{opacity:1}
+.product-hero-video.is-finished{display:none}
+.product-hero.has-video:not(.is-playing) .product-hero-copy{opacity:0}
+.product-hero.is-playing .product-hero-copy h1{animation:product-hero-reveal 1.6s .15s both}
+.product-hero.is-playing .product-hero-copy p{animation:product-hero-reveal 1.8s .55s both}
+@keyframes product-hero-reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.product-hero.is-playing .product-hero-copy h1,.product-hero.is-playing .product-hero-copy p{animation:none}}
 .product-hero-copy{position:absolute;z-index:3;left:392px;top:332px;width:709px;height:120px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
 .product-hero-copy h1{width:709px;height:52px;margin:0;color:#787878;font-family:Outfit,Roboto,Arial,Helvetica,sans-serif !important;font-size:48px;line-height:52px;font-weight:400;letter-spacing:-1px}
 .product-hero-copy p{width:709px;height:56px;margin:0;color:#303030;font-size:24px;line-height:28px;font-weight:300}
@@ -619,7 +627,7 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
   white-space:nowrap!important;
   border:0!important;
 }
-body.product-body .product-page{height:7247px}
+body.product-body .product-page{height:7367px}
 body.product-body .product-lower-content{
   position:absolute;
   left:0;
@@ -826,7 +834,7 @@ body.product-body .personalized-copy a{
     left:0;
     top:0;
     width:1440px;
-    height:5601px;
+    height:5721px;
     display:flex;
     overflow:hidden;
     zoom:var(--product-preview-scale,1);
@@ -866,4 +874,8 @@ body.product-body .personalized-copy a{
     margin:0;
     zoom:1;
   }
+}
+
+@media(max-width:767px){
+  body.product-body .product-mobile-language{padding:0;border:0;background:none;text-align:left;cursor:pointer}
 }

@@ -202,3 +202,10 @@ body.home-page .home-site-footer{width:1440px;max-width:none}
    height:auto!important;margin:0;aspect-ratio:375 / 367;
  }
 }
+
+/* The product page can switch languages; show its live HTML footer in Chinese. */
+@media(max-width:767px){
+ html[lang="zh-CN"] body.product-body .site-footer#site-footer{padding:48px 24px!important}
+ html[lang="zh-CN"] body.product-body .site-footer#site-footer>.site-footer-inner{display:flex!important}
+ html[lang="zh-CN"] body.product-body .site-footer#site-footer>.mobile-footer-art{display:none!important}
+}
