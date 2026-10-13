@@ -3175,11 +3175,7 @@ main{min-height:0}
   background:#fff;
   box-shadow:none;
 }
-.simple-use-card[data-active-slide="1"]{
-  border:1px solid #c9c9c9;
-}
 .simple-use-card[data-active-slide="2"]{
-  border:1.094px solid #775336;
   box-shadow:0 4.375px 13.125px rgba(0,0,0,.08);
 }
 .simple-use-slide{
@@ -3187,16 +3183,21 @@ main{min-height:0}
   overflow:hidden;
   border-radius:34.4909px;
 }
-.simple-use-card[data-active-slide="1"] .simple-use-slide,
-.simple-use-card[data-active-slide="2"] .simple-use-slide{
-  inset:1px;
-  border-radius:33.49px;
+.simple-use-slide>:not(.simple-use-slide-art){
+  display:none;
 }
 .simple-use-slide-art{
-  inset:-1.5px;
-  width:calc(100% + 3px);
-  height:calc(100% + 3px);
+  inset:0;
+  width:100%;
+  height:100%;
   max-width:none;
+  object-fit:fill;
+}
+.simple-use-slide-2 .simple-use-slide-art{
+  left:-13.25px;
+  top:-13.14px;
+  width:927.5px;
+  height:579px;
 }
 
 /* Six-frame homepage banner and the exact uploaded Frame 976 control. */
