@@ -1458,6 +1458,26 @@ body{overflow-x:hidden}
   display:block;
   object-fit:cover;
 }
+.capture-slide picture{position:absolute;inset:0;display:block}
+.capture-slide img.capture-scene{
+  position:absolute;
+  max-width:none;
+  object-fit:fill;
+}
+.capture-slide img.capture-scene-coffee{left:-353px;top:-386px;width:1792.969px;height:1350px}
+.capture-slide img.capture-scene-cycling{left:-38px;top:-20px;width:1606.257px;height:904px}
+.capture-slide img.capture-scene-hanging{left:-300px;top:-198px;width:1787.494px;height:1006px}
+.capture-slide img.capture-scene-baby{left:0;top:-127.74px;width:1440px;height:1085.232px;transform:scaleX(-1)}
+.capture-slide img.capture-scene-desk{left:.33px;top:-148.5px;width:2014.675px;height:1125px}
+.capture-brand{
+  position:absolute;
+  z-index:2;
+  left:80px;
+  top:120px;
+  width:160px;
+  height:29.803px;
+  display:block;
+}
 .capture-gradient{
   position:absolute;
   z-index:1;
@@ -1472,8 +1492,8 @@ body{overflow-x:hidden}
 .capture-tabs{
   position:absolute;
   z-index:2;
-  left:60px;
-  top:270px;
+  left:80px;
+  top:389.803px;
   width:287px;
   height:268px;
   display:flex;
@@ -1542,6 +1562,11 @@ body{overflow-x:hidden}
 
 @media (prefers-reduced-motion:reduce){
   .capture-slide{transition:none}
+}
+
+@media(max-width:767px){
+  .capture-brand{display:none}
+  .capture-slide img.capture-scene{transform:none}
 }
 
 /* Frame 855 — exact Figma inspect layout */
