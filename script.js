@@ -99,7 +99,8 @@ const setMobileMenuState = (open, { restoreFocus = false } = {}) => {
   document.body?.classList.toggle('mobile-nav-open', shouldOpen);
   pageLayers.forEach((element) => { element.inert = shouldOpen; });
   mobileMenuToggle?.setAttribute('aria-expanded', String(shouldOpen));
-  mobileMenuToggle?.setAttribute('aria-label', shouldOpen ? 'Close menu' : 'Open menu');
+  const chinese = document.documentElement.lang === 'zh-CN';
+  mobileMenuToggle?.setAttribute('aria-label', chinese ? (shouldOpen ? '关闭菜单' : '打开菜单') : (shouldOpen ? 'Close menu' : 'Open menu'));
   if (mobileMenuPanel) {
     if (mobileMenuBreakpoint.matches) mobileMenuPanel.setAttribute('aria-hidden', String(!shouldOpen));
     else mobileMenuPanel.removeAttribute('aria-hidden');
@@ -113,6 +114,7 @@ const closeMobileMenu = (options) => setMobileMenuState(false, options);
 mobileMenuToggle?.addEventListener('click', () => {
   setMobileMenuState(!homeHeader?.classList.contains('is-menu-open'));
 });
+document.addEventListener('xatom-language-change', () => setMobileMenuState(homeHeader?.classList.contains('is-menu-open')));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && homeHeader?.classList.contains('is-menu-open')) {
     closeMobileMenu({ restoreFocus: true });
@@ -209,8 +211,14 @@ const heroAutoplayToggle = hero?.querySelector('.hero-autoplay-toggle');
 if (heroSlides.length > 1) {
   let activeSlide = Math.max(0, heroSlides.findIndex((slide) => slide.classList.contains('is-active')));
   let carouselTimer;
+  let languageMenuOpen = false;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let playbackPaused = reduceMotion;
+  const introSlide = heroSlides[0];
+  const introVideo = introSlide.querySelector('.hero-intro-video');
+  let introComplete = !introVideo || reduceMotion;
+  let introFrame;
+  let introLoadTimer;
   const mobilePages = createMobilePagination(hero, heroSlides.length, 'Hero pages', (index) => {
     showSlide(index);
     restartCarousel();
@@ -222,7 +230,10 @@ if (heroSlides.length > 1) {
   };
   mobilePages.playButton.addEventListener('click', () => {
     playbackPaused = !playbackPaused;
-    if (playbackPaused) stopCarousel();
+    if (playbackPaused) {
+      stopCarousel();
+      introVideo?.pause();
+    } else if (!introComplete) playIntro();
     else startCarousel();
     syncPlayback();
   });
@@ -239,6 +250,7 @@ if (heroSlides.length > 1) {
 
   const showSlide = (nextIndex) => {
     activeSlide = (nextIndex + heroSlides.length) % heroSlides.length;
+    if (activeSlide !== 0 && !introComplete) finishIntro();
     heroSlides.forEach((slide, index) => {
       const selected = index === activeSlide;
       slide.classList.toggle('is-active', selected);
@@ -249,7 +261,7 @@ if (heroSlides.length > 1) {
   };
 
   const startCarousel = () => {
-    if (playbackPaused || document.hidden || carouselTimer) return;
+    if (playbackPaused || languageMenuOpen || document.hidden || carouselTimer || !introComplete) return;
     carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 5000);
   };
 
@@ -263,6 +275,47 @@ if (heroSlides.length > 1) {
     startCarousel();
   };
 
+  const updateIntroCopy = () => {
+    const progress = introVideo.duration > 0 ? introVideo.currentTime / introVideo.duration : 0;
+    const fade = (start, end) => String(Math.max(0, Math.min(1, (progress - start) / (end - start))));
+    introSlide.style.setProperty('--intro-logo-opacity', fade(.2, .65));
+    introSlide.style.setProperty('--intro-text-opacity', fade(.35, .85));
+    if (!introComplete && !introVideo.paused) introFrame = window.requestAnimationFrame(updateIntroCopy);
+  };
+
+  const finishIntro = () => {
+    if (introComplete) return;
+    introComplete = true;
+    window.clearTimeout(introLoadTimer);
+    window.cancelAnimationFrame(introFrame);
+    introVideo.pause();
+    introSlide.classList.remove('is-intro-playing');
+    // Give the restored cover its own full interval before changing banners.
+    restartCarousel();
+  };
+
+  const revealIntro = () => {
+    if (introComplete) return;
+    window.clearTimeout(introLoadTimer);
+    introSlide.classList.add('is-intro-playing');
+    window.cancelAnimationFrame(introFrame);
+    updateIntroCopy();
+  };
+
+  const playIntro = () => {
+    if (introComplete || playbackPaused || document.hidden || activeSlide !== 0) return;
+    // Failed or blocked playback leaves the original cover and carousel usable.
+    window.clearTimeout(introLoadTimer);
+    introLoadTimer = window.setTimeout(finishIntro, 12000);
+    introVideo.muted = true;
+    introVideo.play()?.then(revealIntro).catch(finishIntro);
+  };
+
+  introVideo?.addEventListener('playing', revealIntro);
+  introVideo?.addEventListener('pause', () => window.cancelAnimationFrame(introFrame));
+  introVideo?.addEventListener('ended', finishIntro);
+  introVideo?.addEventListener('error', finishIntro);
+
   heroPageTabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
       showSlide(index);
@@ -275,13 +328,29 @@ if (heroSlides.length > 1) {
     restartCarousel();
   });
 
+  document.addEventListener('xatom-language-menu-change', (event) => {
+    languageMenuOpen = event.detail.open;
+    if (languageMenuOpen) stopCarousel();
+    else restartCarousel();
+  });
+  document.addEventListener('xatom-language-change', restartCarousel);
+
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stopCarousel();
+    if (document.hidden) {
+      stopCarousel();
+      introVideo?.pause();
+    } else if (!introComplete) playIntro();
     else startCarousel();
   });
 
   showSlide(activeSlide);
-  startCarousel();
+  if (introComplete) {
+    if (introVideo) {
+      introVideo.autoplay = false;
+      introVideo.pause();
+    }
+    startCarousel();
+  } else playIntro();
 }
 
 const adaptiveSection = document.querySelector('.adaptive');

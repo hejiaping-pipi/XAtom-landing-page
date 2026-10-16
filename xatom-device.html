@@ -13,9 +13,9 @@
     })();
   </script>
   <title>XATOM Device</title>
-  <link rel="stylesheet" href="product.css?v=product-hero-video-1" />
-  <link rel="stylesheet" href="footer.css?v=product-language-1" />
-  <link rel="stylesheet" href="mobile-navigation.css?v=3" />
+  <link rel="stylesheet" href="product.css?v=site-language-1" />
+  <link rel="stylesheet" href="footer.css?v=live-language-3" />
+  <link rel="stylesheet" href="mobile-navigation.css?v=site-language-1" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
   <style>
     html[data-mobile-preview]{min-width:0;background:#171717}
@@ -28,6 +28,8 @@
       box-shadow:0 20px 60px rgba(0,0,0,.45);
     }
   </style>
+  <link rel="stylesheet" href="language-picker.css?v=figma-menu-3" />
+  <link rel="stylesheet" href="product-purchase.css?v=gallery-captions-5" />
 </head>
 <body class="product-body">
   <header class="mobile-site-nav" data-mobile-nav>
@@ -46,7 +48,7 @@
         <a class="mobile-site-utility has-chevron" href="#login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M1 17c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4"/></svg><span>Account</span></a>
         <a class="mobile-site-utility" href="#search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866.325 5.642.373 3.007 3.007.373 5.642.325 9.866 2.901 12.442 5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336 17 17"/></svg><span>Search</span></a>
         <a class="mobile-site-utility" href="#cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1h14l1 16H2L3 1Z"/><path d="M7 4a3 3 0 0 0 6 0"/></svg><span>Cart</span></a>
-        <button class="mobile-site-utility product-mobile-language" type="button" data-language-toggle aria-label="Switch to Chinese"><span>Language: English</span></button>
+        <div class="mobile-site-utility product-mobile-language language-picker" data-language-picker><button class="language-trigger" type="button" data-language-trigger aria-label="Select language" aria-haspopup="menu" aria-expanded="false"><span class="locale-label">Language: English</span><svg class="language-picker-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button><div class="language-menu" role="menu" aria-label="Language" hidden><button type="button" role="menuitemradio" data-language-choice="en" aria-checked="true" lang="en">English</button><button type="button" role="menuitemradio" data-language-choice="zh-CN" aria-checked="false" lang="en">Chinese</button></div></div>
       </nav>
     </div>
   </header>
@@ -65,7 +67,7 @@
         </nav>
       </div>
       <nav class="product-tools" aria-label="Utility navigation">
-        <button class="product-locale" type="button" data-language-toggle aria-label="Switch to Chinese"><span>English</span><svg viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button>
+        <div class="product-locale language-picker" data-language-picker><button class="language-trigger" type="button" data-language-trigger aria-label="Select language" aria-haspopup="menu" aria-expanded="false"><span class="locale-label">English</span><svg class="language-picker-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button><div class="language-menu" role="menu" aria-label="Language" hidden><button type="button" role="menuitemradio" data-language-choice="en" aria-checked="true" lang="en">English</button><button type="button" role="menuitemradio" data-language-choice="zh-CN" aria-checked="false" lang="en">Chinese</button></div></div>
         <button class="product-locale" type="button"><span>British</span><svg viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button>
         <a class="product-tool-icon" href="#search" aria-label="Search"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="8" cy="8" r="6.6"/><path d="m12.7 12.7 4.3 4.3"/></svg></a>
         <a class="product-tool-icon" href="#login" aria-label="Login"><svg viewBox="0 0 18 17" aria-hidden="true"><circle cx="9" cy="5" r="4"/><path d="M1 17c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4"/></svg></a>
@@ -85,16 +87,23 @@
     <section class="product-purchase" id="product" aria-labelledby="product-title">
       <div class="purchase-layout">
         <div class="product-gallery">
-          <div class="product-main-image"><img src="assets/device/product-main.png" alt="Yellow XATOM device" /></div>
+          <div class="product-main-image" role="group" aria-label="Product images">
+            <div data-gallery-view="gift" id="product-gallery-view-gift"><div class="gallery-view gallery-view-gift"><div class="gift-scene-window"><img src="assets/device/gift-set/gift-scene.png" alt="XATOM gift set with companion shells" /></div><img class="gift-scene-brand" src="assets/device/gift-set/wordmark.svg" alt="XATOM" /></div></div>
+            <div class="gallery-view gallery-view-casings" data-gallery-view="casings" id="product-gallery-view-casings" hidden><img class="gallery-photo" src="assets/device/gift-set/casings.png" alt="Personalized XATOM casings" /><img class="gallery-casings-brand" src="assets/device/gift-set/wordmark.svg" alt="XATOM" /></div>
+            <div class="gallery-view gallery-view-device" data-gallery-view="device" id="product-gallery-view-device" hidden><img class="gallery-photo" src="assets/device/gift-set/device.png" alt="Yellow XATOM device" /><p class="gallery-caption">XAtom core ai hardware</p></div>
+            <div class="gallery-view gallery-view-characters" data-gallery-view="characters" id="product-gallery-view-characters" hidden><img class="gallery-photo" src="assets/device/gift-set/characters.png" alt="XATOM character shell collection" /><p class="gallery-caption">Free 3D-Printed Case Included</p></div>
+          </div>
           <div class="product-thumbnails" aria-label="Product thumbnails">
-            <button class="is-selected" type="button" aria-label="Yellow XATOM device image" aria-current="true">
-              <span class="product-thumbnail-crop"><img src="assets/device/product-main.png" alt="" /></span>
-            </button>
+            <button class="is-selected" type="button" data-gallery-target="gift" aria-label="View gift set" aria-controls="product-gallery-view-gift" aria-current="true"><span class="product-thumbnail-crop"><span class="gift-thumbnail-art"><div class="gallery-view gallery-view-gift"><div class="gift-scene-window"><img src="assets/device/gift-set/gift-scene.png" alt="XATOM gift set with companion shells" /></div><img class="gift-scene-brand" src="assets/device/gift-set/wordmark.svg" alt="XATOM" /></div></span></span></button>
+            <button type="button" data-gallery-target="casings" aria-label="View personalized casings" aria-controls="product-gallery-view-casings" aria-current="false"><span class="product-thumbnail-crop thumbnail-casings"><img src="assets/device/gift-set/casings.png" alt="" /></span></button>
+            <button type="button" data-gallery-target="device" aria-label="View yellow XATOM device" aria-controls="product-gallery-view-device" aria-current="false"><span class="product-thumbnail-crop thumbnail-device"><img src="assets/device/gift-set/device.png" alt="" /></span></button>
+            <button type="button" data-gallery-target="characters" aria-label="View character shell collection" aria-controls="product-gallery-view-characters" aria-current="false"><span class="product-thumbnail-crop thumbnail-characters"><img src="assets/device/gift-set/characters.png" alt="" /></span></button>
           </div>
         </div>
         <div class="product-details">
           <div class="product-meta">
-            <h2 id="product-title">XAtom</h2>
+            <h2 id="product-title">XAtom Gift Set</h2>
+            <p class="product-description">In addition to the core module, XAtom Gift Set comes with a complimentary 3D-printed shell. Users can also explore the 3D Model Marketplace to choose their favorite designs and personalize their products.</p>
             <div class="rating">
               <span class="stars" aria-label="5 out of 5 stars">
                 <img src="assets/device/product-star.svg" alt="" /><img src="assets/device/product-star.svg" alt="" /><img src="assets/device/product-star.svg" alt="" /><img src="assets/device/product-star.svg" alt="" /><img src="assets/device/product-star.svg" alt="" />
@@ -110,9 +119,9 @@
           <div class="quantity-picker">
             <strong>Quantity:</strong>
             <div class="quantity-control" role="group" aria-label="Quantity">
-              <button type="button" aria-label="Decrease quantity" data-quantity-decrease></button>
-              <output aria-live="polite" data-quantity-value>1</output>
               <button type="button" aria-label="Increase quantity" data-quantity-increase></button>
+              <output aria-live="polite" data-quantity-value>4</output>
+              <button type="button" aria-label="Decrease quantity" data-quantity-decrease></button>
             </div>
           </div>
           <div class="purchase-actions"><button type="button">Shop Now</button><button type="button">ADD TO CART</button></div>
@@ -181,7 +190,6 @@
 
     </div>
     <footer class="product-footer site-footer" id="site-footer">
-      <img class="mobile-footer-art" src="assets/footer-mobile-v3.svg" width="375" height="367" alt="XATOM — Amplify human intelligence. Contact: garyyang@qiniu.com. Moli Space T2, Shanghai, China. Copyright 2026 XATOM." />
       <div class="site-footer-inner">
         <div class="site-footer-top">
           <div class="site-footer-brand">
@@ -224,8 +232,9 @@
       </div>
     </footer>
   </main>
-  <script src="product.js?v=product-language-video-1"></script>
-  <script src="mobile-navigation.js?v=product-language-1" defer></script>
+  <script src="product.js?v=gallery-captions-2"></script>
+  <script src="mobile-navigation.js?v=site-language-1" defer></script>
+  <script src="site-language.js?v=navbar-language-4" defer></script>
   <script src="scroll-motion.js?v=5-product-figma-features" defer></script>
 </body>
 </html>

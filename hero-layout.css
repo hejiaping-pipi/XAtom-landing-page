@@ -1,0 +1,23 @@
+/* Figma banner frames 2505:909 / 932 / 922 / 946 / 955 / 960.
+   Media, masks and text keep the same coordinates in both languages. */
+@media(min-width:768px){
+ body.home-page .hero .hero-slide{isolation:isolate}
+ body.home-page .hero .hero-slide-1{background:#fff;height:813px}
+ body.home-page .hero .hero-slide-2{background:#f8e7d9;height:813px}
+ body.home-page .hero .hero-slide-3,body.home-page .hero .hero-slide-4{background:#fff;height:798px}
+ body.home-page .hero .hero-slide-5{background:#fff;height:783px}
+ body.home-page .hero .hero-slide-6{background:#f9ecdf;height:813px}
+ body.home-page .hero .hero-slide::after{inset:auto;left:0;top:0;right:auto;bottom:auto;width:1440px;transform:none;mix-blend-mode:multiply}
+ body.home-page .hero .hero-slide-1::after{top:347px;height:466px;background:linear-gradient(180deg,rgba(255,255,255,.4) 53.792%,rgba(94,92,90,.4) 100%)}
+ body.home-page .hero .hero-slide-2::after{top:455px;height:358px;background:linear-gradient(180deg,rgba(255,255,255,.4) 53.792%,rgba(94,92,90,.4) 100%)}
+ body.home-page .hero .hero-slide-3::after{top:0;height:798px;background:linear-gradient(180deg,#fff 53.792%,#5e5c5a 100%)}
+ body.home-page .hero .hero-slide-4::after{top:0;height:275px;background:linear-gradient(180deg,#d6c2b3 0%,#fff 100%)}
+ body.home-page .hero .hero-slide-5::after,body.home-page .hero .hero-slide-6::after{display:none}
+ body.home-page .hero .hero-slide-copy{justify-content:flex-start}
+ body.home-page .hero .hero-slide-copy>*{flex:none}
+ body.home-page .hero .hero-slide-copy p{display:block;text-align:inherit}
+ body.home-page .hero .hero-slide-3 .hero-slide-copy{left:0;top:603px;bottom:auto;width:1203px;height:195px;padding:40px;gap:12px}
+ body.home-page .hero .hero-slide-3 .hero-slide-copy h2,body.home-page .hero .hero-slide-4 .hero-slide-copy h2{height:23px;line-height:23px;font-weight:500}
+ body.home-page .hero .hero-slide-3 .hero-slide-copy p,body.home-page .hero .hero-slide-4 .hero-slide-copy p{height:38px;line-height:19px}
+ body.home-page .hero .hero-slide-6 .hero-slide-copy p{height:76px;line-height:19px}
+}

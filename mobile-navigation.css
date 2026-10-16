@@ -237,6 +237,7 @@
     stroke-linejoin:round;
   }
   .mobile-site-utility.has-chevron::after{margin-left:auto}
+  .site-mobile-language{padding:0;border:0;background:none;text-align:left;cursor:pointer;font-family:inherit}
 
   .mobile-site-nav.is-menu-open{
     --mobile-site-header-height:56px;

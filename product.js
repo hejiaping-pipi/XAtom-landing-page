@@ -39,6 +39,27 @@ document.querySelectorAll("[data-colour]").forEach((button) => {
   });
 });
 
+// Use the same four gallery items for the main view and thumbnails.
+const galleryButtons = [...document.querySelectorAll('[data-gallery-target]')];
+const selectGalleryView = (target) => {
+  document.querySelectorAll('[data-gallery-view]').forEach((view) => { view.hidden = view.dataset.galleryView !== target; });
+  galleryButtons.forEach((button) => {
+    const selected = button.dataset.galleryTarget === target;
+    button.classList.toggle('is-selected', selected);
+    button.setAttribute('aria-current', String(selected));
+  });
+};
+galleryButtons.forEach((button, index) => {
+  button.addEventListener('click', () => selectGalleryView(button.dataset.galleryTarget));
+  button.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    const next = galleryButtons[(index + (event.key === 'ArrowRight' ? 1 : -1) + galleryButtons.length) % galleryButtons.length];
+    selectGalleryView(next.dataset.galleryTarget);
+    next.focus({ preventScroll: true });
+  });
+});
+
 // Keep the original artwork visible until the first video frame and restore it
 // when the one-shot animation has finished.
 const productHero = document.querySelector('.product-hero');
@@ -57,6 +78,19 @@ if (productHeroVideo) {
 }
 
 const productTranslations = {
+  "XAtom Gift Set": "XAtom 礼盒套装",
+  "In addition to the core module, XAtom Gift Set comes with a complimentary 3D-printed shell. Users can also explore the 3D Model Marketplace to choose their favorite designs and personalize their products.": "XAtom 礼盒套装除核心模块外，还附赠一款 3D 打印外壳。你也可以在 3D 模型市场挑选喜爱的设计，定制属于自己的产品。",
+  "Product images": "产品图片",
+  "XATOM gift set with companion shells": "XATOM 礼盒套装与陪伴玩偶外壳",
+  "Personalized XATOM casings": "个性化 XATOM 外壳",
+  "XATOM character shell collection": "XATOM 角色外壳系列",
+  "Free 3D-Printed Case Included": "免费附赠 3D 打印外壳",
+  "XAtom core ai hardware": "XAtom 核心 AI 硬件",
+  "View gift set": "查看礼盒套装",
+  "View personalized casings": "查看个性化外壳",
+  "View yellow XATOM device": "查看黄色 XATOM 设备",
+  "View character shell collection": "查看角色外壳系列",
+
   'Homepage': '首页',
   'XAtom Device': 'XAtom 设备',
   'Personalized Body': '个性化外壳',
@@ -129,7 +163,7 @@ const translatableText = [];
 const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 while (textWalker.nextNode()) {
   const node = textWalker.currentNode;
-  if (productTranslations[node.nodeValue.trim()]) translatableText.push([node, node.nodeValue]);
+  if (!node.parentElement?.closest('option, [data-language-picker]') && productTranslations[node.nodeValue.trim()]) translatableText.push([node, node.nodeValue]);
 }
 const translatableAttributes = [];
 document.body.querySelectorAll('[aria-label], [alt], [title], [placeholder]').forEach((element) => {
@@ -154,15 +188,7 @@ const applyProductLanguage = (language) => {
   const selectedColour = document.querySelector('[data-colour].is-selected')?.dataset.colour;
   if (selectedColour && colourName) colourName.textContent = language === 'zh-CN'
     ? productTranslations[selectedColour] : selectedColour;
-  document.querySelectorAll('[data-language-toggle]').forEach((button) => {
-    button.setAttribute('aria-label', language === 'zh-CN' ? '切换为英文' : 'Switch to Chinese');
-    button.querySelector('span').textContent = button.classList.contains('product-mobile-language')
-      ? (language === 'zh-CN' ? '语言：中文' : 'Language: English')
-      : (language === 'zh-CN' ? '中文' : 'English');
-  });
   document.dispatchEvent(new Event('xatom-language-change'));
 };
 
-document.querySelectorAll('[data-language-toggle]').forEach((button) => {
-  button.addEventListener('click', () => applyProductLanguage(currentProductLanguage === 'en' ? 'zh-CN' : 'en'));
-});
+window.XatomApplyProductLanguage = applyProductLanguage;

@@ -1,0 +1,60 @@
+/* Figma 2374:16379 — gift-set gallery and purchase details. */
+.product-purchase .product-main-image{position:relative;border-radius:0;container-type:inline-size}
+.product-purchase [data-gallery-view]{position:absolute;inset:0}
+.product-purchase [data-gallery-view][hidden]{display:none!important}
+.product-purchase .gallery-view{position:absolute;inset:0;overflow:hidden;background:#fff}
+.product-purchase .gallery-view>.gallery-photo{display:block;width:100%;height:100%;max-width:none;margin:0;object-fit:contain;transform:none}
+/* Figma 2729:2988 — artwork crops and live, translatable annotations. */
+.product-purchase .gallery-view-characters>.gallery-photo{position:absolute;left:-1.839465%;top:-.873362%;width:103.67893%;height:101.528384%;object-fit:cover}
+.product-purchase .gallery-view-device>.gallery-photo{position:absolute;left:-1.973244%;top:0;width:102.006689%;height:99.89083%;object-fit:cover}
+.product-purchase .gallery-view-casings>.gallery-photo{position:absolute;left:-2.173913%;top:0;width:102.118172%;height:100%;object-fit:cover}
+.product-purchase .gallery-caption{position:absolute;left:50%;margin:0;color:#917b69;font-size:4.013378cqw;font-weight:400;line-height:6.688963cqw;letter-spacing:-.133779cqw;white-space:nowrap;text-align:center;transform:translateX(-50%)}
+.product-purchase .gallery-view-characters>.gallery-caption{top:82.532751%}
+.product-purchase .gallery-view-device>.gallery-caption{top:86.026201%}
+.product-purchase .gallery-view>.gallery-casings-brand{position:absolute;left:39.799331%;top:82.969432%;width:20.568562%;height:5.002402%;max-width:none;margin:0;object-fit:contain;transform:none}
+.product-purchase .gift-scene-window{position:absolute;left:0;top:-5.676856%;width:100%;height:105.676856%;overflow:hidden}
+.product-purchase .gallery-view-gift .gift-scene-window>img{position:absolute;left:-56.19%;top:0;display:block;width:162.38%;height:112.72%;max-width:none;margin:0;object-fit:fill;transform:none}
+.product-purchase .gallery-view>.gift-scene-brand{position:absolute;left:7.525084%;top:15.065502%;display:block;width:20.568562%;height:5.002402%;max-width:none;margin:0;object-fit:contain;transform:none}
+.product-purchase .product-thumbnails button{flex:none;border-color:#e4e4e4}
+.product-purchase .product-thumbnails button.is-selected{border-color:#917b69}
+.product-purchase .product-thumbnail-crop{left:calc(50% - .2px);top:50%;width:56px;height:56px}
+.product-purchase .gift-thumbnail-art{position:absolute;left:-4.569869px;top:0;width:65.13974px;height:49.889633px;overflow:hidden}
+.product-purchase .gift-thumbnail-art .gift-scene-brand{left:14.638%;top:17.686%;width:24.247%;height:5.897%}
+.product-purchase .thumbnail-casings>img{left:calc(50% + .164px);top:50%;width:64.3282px;height:56px;margin:0;object-fit:cover}
+.product-purchase .thumbnail-device>img{left:calc(50% + .39px);top:calc(50% - .03px);width:79.5575px;height:59.6681px;margin:0;object-fit:cover}
+.product-purchase .thumbnail-characters>img{left:50%;top:50%;width:56px;height:42px;margin:0;object-fit:cover}
+.product-purchase .product-description{margin:0;color:#787878;font-size:14px;font-weight:400;line-height:16px;letter-spacing:-.8px}
+@media(min-width:768px){
+ .product-purchase{height:778px}
+ .product-purchase .purchase-layout{height:538px;align-items:flex-start}
+ .product-purchase .product-details{height:526.53px;gap:24px}
+ .product-purchase .product-meta{height:190.53px;flex:0 0 190.53px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+ .product-purchase .product-meta>*{position:static;flex:none;margin:0}
+ .product-purchase .product-meta h2{width:529.59px;height:40px}
+ .product-purchase .product-description{width:529.59px;height:48px}
+ .product-purchase .rating{height:17px}
+ .product-purchase .price{width:529.59px;height:48.53px;padding:8px 0 9.53px;align-items:center;gap:13px}
+ .product-purchase .price strong{display:flex;align-items:center;width:85.84px;height:31px;font-size:27.9px;line-height:48.53px}
+ .product-purchase .price del{display:flex;align-items:center;width:58.04px;height:17px;font-size:15.9px;line-height:27.73px}
+ .product-purchase .price-discount{width:66.7px;height:20.8px;font-size:12px;line-height:14.8px}
+ .product-purchase .colour-picker{height:72px;gap:12px}
+ .product-purchase .colour-picker>strong{height:28px;line-height:28px}
+ .product-purchase .quantity-picker{height:28px}
+ .product-purchase .quantity-picker>strong{height:28px;line-height:28px}
+ .product-purchase .purchase-actions{height:116px;gap:12px}
+}
+@media(max-width:767px){
+ body.product-body .product-purchase .product-main-image{height:auto;aspect-ratio:598 / 458}
+ body.product-body .product-purchase .product-meta{grid-template-areas:"title title" "description description" "rating rating" "price price"}
+ body.product-body .product-purchase .product-description{grid-area:description;width:100%;height:auto;font-size:14px;line-height:20px;letter-spacing:0}
+ body.product-body .product-purchase .product-thumbnails{height:64px}
+ body.product-body .product-purchase .product-thumbnails button{width:64px;height:64px;flex-basis:64px;border-radius:4px}
+}
+/* Interactive swatches keep the source SVG geometry: 24px fill, 30px selection ring. */
+.product-purchase .colour-picker button{position:relative;width:32px;height:32px;padding:0;border:0;background:transparent;outline:0}
+.product-purchase .colour-picker button::before{content:"";position:absolute;left:calc(50% - .2031px);top:calc(50% - .25px);width:24px;height:24px;border-radius:50%;background:var(--swatch-color);transform:translate(-50%,-50%)}
+.product-purchase .colour-picker button.is-selected::after{content:"";box-sizing:border-box;position:absolute;left:calc(50% - .2031px);top:calc(50% - .25px);width:30px;height:30px;border:1px solid var(--swatch-color);border-radius:50%;transform:translate(-50%,-50%)}
+.product-purchase .colour-picker .yellow{--swatch-color:#edbe60}
+.product-purchase .colour-picker .blue{--swatch-color:#b6c8d4}
+.product-purchase .colour-picker button:focus-visible{outline:2px solid #917b69;outline-offset:3px}
+@media(min-width:768px){.product-purchase .quantity-picker>strong{width:65px;flex:none}}

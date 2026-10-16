@@ -187,25 +187,20 @@ body.home-page .home-site-footer{width:1440px;max-width:none}
  body.product-body .site-footer-contact a,body.product-body .site-footer-contact p{height:auto;font-size:14px;font-weight:300;line-height:18px}
 }
 
-/* Uploaded footer artwork shared by all mobile pages. */
-.mobile-footer-art{display:none}
+/* A single responsive HTML footer keeps both languages editable. */
 @media(max-width:767px){
- body .site-footer#site-footer{
-   position:relative!important;left:0!important;bottom:auto!important;
-   width:100%!important;max-width:100%!important;height:auto!important;
-   min-height:0!important;padding:0!important;display:block!important;
-   overflow:hidden;zoom:1!important;
- }
- body .site-footer#site-footer>.site-footer-inner{display:none!important}
- body .site-footer#site-footer>.mobile-footer-art{
-   display:block!important;width:100%!important;max-width:100%!important;
-   height:auto!important;margin:0;aspect-ratio:375 / 367;
- }
-}
-
-/* The product page can switch languages; show its live HTML footer in Chinese. */
-@media(max-width:767px){
- html[lang="zh-CN"] body.product-body .site-footer#site-footer{padding:48px 24px!important}
- html[lang="zh-CN"] body.product-body .site-footer#site-footer>.site-footer-inner{display:flex!important}
- html[lang="zh-CN"] body.product-body .site-footer#site-footer>.mobile-footer-art{display:none!important}
+ body .site-footer#site-footer{position:relative!important;left:0!important;bottom:auto!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;padding:48px 24px!important;display:block!important;overflow:hidden;zoom:1!important}
+ body .site-footer#site-footer .site-footer-inner{display:flex!important;width:100%;height:auto;gap:28px}
+ body .site-footer#site-footer .site-footer-top{display:flex;width:100%;height:auto;padding:0 0 24px;flex-direction:column;align-items:flex-start;gap:28px}
+ body .site-footer#site-footer .site-footer-brand{width:100%;height:auto;gap:16px}
+ body .site-footer#site-footer .site-footer-logo{width:120px;height:auto}
+ body .site-footer#site-footer .site-footer-brand p{height:auto;font-size:12px;line-height:16px}
+ body .site-footer#site-footer .site-footer-column{width:100%;height:auto;gap:12px}
+ body .site-footer#site-footer .site-footer-column h2{height:auto;margin:0 0 4px;font-size:20px;line-height:24px}
+ body .site-footer#site-footer .site-footer-contact a,body .site-footer#site-footer .site-footer-contact p{height:auto;font-size:14px;line-height:20px;white-space:normal}
+ body .site-footer#site-footer .site-footer-bottom{width:100%;height:auto;flex-direction:column;align-items:flex-start;gap:20px}
+ body .site-footer#site-footer .site-footer-bottom>p{width:100%;height:auto;font-size:12px;line-height:18px;white-space:normal}
+ body .site-footer#site-footer .site-footer-legal{width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 14px}
+ body .site-footer#site-footer .site-footer-legal a{height:auto;font-size:12px;line-height:18px}
+ body .site-footer#site-footer .site-footer-legal i{display:none}
 }

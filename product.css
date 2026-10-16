@@ -16,6 +16,7 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
 .product-tools{position:absolute;top:19px;right:40px;width:278.4px;height:34px;flex:0 0 278.4px;display:flex;align-items:center;gap:20px}
 .product-locale{height:34px;padding:4px 0;display:flex;align-items:center;gap:10px;border:0;background:none;color:#787878;font-size:15px;line-height:26px}
 .product-locale:first-child{width:68.4px;height:25px}
+.product-locale[data-language-toggle]{cursor:pointer}
 .product-locale:nth-child(2){width:62px}
 .product-locale svg{width:9px;height:6px;overflow:visible}
 .product-locale path,.product-tool-icon svg{fill:none;stroke:#787878;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}

@@ -14,7 +14,7 @@ document.querySelectorAll('[data-mobile-nav]').forEach((header) => {
     document.body.classList.toggle('mobile-site-nav-open', shouldOpen);
     pageLayers.forEach((element) => { element.inert = shouldOpen; });
     toggle?.setAttribute('aria-expanded', String(shouldOpen));
-    const chinese = document.body.classList.contains('product-body') && document.documentElement.lang === 'zh-CN';
+    const chinese = document.documentElement.lang === 'zh-CN';
     toggle?.setAttribute('aria-label', chinese ? (shouldOpen ? '关闭菜单' : '打开菜单') : (shouldOpen ? 'Close menu' : 'Open menu'));
     if (panel) {
       if (mobileSiteBreakpoint.matches) panel.setAttribute('aria-hidden', String(!shouldOpen));

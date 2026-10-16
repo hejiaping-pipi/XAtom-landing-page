@@ -13,9 +13,9 @@
     })();
   </script>
   <title>XATOM</title>
-  <link rel="stylesheet" href="styles.css?v=figma-card-unified-border-2" />
-  <link rel="stylesheet" href="footer.css?v=mobile-svg-3" />
-  <link rel="stylesheet" href="mobile.css?v=29-caption-gradient" />
+  <link rel="stylesheet" href="styles.css?v=card-alignment-4" />
+  <link rel="stylesheet" href="footer.css?v=live-language-3" />
+  <link rel="stylesheet" href="mobile.css?v=live-language-3" />
   <link rel="stylesheet" href="scroll-motion.css?v=2" />
   <style>
     html[data-mobile-preview]{min-width:0;background:#171717}
@@ -29,6 +29,8 @@
       box-shadow:0 20px 60px rgba(0,0,0,.45);
     }
   </style>
+  <link rel="stylesheet" href="language-picker.css?v=figma-menu-3" />
+  <link rel="stylesheet" href="hero-layout.css?v=figma-alignment-1" />
 </head>
 <body class="home-page">
   <header class="nav">
@@ -47,11 +49,12 @@
             <a class="mobile-nav-utility mobile-nav-account has-chevron" href="#login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9C11.209 9 13 7.2091 13 5C13 2.7909 11.209 1 9 1C6.791 1 5 2.7909 5 5C5 7.2091 6.791 9 9 9Z"></path><path d="M1 17C1 15.9391 1.421 14.9217 2.172 14.1716C2.922 13.4214 3.939 13 5 13H13C14.061 13 15.078 13.4214 15.828 14.1716C16.579 14.9217 17 15.9391 17 17"></path></svg><span>Account</span></a>
             <a class="mobile-nav-utility" href="#search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866 0.325 5.642 0.373 3.007 3.007C0.373 5.642 0.325 9.866 2.901 12.442C5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336L17 17"></path></svg><span>Search</span></a>
             <a class="mobile-nav-utility" href="#cart"><svg viewBox="0 0 20 18" aria-hidden="true"><path d="M3 1H17L18 17H2L3 1Z"></path><path d="M7 4C7 4.7956 7.316 5.5587 7.879 6.1213C8.441 6.6839 9.204 7 10 7C10.796 7 11.559 6.6839 12.121 6.1213C12.684 5.5587 13 4.7956 13 4"></path></svg><span>Cart</span></a>
+            <div class="mobile-nav-utility site-mobile-language language-picker" data-language-picker><button class="language-trigger" type="button" data-language-trigger aria-label="Select language" aria-haspopup="menu" aria-expanded="false"><span class="locale-label">Language: English</span><svg class="language-picker-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button><div class="language-menu" role="menu" aria-label="Language" hidden><button type="button" role="menuitemradio" data-language-choice="en" aria-checked="true" lang="en">English</button><button type="button" role="menuitemradio" data-language-choice="zh-CN" aria-checked="false" lang="en">Chinese</button></div></div>
           </nav>
         </div>
       </div>
     <nav class="nav-tools">
-      <button class="locale locale-english"><span class="locale-label">English</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
+      <div class="locale locale-english language-picker" data-language-picker><button class="language-trigger" type="button" data-language-trigger aria-label="Select language" aria-haspopup="menu" aria-expanded="false"><span class="locale-label">English</span><svg class="language-picker-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M.75.75 4.5 4.5 8.25.75" /></svg></button><div class="language-menu" role="menu" aria-label="Language" hidden><button type="button" role="menuitemradio" data-language-choice="en" aria-checked="true" lang="en">English</button><button type="button" role="menuitemradio" data-language-choice="zh-CN" aria-checked="false" lang="en">Chinese</button></div></div>
       <button class="locale locale-british"><span class="locale-label">British</span><svg class="locale-chevron" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.75 0.75L4.5 4.5L8.25 0.75"></path></svg></button>
       <a class="nav-icon search" href="#search" aria-label="Search"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M12.336 12.336C14.97 9.701 15.018 5.477 12.442 2.901C9.866 0.325 5.642 0.373 3.007 3.007C0.373 5.642 0.325 9.866 2.901 12.442C5.477 15.018 9.701 14.97 12.336 12.336ZM12.336 12.336L17 17"></path></svg></a>
       <a class="nav-icon login" href="#login" aria-label="Login"><svg viewBox="0 0 18 17" aria-hidden="true"><path d="M9 9C11.209 9 13 7.2091 13 5C13 2.7909 11.209 1 9 1C6.791 1 5 2.7909 5 5C5 7.2091 6.791 9 9 9Z"></path><path d="M1 17C1 15.9391 1.421 14.9217 2.172 14.1716C2.922 13.4214 3.939 13 5 13H13C14.061 13 15.078 13.4214 15.828 14.1716C16.579 14.9217 17 15.9391 17 17"></path></svg></a>
@@ -61,11 +64,21 @@
 
   <main id="home">
     <section class="hero frame" aria-label="XATOM highlights">
-      <article class="hero-slide hero-slide-1 is-active" aria-hidden="false"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-1.png" /><img src="assets/hero/1.png" alt="Five XATOM devices in different colors" fetchpriority="high" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div></article>
-      <article class="hero-slide hero-slide-2" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-2.png" /><img src="assets/hero/2.png" alt="XATOM devices demonstrating multiple everyday roles" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Mini · Versatile · Smart</p></div></article>
-      <article class="hero-slide hero-slide-3" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-3.png" /><img src="assets/hero/3.png" alt="XATOM integrated into a bedside lamp for day and night" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Versatile Settings · Natural · Distinctive Style</p></div><img class="hero-mobile-clock" src="assets/hero/mobile-7.svg" alt="24 hours" /></article>
-      <article class="hero-slide hero-slide-4" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-4.png" /><img src="assets/hero/4.png" alt="Personalized XATOM casings and modular combinations" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Freedom · Uniqueness · Individuality</p></div></article>
-      <article class="hero-slide hero-slide-5" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-5.png" /><img src="assets/hero/5.png" alt="Four XATOM camera modules in different colors" /></picture><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div></article>
+      <article class="hero-slide hero-slide-1 is-active" aria-hidden="false">
+        <picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-1.png" /><img src="assets/hero/scene-1.png" alt="Five XATOM devices in different colors" fetchpriority="high" /></picture>
+        <video class="hero-intro-video" autoplay muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
+          <source src="assets/hero/home-intro.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-slide-copy hero-intro-copy">
+          <img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" />
+          <p>XAtom is a physical Muse AI assistant that performs tasks on behalf of others.</p>
+        </div>
+        <div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div>
+      </article>
+      <article class="hero-slide hero-slide-2" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/scene-2-neutral.png" /><img src="assets/hero/scene-2-neutral.png" alt="XATOM devices demonstrating multiple everyday roles" /></picture><div class="hero-badge-crop"><div class="hero-badge-coordinates"><span class="hero-live-badge hero-badge-meeting" style="left:12.918660%;top:40.701382%;width:3.887560%;--badge-angle:-6deg">Meeting</span><span class="hero-live-badge hero-badge-taxi" style="left:47.966507%;top:27.311371%;width:2.392344%;--badge-angle:0deg">Taxi</span><span class="hero-live-badge hero-badge-emergency" style="left:83.492823%;top:29.968119%;width:4.784689%;--badge-angle:0deg">Emergency</span><span class="hero-live-badge hero-badge-stocks" style="left:37.260766%;top:54.835282%;width:3.289474%;--badge-angle:-4deg">Stocks</span><span class="hero-live-badge hero-badge-delivery" style="left:66.866029%;top:53.347503%;width:3.887560%;--badge-angle:0deg">Delivery</span><span class="hero-live-badge hero-badge-travel" style="left:15.131579%;top:79.171095%;width:3.169856%;--badge-angle:-2deg">Travel</span><span class="hero-live-badge hero-badge-chat" style="left:51.794258%;top:81.402763%;width:2.392344%;--badge-angle:-3deg">Chat</span><span class="hero-live-badge hero-badge-care" style="left:85.645933%;top:78.639745%;width:2.392344%;--badge-angle:-3deg">Care</span></div></div><div class="hero-slide-copy"><img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" /><h2>Mini · Versatile · Smart</h2><p>A new generation of physical AI agents.</p></div><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Mini · Versatile · Smart</p></div></article>
+      <article class="hero-slide hero-slide-3" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-3.png" /><img src="assets/hero/scene-3.png" alt="XATOM integrated into a bedside lamp for day and night" /></picture><div class="hero-slide-copy"><img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" /><h2>Versatile Settings · Natural · Distinctive Style</h2><p>It supports intelligent interaction across multiple scenarios—whether at home, in the office, on the go, or in the car—integrating smart companionship into every aspect of your life and meeting your diverse needs anytime, anywhere.</p></div><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Versatile Settings · Natural · Distinctive Style</p></div><img class="hero-mobile-clock" src="assets/hero/mobile-7.svg" alt="24 hours" /></article>
+      <article class="hero-slide hero-slide-4" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-4.png" /><img src="assets/hero/scene-4.png" alt="Personalized XATOM casings and modular combinations" /></picture><div class="hero-slide-copy"><img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" /><h2>Freedom · Uniqueness · Individuality</h2><p>Offering a wide range of personalized casings and modular combinations, it supports free mixing and matching as well as creative customization, unlocking a unique modular smart experience tailored to you.</p></div><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /><p>Freedom · Uniqueness · Individuality</p></div></article>
+      <article class="hero-slide hero-slide-5" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-5.png" /><img src="assets/hero/scene-5.png" alt="Four XATOM camera modules in different colors" /></picture><div class="hero-slide-copy"><img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" /></div><div class="hero-mobile-copy"><img src="assets/xatom-logo.svg" alt="XATOM" /></div></article>
       <article class="hero-slide hero-slide-6" aria-hidden="true"><picture class="hero-responsive-picture"><source media="(max-width:767px)" srcset="assets/hero/mobile-6.png" /><img src="assets/hero/6-background.png" alt="Three XATOM devices balanced vertically" /></picture>
         <div class="hero-slide-copy">
           <img class="hero-slide-logo" src="assets/xatom-logo.svg" alt="XATOM" />
@@ -186,7 +199,7 @@
 
           <article class="simple-use-card" aria-live="polite" data-active-slide="1">
             <div class="simple-use-slide simple-use-slide-1 is-active" data-simple-use-slide aria-hidden="false" role="group" aria-roledescription="slide" aria-label="1 of 4">
-              <img class="simple-use-slide-art" src="assets/simple-use/figma-card-1.png" alt="Use it extremely simple with one-button controls" />
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-1-clean.png" alt="Use it extremely simple with one-button controls" />
               <div class="simple-use-heading">
                 <h2 id="simple-use-title">Use it extremely Simple</h2>
                 <p>You can start using it simply by turning it on.</p>
@@ -198,7 +211,7 @@
             </div>
 
             <div class="simple-use-slide simple-use-slide-2" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="2 of 4">
-              <img class="simple-use-slide-art" src="assets/simple-use/figma-card-2.png" alt="Privacy protection using LiDAR detection" />
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-2-clean.png" alt="Privacy protection using LiDAR detection" />
               <div class="simple-use-heading">
                 <h2>Privacy Protection</h2>
                 <p>Uses LiDAR instead of cameras to detect status.</p>
@@ -223,7 +236,7 @@
             </div>
 
             <div class="simple-use-slide simple-use-slide-3" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="3 of 4">
-              <img class="simple-use-slide-art" src="assets/simple-use/figma-card-3.png" alt="Personalized language packs and voices" />
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-3-clean.png" alt="Personalized language packs and voices" />
               <div class="simple-use-heading">
                 <h2>Personalized language pack</h2>
                 <p>Freely choose voice packs featuring your favorite animals, celebrities, and anime characters.</p>
@@ -238,7 +251,7 @@
             </div>
 
             <div class="simple-use-slide simple-use-slide-4" data-simple-use-slide aria-hidden="true" role="group" aria-roledescription="slide" aria-label="4 of 4">
-              <img class="simple-use-slide-art" src="assets/simple-use/figma-card-4.png" alt="Powerful AI capabilities and supported models" />
+              <img class="simple-use-slide-art" src="assets/simple-use/slide-4-clean.png" alt="Powerful AI capabilities and supported models" />
               <div class="simple-use-heading">
                 <h2>Powerful AI capabilities</h2>
                 <p>Diverse large-scale AI models help address issues.</p>
@@ -344,7 +357,31 @@
             <p>Perform all operations via voice interaction.</p>
           </div>
           <div class="how-visual how-voice-visual">
-            <img src="assets/how/voice-interaction-original.png" alt="Voice interaction with XATOM" />
+            <div class="voice-wave-card" aria-hidden="true">
+              <img class="voice-microphone" src="assets/how/figma/microphone.svg" alt="" width="35" height="35" />
+              <img class="voice-waveform" src="assets/how/figma/waveform.svg" alt="" width="287.091" height="25.0361" />
+            </div>
+            <div class="voice-conversation-card">
+              <div class="voice-bubble voice-bubble-one">
+                <img src="assets/how/figma/question-one.svg" alt="" width="206.331" height="34" />
+                <p>Xatom,how do I make salad?</p>
+              </div>
+              <div class="voice-bubble voice-bubble-two">
+                <img src="assets/how/figma/question-two.svg" alt="" width="242.639" height="47" />
+                <p>Xatom,how many kings of vegetables do I need to prepare?</p>
+              </div>
+              <div class="voice-woman-crop">
+                <img src="assets/how/figma/voice-woman.png" alt="Woman speaking to XATOM" />
+              </div>
+            </div>
+            <div class="voice-answer-card">
+              <div class="voice-device">
+                <img class="voice-wordmark" src="assets/how/figma/xatom-wordmark.svg" alt="XATOM" width="63.4344" height="11.8156" />
+                <img class="voice-cube" src="assets/how/figma/xatom-cube.png" alt="" />
+              </div>
+              <img class="voice-answer-bubble" src="assets/how/figma/answer.svg" alt="" width="213.566" height="75" />
+              <p class="voice-answer-text">Make a salad you will need lettuce, tomatoes, cucmbers and dressing, let me show you the step.</p>
+            </div>
           </div>
         </article>
 
@@ -354,7 +391,7 @@
             <p>AI models understands your task.</p>
           </div>
           <div class="how-visual how-ai-visual">
-            <img class="ai-card-reference" src="assets/how/frame-831.svg" alt="OpenAI, DeepSeek, Meta, Gemini, and Claude with completed and pending AI tasks" />
+            <div class="ai-live-panel"><div class="ai-live-providers" aria-label="Supported AI models"><img src="assets/how/figma/provider-openai.svg" alt="OpenAI" width="51" height="51" /><img src="assets/how/figma/provider-deepseek.svg" alt="DeepSeek" width="51" height="51" /><span class="ai-provider-slot"><img src="assets/how/figma/provider-meta.svg" alt="Meta" width="32" height="32" /></span><span class="ai-provider-slot"><img src="assets/how/figma/provider-gemini.svg" alt="Gemini" width="32" height="32" /></span><img src="assets/how/figma/provider-claude.svg" alt="Claude" width="51" height="51" /></div><ul class="ai-live-tasks"><li><img src="assets/how/figma/task-phone.svg" alt="" /><span>make a phone call</span><img src="assets/how/figma/task-done.svg" alt="" /></li><li><img src="assets/how/figma/task-message.svg" alt="" /><span>send message you</span><img src="assets/how/figma/task-done.svg" alt="" /></li><li><img src="assets/how/figma/task-monitor.svg" alt="" /><span>monitor personal status</span><img src="assets/how/figma/task-done.svg" alt="" /></li><li><img src="assets/how/figma/task-food.svg" alt="" /><span>order MaDonald’s</span><img src="assets/how/figma/task-pending.svg" alt="" /></li><li><img src="assets/how/figma/task-car.svg" alt="" /><span>connect to your car</span><img src="assets/how/figma/task-pending.svg" alt="" /></li><li><img src="assets/how/figma/task-flight.svg" alt="" /><span>check plane tickets</span><img src="assets/how/figma/task-pending.svg" alt="" /></li></ul></div>
           </div>
         </article>
 
@@ -364,7 +401,22 @@
             <p>MCP connects online and offline channels.</p>
           </div>
           <div class="how-visual how-mcp-visual">
-            <img src="assets/how/mcp-workflow-original.png" alt="MCP ordering workflow with XATOM" />
+            <div class="mcp-workflow-card">
+              <div class="mcp-workflow-crop">
+                <div class="mcp-live-canvas">
+                  <img src="assets/how/figma/mcp-ordering-neutral.png" alt="" />
+                  <p class="mcp-order-command">XATOM, help me order Doco.</p>
+                  <strong class="mcp-order-title">Recognized Order Request</strong>
+                  <div class="mcp-order-receipt"><span>Restaurant: Doco</span><span>Items: Burger + Fries + Cola</span><span>Quantity: 1 set</span></div>
+                  <div class="mcp-order-service"><strong>MCP</strong><span>External Service Connection</span></div>
+                  <div class="mcp-order-items"><span>Burger ×1</span><span>Fries ×1</span><span>Cola ×1</span></div>
+                  <strong class="mcp-order-total">Total $12</strong>
+                  <span class="mcp-order-confirm">Confirm Order</span>
+                  <p class="mcp-order-submitted">Order submitted. The restaurant is now processing it.</p>
+                  <p class="mcp-order-delivery">Doco—your order has been placed. Estimated arrival: 25 minutes.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -471,7 +523,6 @@
   </main>
 
   <footer class="site-footer home-site-footer" id="site-footer">
-      <img class="mobile-footer-art" src="assets/footer-mobile-v3.svg" width="375" height="367" alt="XATOM — Amplify human intelligence. Contact: garyyang@qiniu.com. Moli Space T2, Shanghai, China. Copyright 2026 XATOM." />
     <div class="site-footer-inner">
       <div class="site-footer-top">
         <div class="site-footer-brand">
@@ -513,7 +564,8 @@
       </div>
     </div>
   </footer>
-  <script src="script.js?v=simple-use-controls-1" defer></script>
+  <script src="script.js?v=figma-alignment-1" defer></script>
+  <script src="site-language.js?v=navbar-language-4" defer></script>
   <script src="scroll-motion.js?v=3" defer></script>
 </body>
 </html>
