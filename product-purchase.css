@@ -44,6 +44,7 @@
  .product-purchase .purchase-actions{height:116px;gap:12px}
 }
 @media(max-width:767px){
+ body.product-body .product-purchase{padding-top:80px}
  body.product-body .product-purchase .product-main-image{height:auto;aspect-ratio:598 / 458}
  body.product-body .product-purchase .product-meta{grid-template-areas:"title title" "description description" "rating rating" "price price"}
  body.product-body .product-purchase .product-description{grid-area:description;width:100%;height:auto;font-size:14px;line-height:20px;letter-spacing:0}

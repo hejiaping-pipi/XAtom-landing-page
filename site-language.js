@@ -391,6 +391,9 @@
   document.addEventListener('pointerdown', (event) => {
     if (!event.target.closest('[data-language-picker]')) closeLanguageMenus();
   });
+  document.querySelectorAll('[data-mobile-nav-toggle], .mobile-menu-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => closeLanguageMenus());
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeLanguageMenus({ restoreFocus: true });
   });
