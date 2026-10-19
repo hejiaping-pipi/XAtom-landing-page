@@ -9,12 +9,64 @@ syncAboutPreviewScale();
 window.addEventListener('resize', syncAboutPreviewScale, { passive: true });
 
 const filmToggle = document.querySelector('[data-film-toggle]');
+const brandFilm = document.querySelector('[data-brand-film]');
+const brandHero = brandFilm?.closest('.about-hero');
 
-filmToggle?.addEventListener('click', () => {
-  const isPlaying = filmToggle.classList.toggle('is-playing');
-  filmToggle.setAttribute('aria-pressed', String(isPlaying));
-  filmToggle.setAttribute('aria-label', `${isPlaying ? 'Pause' : 'Play'} XATOM brand film`);
-});
+if (brandFilm && filmToggle) {
+  const syncFilmToggle = () => {
+    const isPlaying = !brandFilm.paused && !brandFilm.ended;
+    filmToggle.classList.toggle('is-playing', isPlaying);
+    filmToggle.setAttribute('aria-pressed', String(isPlaying));
+    const chinese = document.documentElement.lang === 'zh-CN';
+    filmToggle.setAttribute('aria-label', chinese
+      ? `${isPlaying ? '暂停' : '播放'} XATOM 品牌影片`
+      : `${isPlaying ? 'Pause' : 'Play'} XATOM brand film`);
+  };
+  const showFilmCover = () => {
+    brandFilm.pause();
+    brandHero.classList.remove('is-film-visible');
+    syncFilmToggle();
+  };
+  const playFilm = () => {
+    const playback = brandFilm.play();
+    playback?.catch((error) => {
+      // A deliberate pause may cancel a pending play without losing its frame.
+      if (error.name === 'AbortError') syncFilmToggle();
+      else showFilmCover();
+    });
+  };
+
+  brandFilm.addEventListener('playing', () => {
+    brandHero.classList.add('is-film-visible');
+    syncFilmToggle();
+  });
+  brandFilm.addEventListener('play', syncFilmToggle);
+  brandFilm.addEventListener('pause', syncFilmToggle);
+  brandFilm.addEventListener('ended', showFilmCover);
+  brandFilm.addEventListener('error', showFilmCover);
+  document.addEventListener('xatom-language-change', syncFilmToggle);
+
+  filmToggle.addEventListener('click', () => {
+    if (!brandFilm.paused && !brandFilm.ended) {
+      brandFilm.pause();
+      return;
+    }
+    if (brandFilm.ended || !brandHero.classList.contains('is-film-visible')) brandFilm.currentTime = 0;
+    // Autoplay is muted; a deliberate play/resume action enables the soundtrack.
+    brandFilm.muted = false;
+    playFilm();
+  });
+
+  brandFilm.muted = true;
+  brandFilm.defaultMuted = true;
+  brandFilm.loop = false;
+  brandFilm.playsInline = true;
+  syncFilmToggle();
+  if (brandFilm.ended) showFilmCover();
+  else if (!brandFilm.paused && brandFilm.readyState >= 2) {
+    brandHero.classList.add('is-film-visible');
+  } else playFilm();
+}
 
 const replayVideos = document.querySelectorAll('[data-replay-video]');
 const replayTimers = new Map();

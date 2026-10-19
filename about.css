@@ -21,14 +21,19 @@ body,body *{font-family:Roboto,Arial,Helvetica,sans-serif !important}
 .about-tool-icon svg{display:block;width:100%;height:100%}
 .about-tool-icon.about-bag{width:20px;height:18px}
 .about-page{width:1440px;overflow:hidden}
-.about-hero{position:relative;width:100%;height:587px;overflow:hidden;background:#ddd}
+.about-hero{position:relative;width:100%;height:auto;aspect-ratio:16 / 9;overflow:hidden;background:#ddd}
 .about-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.about-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.2)}
-.about-play{position:absolute;left:47px;bottom:31px;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer}
+.about-hero-video{position:absolute;z-index:1;inset:0;display:block;width:100%;height:100%;object-fit:contain;background:#000;opacity:0;pointer-events:none;transition:opacity .4s ease}
+.about-hero.is-film-visible .about-hero-video{opacity:1}
+.about-hero-overlay{position:absolute;z-index:2;inset:0;background:rgba(0,0,0,.2);pointer-events:none;transition:opacity .4s ease}
+.about-hero.is-film-visible .about-hero-overlay{opacity:0}
+.about-play{position:absolute;z-index:3;left:47px;bottom:31px;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer}
+.about-play:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .about-play-icon{position:absolute;inset:0;width:40px;height:40px;display:block}
 .about-play-icon-pause{display:none}
 .about-play.is-playing .about-play-icon-play{display:none}
 .about-play.is-playing .about-play-icon-pause{display:block}
+@media(prefers-reduced-motion:reduce){.about-hero-video,.about-hero-overlay{transition:none}}
 .about-section{width:100%;display:flex;flex-direction:column;align-items:center}
 .about-heading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:23px;text-align:center}
 .about-heading h1,.about-heading h2{margin:0;color:#303030;font-size:48px;line-height:44px;font-weight:400;letter-spacing:-.9px}
