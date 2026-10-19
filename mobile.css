@@ -306,6 +306,11 @@
 
 /* Figma 2533:3695: scene captions above a shallow bottom gradient. */
 .capture-mobile-caption{display:none}
+/* Figma 2647:1895 — one shared logo remains visible on every scene. */
+.capture-brand>img{display:block}
+@media(max-width:767px){
+  body.home-page .capture-brand{display:block;left:20px;top:40px;width:96.636139px;height:18px;pointer-events:none}
+}
 @media(max-width:767px){
   body.home-page .capture-gradient{inset:79.58% 0 0;background:url('assets/capture/mobile-caption-gradient.png') center / 100% 100% no-repeat;opacity:.4}
   body.home-page .capture-mobile-caption{display:block;position:absolute;z-index:2;left:0;right:0;top:92.27%;transform:translateY(-50%);margin:0;padding:0 16px;color:#fff;font-family:Roboto,Arial,Helvetica,sans-serif;font-size:16px;font-weight:500;line-height:normal;text-align:center;pointer-events:none}
