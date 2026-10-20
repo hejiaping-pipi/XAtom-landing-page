@@ -1,23 +1,101 @@
-/* Figma banner frames 2505:909 / 932 / 922 / 946 / 955 / 960.
-   Media, masks and text keep the same coordinates in both languages. */
-@media(min-width:768px){
- body.home-page .hero .hero-slide{isolation:isolate}
- body.home-page .hero .hero-slide-1{background:#fff;height:813px}
- body.home-page .hero .hero-slide-2{background:#f8e7d9;height:813px}
- body.home-page .hero .hero-slide-3,body.home-page .hero .hero-slide-4{background:#fff;height:798px}
- body.home-page .hero .hero-slide-5{background:#fff;height:783px}
- body.home-page .hero .hero-slide-6{background:#f9ecdf;height:813px}
- body.home-page .hero .hero-slide::after{inset:auto;left:0;top:0;right:auto;bottom:auto;width:1440px;transform:none;mix-blend-mode:multiply}
- body.home-page .hero .hero-slide-1::after{top:347px;height:466px;background:linear-gradient(180deg,rgba(255,255,255,.4) 53.792%,rgba(94,92,90,.4) 100%)}
- body.home-page .hero .hero-slide-2::after{top:455px;height:358px;background:linear-gradient(180deg,rgba(255,255,255,.4) 53.792%,rgba(94,92,90,.4) 100%)}
- body.home-page .hero .hero-slide-3::after{top:0;height:798px;background:linear-gradient(180deg,#fff 53.792%,#5e5c5a 100%)}
- body.home-page .hero .hero-slide-4::after{top:0;height:275px;background:linear-gradient(180deg,#d6c2b3 0%,#fff 100%)}
- body.home-page .hero .hero-slide-5::after,body.home-page .hero .hero-slide-6::after{display:none}
- body.home-page .hero .hero-slide-copy{justify-content:flex-start}
- body.home-page .hero .hero-slide-copy>*{flex:none}
- body.home-page .hero .hero-slide-copy p{display:block;text-align:inherit}
- body.home-page .hero .hero-slide-3 .hero-slide-copy{left:0;top:603px;bottom:auto;width:1203px;height:195px;padding:40px;gap:12px}
- body.home-page .hero .hero-slide-3 .hero-slide-copy h2,body.home-page .hero .hero-slide-4 .hero-slide-copy h2{height:23px;line-height:23px;font-weight:500}
- body.home-page .hero .hero-slide-3 .hero-slide-copy p,body.home-page .hero .hero-slide-4 .hero-slide-copy p{height:38px;line-height:19px}
- body.home-page .hero .hero-slide-6 .hero-slide-copy p{height:76px;line-height:19px}
+/* Figma 2539:621 — six desktop banners on a 1440 × 700 artboard.
+   Keep media, masks and copy anchored identically in both languages. */
+@media (min-width: 768px) {
+  body.home-page .hero { height: 776px; }
+  body.home-page .hero .hero-slide {
+    height: 700px;
+    isolation: isolate;
+    background: #fff;
+  }
+  body.home-page .hero .hero-slide-1,
+  body.home-page .hero .hero-slide-6 { background: #f9ecdf; }
+  body.home-page .hero .hero-slide-2 { background: #f8e7d9; }
+  body.home-page .hero .hero-pagination { top: 732px; }
+
+  body.home-page .hero .hero-responsive-picture > img { object-fit: cover; }
+  body.home-page .hero .hero-slide-1 .hero-responsive-picture > img {
+    left: -164px; top: -75px; width: 1767.5px; height: 808px;
+  }
+  body.home-page .hero .hero-slide-2 .hero-responsive-picture > img,
+  body.home-page .hero .hero-slide-2 .hero-badge-crop {
+    left: -.614px; top: 0; width: 1441.228px; height: 700px;
+  }
+  body.home-page .hero .hero-slide-3 .hero-responsive-picture > img {
+    left: 0; top: -24px; width: 1440px; height: 810.431px;
+  }
+  body.home-page .hero .hero-slide-4 .hero-responsive-picture > img {
+    left: -12px; top: -49px; width: 1464.957px; height: 824.476px;
+  }
+  body.home-page .hero .hero-slide-5 .hero-responsive-picture > img {
+    left: -194px; top: -63px; width: 1781.607px; height: 826px;
+  }
+  body.home-page .hero .hero-slide-6 .hero-responsive-picture > img {
+    left: -4px; top: -56px; width: 1444.06px; height: 812.715px;
+  }
+
+  body.home-page .hero .hero-slide::after {
+    inset: auto;
+    left: 0;
+    width: 1440px;
+    transform: none;
+    mix-blend-mode: multiply;
+  }
+  body.home-page .hero .hero-slide-1::after {
+    display: block; top: 290px; height: 466px;
+    background: linear-gradient(180deg, rgba(255,255,255,.4) 53.792%, rgba(94,92,90,.4) 100%);
+  }
+  body.home-page .hero .hero-slide-3::after {
+    display: block; top: -49px; height: 798px;
+    background: linear-gradient(180deg, #fff 53.792%, #5e5c5a 100%);
+  }
+  body.home-page .hero .hero-slide-4::after {
+    display: block; top: -49px; height: 275px;
+    background: linear-gradient(180deg, #d6c2b3 0%, #fff 100%);
+  }
+  body.home-page .hero .hero-slide-2::after,
+  body.home-page .hero .hero-slide-5::after,
+  body.home-page .hero .hero-slide-6::after { display: none; }
+
+  body.home-page .hero .hero-slide-copy {
+    background: none;
+    justify-content: flex-start;
+  }
+  body.home-page .hero .hero-slide-copy > * { flex: none; }
+  body.home-page .hero .hero-slide-copy p { display: block; text-align: inherit; }
+  body.home-page .hero .hero-slide-logo { filter: none; }
+  body.home-page .hero .hero-slide-1 .hero-slide-copy {
+    left: 0; top: auto; bottom: 0; width: 1440px; height: 107px;
+    padding: 0 40px 40px; gap: 12px; align-items: center;
+  }
+  body.home-page .hero .hero-slide-1 .hero-slide-logo,
+  body.home-page .hero .hero-slide-2 .hero-slide-logo { width: 171.798px; height: 32px; }
+  body.home-page .hero .hero-slide-1 .hero-slide-copy p {
+    width: auto; height: 23px; font-size: 20px; line-height: 23px;
+  }
+  body.home-page .hero .hero-slide-2 .hero-slide-copy {
+    left: 64px; top: 64px; bottom: auto; width: 217px; height: 64px;
+    padding: 0; gap: 9px; align-items: flex-start; text-align: left;
+  }
+  body.home-page .hero .hero-slide-2 .hero-slide-copy h2 { justify-content: flex-start; }
+  body.home-page .hero .hero-slide-2 .hero-slide-copy p { display: none; }
+  body.home-page .hero .hero-slide-3 .hero-slide-copy {
+    left: 0; top: auto; bottom: 0; width: 1203px; height: 195px;
+    padding: 40px; gap: 12px;
+  }
+  body.home-page .hero .hero-slide-4 .hero-slide-copy {
+    left: 0; top: 0; bottom: auto; width: 1204px; height: 275px;
+    padding: 80px 40px; gap: 12px;
+  }
+  body.home-page .hero .hero-slide-3 .hero-slide-copy h2,
+  body.home-page .hero .hero-slide-4 .hero-slide-copy h2 {
+    height: 23px; line-height: 23px; font-weight: 500;
+  }
+  body.home-page .hero .hero-slide-3 .hero-slide-copy p,
+  body.home-page .hero .hero-slide-4 .hero-slide-copy p { height: 38px; line-height: 19px; }
+  body.home-page .hero .hero-slide-5 .hero-slide-copy { left: 139px; top: 134px; }
+  body.home-page .hero .hero-slide-6 .hero-slide-copy { left: 151px; top: 244px; }
+  body.home-page .hero .hero-slide-5 .hero-slide-logo,
+  body.home-page .hero .hero-slide-6 .hero-slide-logo { width: 185.704px; height: 34.59px; }
+  body.home-page .hero .hero-slide-6 .hero-slide-copy p { height: 76px; line-height: 19px; color: #717171; }
+  body.home-page .hero .hero-slide-6 .button { background: #af9885; }
 }
