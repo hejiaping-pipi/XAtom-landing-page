@@ -1,0 +1,97 @@
+/* Figma 2370:15661 — compact capability icons, with live bilingual labels.
+   Fixed button slots keep all six icons anchored when the language changes. */
+body.home-page .simple-use .simple-use-features {
+  width: 817px;
+  height: 60px;
+  overflow: visible;
+}
+.simple-use .simple-use-feature-labels {
+  color: #917b69;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+.simple-use .simple-use-feature-labels button {
+  top: -.816px;
+  height: 61.632px;
+  padding: 0;
+  flex-direction: column;
+  gap: 3.619px;
+  line-height: 14px;
+}
+.simple-use .feature-label-voice { left: 0; width: 90px; }
+.simple-use .simple-use-feature-labels .feature-label-print { left: 180.397px; top: .457px; width: 43px; height: 59.086px; }
+.simple-use .feature-label-creative { left: 313.795px; width: 44.014px; }
+.simple-use .feature-label-lidar { left: 448.205px; width: 65px; }
+.simple-use .feature-label-models { left: 603.603px; width: 54px; }
+.simple-use .feature-label-personalized { left: 748px; width: 69px; }
+.capability-icon {
+  display: block;
+  position: relative;
+  width: 44.014px;
+  height: 44.014px;
+  flex: none;
+  overflow: hidden;
+}
+.capability-icon img { display: block; position: absolute; max-width: none; }
+.capability-icon-1 img { left: 2.518px; top: 2.513px; }
+.capability-icon-2 { width: 39.364px; height: 41.467px; }
+.capability-icon-2 img { left: 0; top: 0; }
+.capability-icon-3 img { left: 1.263px; top: 1.259px; }
+.capability-icon-4 img { left: -1.64px; top: -1.65px; }
+.capability-icon-5 img { left: 1.888px; top: 1.259px; }
+.capability-icon-6 img { left: 3.776px; top: 1.259px; }
+.capability-label { display: block; flex: none; height: 14px; }
+
+/* Keep the mobile photograph filling the existing responsive composition. */
+.final-promo-image { position: absolute; inset: 0; overflow: hidden; }
+.final-promo-image > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.simple-use-glow > img { display: none; }
+
+@media (min-width: 768px) {
+  /* Frame 915: 39.4px above the card, 40px between the card and icons. */
+  body.home-page .simple-use.section { height: 733px; }
+  .simple-use .simple-use-content { top: 39.4px; height: 652.72px; }
+  .simple-use .simple-use-glow { background: none; filter: none; }
+  .simple-use .simple-use-glow-left { top: -85.6px; }
+  .simple-use .simple-use-glow-right { top: .4px; }
+  .simple-use-glow > img { display: block; position: absolute; max-width: none; }
+  .simple-use-glow-left > img { left: -190.495px; top: -190.495px; }
+  .simple-use-glow-right > img { left: -154.75px; top: -154.75px; }
+
+  /* Figma 2075:2057: each scene uses its own crop on the 700px stage. */
+  body.home-page .capture-moments.section { height: 1200px; }
+  body.home-page .capture-carousel { height: 700px; }
+  body.home-page .capture-tabs { top: 309.803px; }
+  body.home-page .capture-slide img.capture-scene-coffee {
+    left: -33px; top: -269px; width: 1472.969px; height: 1109.059px;
+  }
+  body.home-page .capture-slide img.capture-scene-cycling {
+    left: 0; top: -20.996px; width: 1440px; height: 810.431px;
+  }
+  body.home-page .capture-slide img.capture-scene-hanging {
+    left: -88px; top: -160px; width: 1528.077px; height: 860px;
+  }
+  body.home-page .capture-slide img.capture-scene-baby {
+    left: 0; top: -221px; width: 1440px; height: 1085.232px;
+  }
+  body.home-page .capture-slide img.capture-scene-desk {
+    /* The exported image is already mirrored; mirror the crop offset only. */
+    left: -308.005px; top: -199.004px; width: 1747.675px; height: 975.907px;
+  }
+
+  /* Figma 3005:1904: full-width photograph, gradient and centered action. */
+  body.home-page .final-promo.section { height: 993px; }
+  body.home-page .final-promo-visual { height: 700px; }
+  .final-promo .final-promo-image {
+    inset: auto; left: -67px; top: -.28px; width: 1573.714px; height: 765px;
+  }
+  .final-promo .final-promo-image > img {
+    position: absolute; left: .01%; top: .04%; width: 100%; height: 109.11%;
+    max-width: none; object-fit: fill;
+  }
+  body.home-page .final-promo-shade { left: -67px; width: 1574px; }
+  .final-promo .final-promo-action { top: 547px; }
+  .final-promo .final-promo-action img { filter: none; }
+  .final-promo .final-promo-action a { font-weight: 400; }
+}
