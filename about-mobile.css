@@ -22,7 +22,7 @@
  .platform-content>p,.physical-copy{width:100%;font-size:14px;line-height:1.6;text-align:left}
  .bits-visual{height:auto;aspect-ratio:4/3;border-radius:12px}
  .bits-visual>p{left:20px;right:20px;bottom:24px;transform:none;font-size:20px;line-height:1.2;white-space:normal;text-align:center}
- .physical-visual{height:auto;aspect-ratio:1440 / 810;border-radius:12px}
+ .physical-visual{height:auto;border-radius:12px}
  .physical-video{inset:0;width:100%;height:100%;object-fit:cover}
  .site-footer{width:100%;height:auto;padding:48px 24px;margin-top:40px}
  .site-footer-inner,.site-footer-top,.site-footer-bottom{width:100%;height:auto;gap:32px}
